@@ -1,3 +1,23 @@
 <resources>
 	<string name="app_name">PersianDateDemo</string>
+	<string name="open">open</string>
+	<string name="close">close</string>
+	<string name="title">کتابخانه تبدیل تاریخ جلالی</string>
+	<string name="format">فرمت نمایش</string>
+	<string name="convertergrg">تبدیل تاریخ شمسی به میلادی</string>
+	<string name="converterjalali">تبدیل تاریخ میلادی به شمسی</string>
+	<string name="ageCalc">محاسبه ی سن</string>
+	<string name="showCalc">فرمت های نمایش</string>
+	<string name="about">درباره ما</string>
+	<string name="toJalali">میلادی به شمسی</string>
+	<string name="toGrg">شمسی به میلادی</string>
+	<string name="year">سال</string>
+	<string name="month">ماه</string>
+	<string name="day">روز</string>
+	<string name="calc">محاسبه</string>
+	<string name="dayWrong">عدد روز صحیح نمی باشد</string>
+	<string name="monthWrong">عدد ماه صحیح نمی باشد</string>
+	<string name="allFieldRequred">پرکردن تمام فیلدها الزامی است</string>
+	<string name="birhGrg">تاریخ تولد میلادی</string>
+	<string name="birhJalali">تاریخ تولد شمسی</string>
 </resources>

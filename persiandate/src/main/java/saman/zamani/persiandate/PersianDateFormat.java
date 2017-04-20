@@ -51,10 +51,18 @@ public class PersianDateFormat
 	}
 
 	public String format(PersianDate date) {
+		String year2 = null;
+		if((""+date.getShYear()).length() == 2){
+			year2 = ""+date.getShYear();
+		}else if((""+date.getShYear()).length() == 3){
+			year2 = ("" + date.getShYear()).substring(2, 3);
+		}else{
+			year2 = ("" + date.getShYear()).substring(2, 4);
+		}
 		String values[] = {date.dayName(), "" + date.getShDay(), date.monthName(), "" + date.getShYear(),
 				this.textNumberFilter("" + date.getHour()), this.textNumberFilter("" + date.getMinute()), this.textNumberFilter("" + date.getSecond()),
 				this.textNumberFilter("" + date.getShDay()), "" + date.getHour(), "" + date.getShMonth(), this.textNumberFilter("" + date.getShMonth()),
-				"" + date.getMonthDays(), "" + date.dayOfWeek(), ("" + date.getShYear()).substring(2, 4), "" + date.getDayInYear(),
+				"" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(),
 				(date.isLeap() ? "1" : "0")};
 		return this.stringUtils(this.pattern, this.key, values);
 	}

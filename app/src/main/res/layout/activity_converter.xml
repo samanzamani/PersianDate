@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical" android:layoutDirection="rtl">
+	<android.support.design.widget.AppBarLayout
+			android:id="@+id/appbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize">
+		<android.support.v7.widget.Toolbar
+				android:id="@+id/top_bar"
+				android:layout_width="match_parent"
+				android:layoutDirection="rtl"
+				android:layout_height="?attr/actionBarSize"
+				android:background="?attr/colorPrimary"
+				android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+			<TextView
+					android:id="@+id/txt_title"
+					android:text="@string/title"
+					android:textColor="#ffffff"
+					android:textSize="14sp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_weight="1"/>
+		</android.support.v7.widget.Toolbar>
+	</android.support.design.widget.AppBarLayout>
+	<android.support.v4.widget.DrawerLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			xmlns:app="http://schemas.android.com/apk/res-auto"
+			xmlns:tools="http://schemas.android.com/tools"
+			android:id="@+id/drawer_layout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			tools:openDrawer="start">
+		<LinearLayout
+				android:orientation="vertical"
+				android:gravity="center"
+				android:layout_width="match_parent" android:layout_height="match_parent">
+			<LinearLayout android:layout_width="match_parent" android:layout_height="0dp"
+			              android:orientation="vertical"
+			              android:layout_weight="1"
+			              android:gravity="center"
+			>
+				<TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+				android:textColor="#222222"
+				          android:textSize="14sp"
+				          android:id="@+id/txt_result"
+				          android:gravity="center"
+				          android:padding="16dp"
+				          android:background="#ccc"
+				          android:layout_marginBottom="16dp"
+				/>
+				<LinearLayout
+						android:orientation="horizontal"
+						android:gravity="center"
+						android:layout_width="match_parent" android:layout_height="wrap_content">
+					<android.support.v7.widget.AppCompatRadioButton
+							android:id="@+id/rd_togrg"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"/>
+					<TextView
+							android:id="@+id/txt_to_jalali2"
+							android:layout_height="wrap_content" android:layout_width="wrap_content"
+							android:text="@string/toJalali"
+							android:textColor="#222222"
+							android:textSize="16sp"
+							android:gravity="center"
+					/>
+					<ImageView
+							android:layout_width="1dp"
+							android:layout_height="match_parent"
+							android:background="#222"
+							android:layout_marginEnd="10dp"
+							android:layout_marginStart="10dp"
+							android:id="@+id/imageView"/>
+					<android.support.v7.widget.AppCompatRadioButton
+							android:id="@+id/rd_tojalali"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"/>
+					<TextView
+							android:id="@+id/txt_to_grg2"
+							android:layout_height="wrap_content" android:layout_width="wrap_content"
+							android:text="@string/toGrg"
+							android:textColor="#222222"
+							android:textSize="16sp"
+							android:gravity="center"
+					/>
+				</LinearLayout>
+				<LinearLayout
+						android:orientation="horizontal"
+						android:gravity="center"
+						android:layout_marginTop="16dp"
+						android:padding="16dp"
+						android:layout_width="match_parent" android:layout_height="wrap_content">
+					<LinearLayout
+							android:orientation="vertical"
+							android:layout_width="0dp" android:layout_height="wrap_content"
+							android:layout_weight="0.33">
+						<TextView
+								android:id="@+id/txt_day"
+								android:layout_width="match_parent" android:layout_height="wrap_content"
+						          android:text="@string/day"
+						          android:textColor="#222"
+						          android:textSize="14sp"
+						          android:gravity="center"
+						/>
+						<EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+						          android:textColor="#222"
+						          android:id="@+id/edt_day"
+						          android:textSize="16dp"
+						          android:inputType="number"
+						          android:gravity="center"
+						/>
+					</LinearLayout>
+					<LinearLayout
+							android:orientation="vertical"
+							android:layout_width="0dp" android:layout_height="wrap_content"
+							android:layout_weight="0.33">
+						<TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+						          android:id="@+id/txt_month"
+						          android:text="@string/month"
+						          android:textColor="#222"
+						          android:textSize="14sp"
+						          android:gravity="center"
+						/>
+						<EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+						          android:textColor="#222"
+						          android:id="@+id/edt_month"
+						          android:textSize="16dp"
+						          android:inputType="number"
+						          android:maxLength="12"
+						          android:gravity="center"
+						/>
+					</LinearLayout>
+					<LinearLayout
+							android:orientation="vertical"
+							android:layout_width="0dp" android:layout_height="wrap_content"
+							android:layout_weight="0.33">
+						<TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+						          android:id="@+id/txt_year"
+						          android:text="@string/year"
+						          android:textColor="#222"
+						          android:textSize="14sp"
+						          android:gravity="center"
+						/>
+						<EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+						          android:textColor="#222"
+						          android:id="@+id/edt_year"
+						          android:textSize="16dp"
+						          android:inputType="number"
+						          android:gravity="center"
+						/>
+					</LinearLayout>
+				</LinearLayout>
+				<TextView
+						android:id="@+id/txt_date"
+						android:layout_height="wrap_content" android:layout_width="wrap_content"
+						android:textColor="#222222"
+						android:textSize="16sp"
+						android:gravity="center"
+				/>
+				<Button
+						android:id="@+id/btn_calc"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"
+				        android:padding="16dp"
+				android:background="@drawable/btn_gradiant_red"
+				        android:textColor="#fff"
+				        android:text="@string/calc"
+				/>
+			</LinearLayout>
+
+			<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+			           android:src="@drawable/fork"
+			           android:layout_gravity="bottom"
+			/>
+		</LinearLayout>
+		<android.support.design.widget.NavigationView
+				android:id="@+id/nav_view"
+				android:layout_width="wrap_content"
+				app:itemTextColor="#000"
+				android:background="#222222"
+				android:layout_height="match_parent"
+				android:layout_gravity="start"
+				android:layoutDirection="rtl"
+				android:fitsSystemWindows="true" android:visibility="gone">
+			<LinearLayout
+					android:orientation="vertical"
+					android:layout_width="match_parent" android:layout_height="wrap_content">
+				<TextView
+						android:id="@+id/txt_to_show"
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/showCalc"
+						android:textColor="#fff"
+						android:padding="16sp"
+						android:textSize="16sp"
+				/>
+				<TextView
+						android:id="@+id/txt_to_jalali"
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/converterjalali"
+						android:textColor="#fff"
+						android:padding="16sp"
+						android:textSize="16sp"
+				/>
+				<TextView
+						android:id="@+id/txt_to_grg"
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/convertergrg"
+						android:textColor="#fff"
+						android:padding="16sp"
+						android:textSize="16sp"
+				/>
+				<TextView
+						android:id="@+id/ageCalc"
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/ageCalc"
+						android:textColor="#fff"
+						android:padding="16sp"
+						android:textSize="16sp"
+				/>
+				<TextView
+						android:id="@+id/about"
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/about"
+						android:textColor="#fff"
+						android:padding="16sp"
+						android:textSize="16sp"
+				/>
+
+			</LinearLayout>
+			<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="match_parent" android:layout_height="wrap_content"
+					android:layout_gravity="bottom"
+			>
+				<TextView
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/ageCalc"
+						android:textColor="#fff"
+						android:padding="16sp"
+						android:textSize="16sp"
+				/>
+			</LinearLayout>
+		</android.support.design.widget.NavigationView>
+
+	</android.support.v4.widget.DrawerLayout>
+</LinearLayout>
