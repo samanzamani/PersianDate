@@ -26,9 +26,6 @@
 		</android.support.v7.widget.Toolbar>
 	</android.support.design.widget.AppBarLayout>
 	<android.support.v4.widget.DrawerLayout
-			xmlns:android="http://schemas.android.com/apk/res/android"
-			xmlns:app="http://schemas.android.com/apk/res-auto"
-			xmlns:tools="http://schemas.android.com/tools"
 			android:id="@+id/drawer_layout"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
@@ -43,7 +40,7 @@
 			              android:gravity="center"
 			>
 				<TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-				android:textColor="#222222"
+				          android:textColor="#222222"
 				          android:textSize="14sp"
 				          android:id="@+id/txt_result"
 				          android:gravity="center"
@@ -100,10 +97,10 @@
 						<TextView
 								android:id="@+id/txt_day"
 								android:layout_width="match_parent" android:layout_height="wrap_content"
-						          android:text="@string/day"
-						          android:textColor="#222"
-						          android:textSize="14sp"
-						          android:gravity="center"
+								android:text="@string/day"
+								android:textColor="#222"
+								android:textSize="14sp"
+								android:gravity="center"
 						/>
 						<EditText android:layout_width="match_parent" android:layout_height="wrap_content"
 						          android:textColor="#222"
@@ -163,17 +160,17 @@
 				<Button
 						android:id="@+id/btn_calc"
 						android:layout_width="wrap_content" android:layout_height="wrap_content"
-				        android:padding="16dp"
-				android:background="@drawable/btn_gradiant_red"
-				        android:textColor="#fff"
-				        android:text="@string/calc"
+						android:padding="16dp"
+						android:background="@drawable/btn_gradiant_red"
+						android:textColor="#fff"
+						android:text="@string/calc"
 				/>
 			</LinearLayout>
 
 			<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
 			           android:src="@drawable/fork"
 			           android:layout_gravity="bottom"
-			/>
+			           android:id="@+id/img_forg"/>
 		</LinearLayout>
 		<android.support.design.widget.NavigationView
 				android:id="@+id/nav_view"
@@ -223,30 +220,7 @@
 						android:padding="16sp"
 						android:textSize="16sp"
 				/>
-				<TextView
-						android:id="@+id/about"
-						android:layout_height="wrap_content"
-						android:layout_width="wrap_content"
-						android:text="@string/about"
-						android:textColor="#fff"
-						android:padding="16sp"
-						android:textSize="16sp"
-				/>
 
-			</LinearLayout>
-			<LinearLayout
-					android:orientation="horizontal"
-					android:layout_width="match_parent" android:layout_height="wrap_content"
-					android:layout_gravity="bottom"
-			>
-				<TextView
-						android:layout_height="wrap_content"
-						android:layout_width="wrap_content"
-						android:text="@string/ageCalc"
-						android:textColor="#fff"
-						android:padding="16sp"
-						android:textSize="16sp"
-				/>
 			</LinearLayout>
 		</android.support.design.widget.NavigationView>
 

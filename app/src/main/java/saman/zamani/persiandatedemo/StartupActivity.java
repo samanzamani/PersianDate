@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.MainThread;
@@ -59,8 +60,6 @@ public class StartupActivity extends AppCompatActivity
 	TextView txtToGrg;
 	@BindView(R.id.ageCalc)
 	TextView ageCalc;
-	@BindView(R.id.about)
-	TextView about;
 	@BindView(R.id.txt_to_show)
 	TextView txtToShow;
 
@@ -94,7 +93,6 @@ public class StartupActivity extends AppCompatActivity
 		ageCalc.setTypeface(bYekan);
 		txtToGrg.setTypeface(bYekan);
 		txtToJalali.setTypeface(bYekan);
-		about.setTypeface(bYekan);
 		txtToShow.setTypeface(bYekan);
 		new Timer().scheduleAtFixedRate(new TimerTask()
 		{
@@ -189,4 +187,9 @@ public class StartupActivity extends AppCompatActivity
 		StartupActivity.this.startActivity(intent);
 	}
 
+	@OnClick(R.id.img_forg)
+	void imgForg() {
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/samanzamani/PersianDate"));
+		startActivity(browserIntent);
+	}
 }

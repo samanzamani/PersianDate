@@ -1,6 +1,8 @@
 package saman.zamani.persiandatedemo;
 
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -49,8 +51,6 @@ public class AgeCalculator extends AppCompatActivity
 	TextView txtToGrg;
 	@BindView(R.id.ageCalc)
 	TextView ageCalc;
-	@BindView(R.id.about)
-	TextView about;
 	@BindView(R.id.txt_to_show)
 	TextView txtToShow;
 	@BindView(R.id.rd_togrg)
@@ -103,7 +103,6 @@ public class AgeCalculator extends AppCompatActivity
 		txtToJalali.setTypeface(bYekan);
 		txtToGrg.setTypeface(bYekan);
 		ageCalc.setTypeface(bYekan);
-		about.setTypeface(bYekan);
 		txtToShow.setTypeface(bYekan);
 		txtTitle.setTypeface(bYekan);
 		txtYear.setTypeface(bYekan);
@@ -160,5 +159,24 @@ public class AgeCalculator extends AppCompatActivity
 			long[] age = date.untilToday();
 			txtResult.setText("" + age[0] + " روز " + age[1] + " ساعت " + age[2] + " دقیقه " + age[3] + " ثانیه");
 		}
+	}
+
+	@OnClick(R.id.txt_to_show) void startConvert3(){
+		finish();
+	}
+	@OnClick(R.id.txt_to_jalali) void startConvert(){
+		Intent intent = new Intent(AgeCalculator.this, DateConverter.class);
+		intent.putExtra("TYPE","TO_JALALI");
+		AgeCalculator.this.startActivity(intent);
+	}
+	@OnClick(R.id.txt_to_grg) void startConvert2(){
+		Intent intent = new Intent(AgeCalculator.this, DateConverter.class);
+		intent.putExtra("TYPE","TO_GRG");
+		AgeCalculator.this.startActivity(intent);
+	}
+	@OnClick(R.id.img_forg)
+	void imgForg() {
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/samanzamani/PersianDate"));
+		startActivity(browserIntent);
 	}
 }

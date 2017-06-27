@@ -173,7 +173,7 @@
 			<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
 			           android:src="@drawable/fork"
 			           android:layout_gravity="bottom"
-			/>
+			           android:id="@+id/img_forg"/>
 		</LinearLayout>
 		<android.support.design.widget.NavigationView
 				android:id="@+id/nav_view"
@@ -223,30 +223,7 @@
 						android:padding="16sp"
 						android:textSize="16sp"
 				/>
-				<TextView
-						android:id="@+id/about"
-						android:layout_height="wrap_content"
-						android:layout_width="wrap_content"
-						android:text="@string/about"
-						android:textColor="#fff"
-						android:padding="16sp"
-						android:textSize="16sp"
-				/>
 
-			</LinearLayout>
-			<LinearLayout
-					android:orientation="horizontal"
-					android:layout_width="match_parent" android:layout_height="wrap_content"
-					android:layout_gravity="bottom"
-			>
-				<TextView
-						android:layout_height="wrap_content"
-						android:layout_width="wrap_content"
-						android:text="@string/ageCalc"
-						android:textColor="#fff"
-						android:padding="16sp"
-						android:textSize="16sp"
-				/>
 			</LinearLayout>
 		</android.support.design.widget.NavigationView>
 
