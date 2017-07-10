@@ -89,3 +89,24 @@ pdformater.format(pdate);
 | HH      | Hour  (21-01-02-...) |
 | mm      | Minute  (21-01-02-...) |
 | ss      | Second  (21-01-02-...) |
+
++ **Pattern item for format date**
+
+| Pattern key   | Role  |
+| ------------- | -----|
+| l      | Day name in week (شنبه و ....) |
+| j      | Day number in month(1-10-20...) |
+| F      | Month name (فروردین) |
+| Y      | Year  (1396...) |
+| H      | Hour in day |
+| i      | Minutes in hour |
+| s      | Second in minute |
+| d      | day in month (01-02-21...) |
+| g      | Hour in day 1-12 |
+| n      | Month of year 1-12 |
+| m      | Month of year 01-12 |
+| t      | number day of month |
+| w      | day in week 0-6 |
+| y      | year with 2 digits |
+| z      | Number of days (full) past the year |
+| L      | Is leap year (0-1) |
