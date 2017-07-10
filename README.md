@@ -71,6 +71,7 @@ pdformater.format(pdate);
 ***PersianDateFormat***
 ---
 + **PersianDate class methods for display and parse date**
+
 | method        | describtion  |
 | ------------- | -----|
 | format()      | (String) Display date |
@@ -79,6 +80,7 @@ pdformater.format(pdate);
 | format()      | (String) Display date |
 
 + **Item for parse date**
+
 | String key        | Role  |
 | ------------- | -----|
 | YYYY      | Year (1396-2012-...) |
