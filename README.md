@@ -27,10 +27,24 @@ pdformater.format(pdate);
 
 | method        | describtion  |
 | ------------- | -----|
-| PersianDate(timestamp)      | make time with timestamp |
-| PersianDate(DATE)      |   Constractor for make PersianDate object from Date object  |
-| setShYear |    Set Jalali year |
-| setShYear |    Set Jalali year |
-| setShMonth |    Set Jalali month |
-| setShDay |    Set Jalali day |
+| PersianDate(Long timestamp)      | make time with timestamp |
+| PersianDate(DATE date)      |   Constractor for make PersianDate object from Date object  |
+| setShYear(int year) |    Set Jalali year |
+| setShMonth(int month) |    Set Jalali month |
+| setShDay(int day) |    Set Jalali day |
+| setGrgYear(int day) |    Set Gregorian year |
+| setGrgMonth(int day) |    Set Gregorian month |
+| setGrgDay(int day) |    Set Gregorian day |
+| setHour(int hour) |    Set hour of day |
+| setMinute(int minute) |    Set minute of day |
+| setSecond(int second) |    Set second of day |
+| getShYear() |    (int) return Jalali year |
+| getShMonth() |    (int) return Jalali month |
+| getShDay() |    (int) return Jalali day |
+| getGrgYear() |    (int) return Gregorian year |
+| getGrgMonth() |    (int) return Gregorian month |
+| getGrgDay() |    (int) return Gregorian day |
+| getHour() |    (int) return hour of day |
+| getMinute() |    (int) return minute of day |
+| getSecond() |    (int) return second of day |
                      
