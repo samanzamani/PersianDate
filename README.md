@@ -21,6 +21,8 @@ PersianDate pdate = new PersianDate();
 PersianDateFormat pdformater = new PersianDateFormat();
 pdformater.format(pdate);
 ```
+[More example](#example)
+
 ***PersianDate***
 ---
 + **PersianDate class methods**
@@ -110,3 +112,13 @@ pdformater.format(pdate);
 | y      | year with 2 digits |
 | z      | Number of days (full) past the year |
 | L      | Is leap year (0-1) |
+
+# Example
+```java
+PersianDate pdate = new PersianDate();
+PersianDateFormat pdformater1 = new PersianDateFormat('Y/m/d');
+pdformater1.format(pdate);//1396/05/20
+
+PersianDateFormat pdformater2 = new PersianDateFormat('y F j');
+pdformater2.format(pdate);//۱۹ تیر ۹۶
+```
