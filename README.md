@@ -8,11 +8,15 @@ dependencies {
 }
 ```
 ##Let's convert some data :)
+
 ###Step 1
+
 ```java
 PersianDate pdate = new PersianDate();
 ```
+
 ###step2
+
 ```java
 PersianDateFormat pdformater = new PersianDateFormat();
 pdformater.format(pdate);
@@ -21,9 +25,12 @@ pdformater.format(pdate);
 ---
 + **PersianDate class methods**
 
-| Tables        | Cool  |
+| method        | describtion  |
 | ------------- | -----:|
-| col 3 is      | $1600 |
-| col 2 is      |   $12 |
-| zebra stripes |    $1 |
+| PersianDate(timestamp)      | make time with timestamp |
+| PersianDate(DATE)      |   Constractor for make PersianDate object from Date object  |
+| setShYear |    Set Jalali year |
+| setShYear |    Set Jalali year |
+| setShMonth |    Set Jalali month |
+| setShDay |    Set Jalali day |
                      
