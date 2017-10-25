@@ -1,5 +1,8 @@
 # Persian Date(Jalali)
-
+[![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
+[ ![Download](https://api.bintray.com/packages/mrnuke/maven/PersianDate/images/download.svg) ](https://bintray.com/mrnuke/maven/PersianDate/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
+# About
 This is simple android calender converter for Convert Jalali date to Gregorian date.
 # Gradle
 ```groovy
@@ -7,7 +10,7 @@ dependencies {
     compile 'com.github.samanzamani.persiandate:PersianDate:0.0.2'
 }
 ```
-## Let's convert some data :)
+## Let's convert some date :)
 
 ### Step 1
 
