@@ -5,13 +5,13 @@ publish {
     repoName = 'maven'
     groupId = 'com.github.samanzamani.persiandate'
     artifactId = 'PersianDate'
-    publishVersion = '0.0.2'
+    publishVersion = '0.1'
     desc = 'A simple jalali date converter'
     website = 'https://github.com/samanzamani/PersianDate'
 }
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 2
@@ -27,7 +27,6 @@ android {
     }
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 tasks.withType(Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')

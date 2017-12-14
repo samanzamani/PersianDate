@@ -1,11 +1,8 @@
 package saman.zamani.persiandate;
 
-import android.util.Log;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 /**
  * Created by Saman on 3/29/2017 AD.
  */
@@ -19,7 +16,7 @@ public class PersianDate
 	public static final int KHORDAD = 3;
 	public static final int TIR = 4;
 	public static final int MORDAD = 5;
-	public static final int SHAHRIZAR = 6;
+	public static final int SHAHRIVAR = 6;
 	public static final int MEHR = 7;
 	public static final int ABAN = 8;
 	public static final int AZAR = 9;
