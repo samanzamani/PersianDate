@@ -10,7 +10,7 @@ import java.util.Date;
 public class PersianDate
 {
 	/*----- Define Variable ---*/
-	private Long timeInSecond;
+	private Long timeInMiliSecond;
 	public static final int FARVARDIN = 1;
 	public static final int ORDIBEHEST = 2;
 	public static final int KHORDAD = 3;
@@ -37,22 +37,22 @@ public class PersianDate
 	 * Constractou
 	 */
 	public PersianDate() {
-		this.timeInSecond = new Date().getTime();
+		this.timeInMiliSecond = new Date().getTime();
 		this.changeTime();
 	}
 
 	/**
 	 * Constractou
 	 */
-	public PersianDate(Long timeInSecond) {
-		this.timeInSecond = timeInSecond;
+	public PersianDate(Long timeInMiliSecond) {
+		this.timeInMiliSecond = timeInMiliSecond;
 		this.changeTime();
 	}
 	/**
 	 * Constractou
 	 */
 	public PersianDate(Date date) {
-		this.timeInSecond = date.getTime();
+		this.timeInMiliSecond = date.getTime();
 		this.changeTime();
 	}
 
@@ -71,6 +71,7 @@ public class PersianDate
 
 	public PersianDate setShYear(int shYear) {
 		this.shYear = shYear;
+		this.prepareDate2(this.getShYear(),this.getShMonth(),this.getShDay());
 		return this;
 	}
 
@@ -80,6 +81,7 @@ public class PersianDate
 
 	public PersianDate setShMonth(int shMonth) {
 		this.shMonth = shMonth;
+		this.prepareDate2(this.getShYear(),this.getShMonth(),this.getShDay());
 		return this;
 	}
 
@@ -89,6 +91,7 @@ public class PersianDate
 
 	public PersianDate setShDay(int shDay) {
 		this.shDay = shDay;
+		this.prepareDate2(this.getShYear(),this.getShMonth(),this.getShDay());
 		return this;
 	}
 
@@ -98,6 +101,7 @@ public class PersianDate
 
 	public PersianDate setGrgYear(int grgYear) {
 		this.grgYear = grgYear;
+		prepareDate();
 		return this;
 	}
 
@@ -107,6 +111,7 @@ public class PersianDate
 
 	public PersianDate setGrgMonth(int grgMonth) {
 		this.grgMonth = grgMonth;
+		prepareDate();
 		return this;
 	}
 
@@ -116,6 +121,7 @@ public class PersianDate
 
 	public PersianDate setGrgDay(int grgDay) {
 		this.grgDay = grgDay;
+		prepareDate();
 		return this;
 	}
 
@@ -125,6 +131,7 @@ public class PersianDate
 
 	public PersianDate setHour(int hour) {
 		this.hour = hour;
+		prepareDate();
 		return this;
 	}
 
@@ -134,6 +141,7 @@ public class PersianDate
 
 	public PersianDate setMinute(int minute) {
 		this.minute = minute;
+		prepareDate();
 		return this;
 	}
 
@@ -143,6 +151,7 @@ public class PersianDate
 
 	public PersianDate setSecond(int second) {
 		this.second = second;
+		prepareDate();
 		return this;
 	}
 
@@ -170,6 +179,12 @@ public class PersianDate
 	 * @return
 	 */
 	public PersianDate initGrgDate(int year, int month, int day, int hour, int minute, int second) {
+		this.grgYear = year;
+		this.grgMonth = month;
+		this.grgDay = day;
+		this.hour = hour;
+		this.minute = minute;
+		this.second = second;
 		this.setGrgYear(year)
 				.setGrgMonth(month)
 				.setGrgDay(day)
@@ -177,19 +192,12 @@ public class PersianDate
 				.setMinute(minute)
 				.setSecond(second);
 		int[] convert = this.toJalali(year, month, day);
+		this.shYear = convert[0];
+		this.shMonth = convert[1];
+		this.shDay = convert[2];
 		this.setShYear(convert[0])
 				.setShMonth(convert[1])
 				.setShDay(convert[2]);
-		String dtStart = "" + this.textNumberFilter("" + year) + "-" + this.textNumberFilter("" + month) + "-" + this.textNumberFilter("" + day)
-				+ "T" + this.textNumberFilter("" + hour) + ":" + this.textNumberFilter("" + minute) + ":" + this.textNumberFilter("" + second) + "Z";
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-		Date date = null;
-		try{
-			date = format.parse(dtStart);
-			this.timeInSecond = date.getTime();
-		}catch(ParseException e){
-			e.printStackTrace();
-		}
 		return this;
 	}
 
@@ -227,17 +235,43 @@ public class PersianDate
 		this.setGrgYear(convert[0])
 				.setGrgMonth(convert[1])
 				.setGrgDay(convert[2]);
-		String dtStart = "" + this.textNumberFilter("" + convert[0]) + "-" + this.textNumberFilter("" + convert[1]) + "-" + this.textNumberFilter("" + convert[2])
-				+ "T" + this.textNumberFilter("" + hour) + ":" + this.textNumberFilter("" + minute) + ":" + this.textNumberFilter("" + second) + "Z";
+		return this;
+	}
+
+	/**
+	 * Helper function for initilize jalali date
+	 *
+	 * @param year
+	 * @param month
+	 * @param day
+	 * @return
+	 */
+	private PersianDate prepareDate2(int year, int month, int day) {
+		int[] convert = this.toGregorian(year, month, day);
+		this.grgYear = convert[0];
+		this.grgMonth = convert[1];
+		this.setGrgDay(convert[2]);
+		return this;
+	}
+
+	/**
+	 * Helper function for inilize
+	 */
+	private void prepareDate(){
+		String dtStart = "" + this.textNumberFilter("" + this.getGrgYear()) + "-" + this.textNumberFilter("" + this.getGrgMonth()) + "-" + this.textNumberFilter("" + this.getGrgDay())
+				+ "T" + this.textNumberFilter("" + this.getHour()) + ":" + this.textNumberFilter("" + this.getMinute()) + ":" + this.textNumberFilter("" + this.getSecond()) + "Z";
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+		int[] convert = this.toJalali(this.getGrgYear(),this.getGrgMonth(),this.getGrgDay());
+		this.shYear = convert[0];
+		this.shMonth = convert[1];
+		this.shDay = convert[2];
 		Date date = null;
 		try{
 			date = format.parse(dtStart);
-			this.timeInSecond = date.getTime();
+			this.timeInMiliSecond = date.getTime();
 		}catch(ParseException e){
 			e.printStackTrace();
 		}
-		return this;
 	}
 
 	/**
@@ -246,7 +280,7 @@ public class PersianDate
 	 * @return Value of time in mile
 	 */
 	public Long getTime() {
-		return this.timeInSecond;
+		return this.timeInMiliSecond;
 	}
 
 	/**
@@ -255,7 +289,7 @@ public class PersianDate
 	 * @param Year
 	 * @return
 	 */
-	private boolean grgIsLeap(int Year) {
+	public boolean grgIsLeap(int Year) {
 		return ((Year % 4) == 0 && ((Year % 100) != 0 || (Year % 400) == 0));
 	}
 
@@ -280,6 +314,26 @@ public class PersianDate
 		Year = ((Year >= 30) ? 0 : 29) + Year;
 		Year = Year - Math.floor(Year / 33) - 1;
 		return ((Year % 4) == 0);
+	}
+
+	/**
+	 * Check static is leap year for Jalali Date
+	 *
+	 * @param year
+	 * @return
+	 */
+	public static boolean isJalaliLeap(int year){
+		return (new PersianDate().isLeap(year));
+	}
+
+	/**
+	 * Check static is leap year for Grg Date
+	 *
+	 * @param year
+	 * @return
+	 */
+	public static boolean isGrgLeap(int year){
+		return (new PersianDate().grgIsLeap(year));
 	}
 
 	/**
@@ -496,8 +550,8 @@ public class PersianDate
 	 * @return
 	 */
 	public PersianDate addDate(int year ,int month,int day,int hour,int minute,int second){
-		this.timeInSecond += (((year*365)+(month*30)+day)*24*3_600*1_000);
-		this.timeInSecond += ((second + (hour*3600) + (minute*60)) * 1_000);
+		this.timeInMiliSecond += (((year*365)+(month*30)+day)*24*3_600*1_000);
+		this.timeInMiliSecond += ((second + (hour*3600) + (minute*60)) * 1_000);
 		this.changeTime();
 		return this;
 	}
@@ -535,7 +589,7 @@ public class PersianDate
 	 * @return
 	 */
 	public Boolean after(PersianDate dateInput){
-		return (this.timeInSecond < dateInput.getTime());
+		return (this.timeInMiliSecond < dateInput.getTime());
 	}
 	/**
 	 * copare to data
@@ -553,7 +607,7 @@ public class PersianDate
 	 * @return
 	 */
 	public Boolean equals(PersianDate dateInput){
-		return (this.timeInSecond == dateInput.getTime());
+		return (this.timeInMiliSecond == dateInput.getTime());
 	}
 	/**
 	 * compare 2 data
@@ -562,7 +616,7 @@ public class PersianDate
 	 * @return  0 = equal,1=data1 > anotherDate,-1=data1 > anotherDate
 	 */
 	public int compareTo(PersianDate anotherDate) {
-		return (this.timeInSecond<anotherDate.getTime() ? -1 : (this.timeInSecond==anotherDate.getTime() ? 0 : 1));
+		return (this.timeInMiliSecond <anotherDate.getTime() ? -1 : (this.timeInMiliSecond ==anotherDate.getTime() ? 0 : 1));
 	}
 	/**
 	 * Return Day in difreent date
@@ -601,7 +655,7 @@ public class PersianDate
 		long minutesInMilli = secondsInMilli * 60;
 		long hoursInMilli = minutesInMilli * 60;
 		long daysInMilli = hoursInMilli * 24;
-		long different = Math.abs(this.timeInSecond-date.getTime());
+		long different = Math.abs(this.timeInMiliSecond -date.getTime());
 
 		long elapsedDays = different / daysInMilli;
 		different = different % daysInMilli;
@@ -621,7 +675,7 @@ public class PersianDate
 	 * @return
 	 */
 	public Date toDate() {
-		return new Date(this.timeInSecond);
+		return new Date(this.timeInMiliSecond);
 	}
 
 	/**
@@ -641,8 +695,8 @@ public class PersianDate
 	 * initi with time in milesecond
 	 */
 	private void changeTime(){
-		this.initGrgDate(Integer.parseInt(new SimpleDateFormat("yyyy").format(this.timeInSecond)), Integer.parseInt(new SimpleDateFormat("MM").format(this.timeInSecond)),
-				Integer.parseInt(new SimpleDateFormat("dd").format(this.timeInSecond)), Integer.parseInt(new SimpleDateFormat("HH").format(this.timeInSecond)),
-				Integer.parseInt(new SimpleDateFormat("mm").format(this.timeInSecond)), Integer.parseInt(new SimpleDateFormat("ss").format(this.timeInSecond)));
+		this.initGrgDate(Integer.parseInt(new SimpleDateFormat("yyyy").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("MM").format(this.timeInMiliSecond)),
+				Integer.parseInt(new SimpleDateFormat("dd").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("HH").format(this.timeInMiliSecond)),
+				Integer.parseInt(new SimpleDateFormat("mm").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("ss").format(this.timeInMiliSecond)));
 	}
 }

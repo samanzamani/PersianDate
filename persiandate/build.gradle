@@ -5,7 +5,7 @@ publish {
     repoName = 'maven'
     groupId = 'com.github.samanzamani.persiandate'
     artifactId = 'PersianDate'
-    publishVersion = '0.1'
+    publishVersion = '0.2'
     desc = 'A simple jalali date converter'
     website = 'https://github.com/samanzamani/PersianDate'
 }
@@ -16,7 +16,7 @@ android {
     defaultConfig {
         minSdkVersion 2
         targetSdkVersion 25
-        versionCode 1
+        versionCode 12
         versionName "Alfa"
     }
     buildTypes {
