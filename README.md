@@ -12,7 +12,7 @@ dependencies {
     implementation 'com.github.samanzamani.persiandate:PersianDate:0.2'
 }
 ```
-# what's new in version 0.1
+# what's new
 ### version 0.2
 * Correction `TimeInSecond` variable name [#2](https://github.com/samanzamani/PersianDate/issues/2)
 * Add two new static method for check both Jalali and Gregorian leap year [#3](https://github.com/samanzamani/PersianDate/issues/3)
