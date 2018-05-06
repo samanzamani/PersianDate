@@ -667,6 +667,11 @@ public class PersianDate
 		long elapsedSeconds = different / secondsInMilli;
 		return new long[]{elapsedDays,elapsedHours,elapsedMinutes,elapsedSeconds};
 	}
+
+	@Override
+	public String toString() {
+		return PersianDateFormat.format(this,null);
+	}
 	/*----- Helper Function-----*/
 
 	/**

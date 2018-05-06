@@ -78,7 +78,6 @@ public class StartupActivity extends AppCompatActivity
 		setContentView(R.layout.activity_startup);
 		ButterKnife.bind(this);
 		bYekan = Typeface.createFromAsset(this.getAssets(), "byekan.ttf");
-
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");

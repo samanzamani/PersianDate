@@ -9,10 +9,14 @@ This is simple android calender converter for Convert Jalali date to Gregorian d
 # Gradle
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:0.2'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:0.3'
 }
 ```
 # what's new
+### version 0.3
+* Add new static method for quick form. since version 0.3 you can use `PersianDateFormat.format(persianDateObject,pattern)` for display date. The pattern can be NULL.
+* Add `toString` method for `PersianDate` class [#5](https://github.com/samanzamani/PersianDate/issues/5)
+
 ### version 0.2
 * Correction `TimeInSecond` variable name [#2](https://github.com/samanzamani/PersianDate/issues/2)
 * Add two new static method for check both Jalali and Gregorian leap year [#3](https://github.com/samanzamani/PersianDate/issues/3)
