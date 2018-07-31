@@ -704,4 +704,66 @@ public class PersianDate
 				Integer.parseInt(new SimpleDateFormat("dd").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("HH").format(this.timeInMiliSecond)),
 				Integer.parseInt(new SimpleDateFormat("mm").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("ss").format(this.timeInMiliSecond)));
 	}
+
+	/**
+	 * Return today
+	 *
+	 * @return
+	 */
+	public static PersianDate today(){
+		PersianDate pdate = new PersianDate();
+		pdate.setHour(0).setMinute(0).setSecond(0);
+		return pdate;
+	}
+	/**
+	 * Get tomorrow
+	 *
+	 * @return
+	 */
+	public static PersianDate tomorrow(){
+		PersianDate pdate = new PersianDate();
+		pdate.addDay(1);
+		pdate.setHour(0).setMinute(0).setSecond(0);
+		return pdate;
+	}
+
+	/**
+	 * Get start of day
+	 *
+	 * @param persianDate
+	 * @return
+	 */
+	public PersianDate startOfDay(PersianDate persianDate){
+		persianDate.setHour(0).setMinute(0).setSecond(0);
+		return persianDate;
+	}
+
+	/**
+	 * Get Start of day
+	 *
+	 * @return
+	 */
+	public PersianDate startOfDay(){
+		return this.startOfDay(this);
+	}
+
+	/**
+	 * Get end of day
+	 *
+	 * @param persianDate
+	 * @return
+	 */
+	public PersianDate endOfDay(PersianDate persianDate){
+		persianDate.setHour(23).setMinute(59).setSecond(59);
+		return persianDate;
+	}
+
+	/**
+	 * Get end of day
+	 *
+	 * @return
+	 */
+	public PersianDate endOfDay(){
+		return this.endOfDay(this);
+	}
 }
