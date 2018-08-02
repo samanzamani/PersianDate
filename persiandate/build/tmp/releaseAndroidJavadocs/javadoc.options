@@ -1,6 +1,6 @@
 -Xdoclint:none '-quiet'
 -charSet 'UTF-8'
--classpath '/Users/saman/Library/Android/sdk/platforms/android-25/android.jar:/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/build/intermediates/classes/release'
+-classpath '/Users/saman/Library/Android/sdk/platforms/android-25/android.jar:/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/build/generated/source/apt/release:/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/build/intermediates/classes/release'
 -d '/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/build/docs/javadoc'
 -doctitle 'persiandate API'
 -encoding 'UTF-8'

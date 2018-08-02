@@ -173,19 +173,19 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 47 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 39 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Sun May 06 09:51:23 IRDT 2018      </nav>
+Check performed at Thu Aug 02 11:32:40 IRDT 2018      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Issue Types</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
-      <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (2)</a>
-      <a class="mdl-navigation__link" href="#SimpleDateFormat"><i class="material-icons warning-icon">warning</i>Implied locale in date format (6)</a>
-      <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (3)</a>
+      <a class="mdl-navigation__link" href="#ObsoleteLintCustomCheck"><i class="material-icons warning-icon">warning</i>Obsolete custom lint check (1)</a>
+      <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (1)</a>
+      <a class="mdl-navigation__link" href="#SimpleDateFormat"><i class="material-icons warning-icon">warning</i>Implied locale in date format (1)</a>
       <a class="mdl-navigation__link" href="#SpUsage"><i class="material-icons warning-icon">warning</i>Using <code>dp</code> instead of <code>sp</code> for text sizes (6)</a>
       <a class="mdl-navigation__link" href="#AllowBackup"><i class="material-icons warning-icon">warning</i>AllowBackup/FullBackupContent Problems (1)</a>
       <a class="mdl-navigation__link" href="#DisableBaselineAlignment"><i class="material-icons warning-icon">warning</i>Missing <code>baselineAligned</code> attribute (2)</a>
@@ -193,7 +193,7 @@ Check performed at Sun May 06 09:51:23 IRDT 2018      </nav>
       <a class="mdl-navigation__link" href="#IconLocation"><i class="material-icons warning-icon">warning</i>Image defined in density-independent drawable folder (1)</a>
       <a class="mdl-navigation__link" href="#GoogleAppIndexingWarning"><i class="material-icons warning-icon">warning</i>Missing support for Firebase App Indexing (1)</a>
       <a class="mdl-navigation__link" href="#ContentDescription"><i class="material-icons warning-icon">warning</i>Image without <code>contentDescription</code> (5)</a>
-      <a class="mdl-navigation__link" href="#LabelFor"><i class="material-icons warning-icon">warning</i>Missing <code>labelFor</code> attribute (6)</a>
+      <a class="mdl-navigation__link" href="#LabelFor"><i class="material-icons warning-icon">warning</i>Missing accessibility label (6)</a>
       <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (6)</a>
       <a class="mdl-navigation__link" href="#RtlHardcoded"><i class="material-icons warning-icon">warning</i>Using left/right instead of start/end attributes (6)</a>
     </nav>
@@ -201,24 +201,26 @@ Check performed at Sun May 06 09:51:23 IRDT 2018      </nav>
   <main class="mdl-layout__content">
     <div class="mdl-layout__tab-panel is-active">
 <a name="overview"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card0" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OverviewCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Overview</h2>
   </div>
               <div class="mdl-card__supporting-text">
 <table class="overview">
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Lint">Lint</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#ObsoleteLintCustomCheck">ObsoleteLintCustomCheck</a>: Obsolete custom lint check</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
 </td></tr>
 <tr>
-<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#OldTargetApi">OldTargetApi</a>: Target SDK attribute is not targeting latest version</td></tr>
 <tr>
-<td class="countColumn">6</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#SimpleDateFormat">SimpleDateFormat</a>: Implied locale in date format</td></tr>
-<tr>
-<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#GradleDependency">GradleDependency</a>: Obsolete Gradle Dependency</td></tr>
 <tr>
 <td class="countColumn">6</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#SpUsage">SpUsage</a>: Using <code>dp</code> instead of <code>sp</code> for text sizes</td></tr>
@@ -252,7 +254,7 @@ Check performed at Sun May 06 09:51:23 IRDT 2018      </nav>
 <a href="#ContentDescription">ContentDescription</a>: Image without <code>contentDescription</code></td></tr>
 <tr>
 <td class="countColumn">6</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#LabelFor">LabelFor</a>: Missing <code>labelFor</code> attribute</td></tr>
+<a href="#LabelFor">LabelFor</a>: Missing accessibility label</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
 </td></tr>
 <tr>
@@ -263,17 +265,57 @@ Check performed at Sun May 06 09:51:23 IRDT 2018      </nav>
 <tr>
 <td class="countColumn">6</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#RtlHardcoded">RtlHardcoded</a>: Using left/right instead of start/end attributes</td></tr>
-<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (21)</a>
+<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (23)</a>
 </td></tr></table>
 <br/>              </div>
               <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card0Link" onclick="hideid('card0');">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OverviewCardLink" onclick="hideid('OverviewCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Lint"></a>
+<a name="ObsoleteLintCustomCheck"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ObsoleteLintCustomCheckCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Obsolete custom lint check</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../../../../../.gradle/caches/transforms-1/files-1.1/butterknife-8.8.1.aar/8e21cb79a594eea62970f7c7f8b31333/jars/lint.jar">butterknife-8.8.1.aar/.../lint.jar</a></span>: <span class="message">Lint found one or more custom checks that could not be loaded. The most likely reason for this is that it is using an older, incompatible or unsupported API in lint. Make sure these lint checks are updated to the new APIs. The issue registry class is butterknife.lint.LintRegistry. The class loading issue is com/android/tools/lint/detector/api/Detector$JavaPsiScanner: ClassLoader.defineClass1(ClassLoader.java:-2)&#8592;ClassLoader.defineClass(ClassLoader.java:763)&#8592;ClassLoader.defineClass(ClassLoader.java:642)&#8592;UrlClassLoader._defineClass(UrlClassLoader.java:276)&#8592;UrlClassLoader.defineClass(UrlClassLoader.java:272)&#8592;UrlClassLoader.findClass(UrlClassLoader.java:226)&#8592;ClassLoader.loadClass(ClassLoader.java:424)&#8592;ClassLoader.loadClass(ClassLoader.java:357)</span><br />
+</div>
+<div class="metadata"><div class="explanation" id="explanationObsoleteLintCustomCheck" style="display: none;">
+Lint can be extended with "custom checks": additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.<br/>
+<br/>
+The Lint APIs are not yet stable, so these checks may either cause a performance, degradation, or stop working, or provide wrong results.<br/>
+<br/>
+This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.<br/>
+It may also flag issues found to be using a <b>newer</b> version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.<br/>To suppress this error, use the issue id "ObsoleteLintCustomCheck" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">ObsoleteLintCustomCheck</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 10/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationObsoleteLintCustomCheckLink" onclick="reveal('explanationObsoleteLintCustomCheck');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ObsoleteLintCustomCheckCardLink" onclick="hideid('ObsoleteLintCustomCheckCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Correctness"></a>
 <a name="OldTargetApi"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card1" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OldTargetApiCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Target SDK attribute is not targeting latest version</h2>
@@ -281,33 +323,25 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:9</span>: <span class="message">Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.</span><br /><pre class="errorlines">
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:9</span>: <span class="message">Not targeting the latest versions of Android; compatibility <br/>
+modes apply. Consider testing and updating this version. <br/>
+Consult the android.os.Build.VERSION_CODES javadoc for details.</span><br /><pre class="errorlines">
 <span class="lineno">  6 </span>    defaultConfig {
 <span class="lineno">  7 </span>        applicationId <span class="string">"saman.zamani.persiandatedemo"</span>
 <span class="lineno">  8 </span>        minSdkVersion <span class="number">17</span>
-<span class="caretline"><span class="lineno">  9 </span>        <span class="warning">targetSdkVersion <span class="number">25</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">  9 </span>        <span class="warning">targetSdkVersion <span class="number">27</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 10 </span>        versionCode <span class="number">1</span>
 <span class="lineno"> 11 </span>        versionName <span class="string">"1.0"</span>
 <span class="lineno"> 12 </span>        testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></pre>
-
-<span class="location"><a href="../../../persiandate/build.gradle">../../../persiandate/build.gradle</a>:18</span>: <span class="message">Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.</span><br /><pre class="errorlines">
-<span class="lineno"> 15 </span>
-<span class="lineno"> 16 </span>    defaultConfig {
-<span class="lineno"> 17 </span>        minSdkVersion <span class="number">2</span>
-<span class="caretline"><span class="lineno"> 18 </span>        <span class="warning">targetSdkVersion <span class="number">25</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 19 </span>        versionCode <span class="number">12</span>
-<span class="lineno"> 20 </span>        versionName <span class="string">"Alfa"</span>
-<span class="lineno"> 21 </span>    }
-</pre>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationOldTargetApi" style="display: none;">
 When your application runs on a version of Android that is more recent than your <code>targetSdkVersion</code> specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the <code>targetSdkVersion</code> is less than 14, your app may get an option button in the UI.<br/>
 <br/>
 To fix this issue, set the <code>targetSdkVersion</code> to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: <a href="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html">http://developer.android.com/reference/android/os/Build.VERSION_CODES.html</a><br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html">http://developer.android.com/reference/android/os/Build.VERSION_CODES.html</a>
-</div><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "OldTargetApi" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -327,11 +361,11 @@ To suppress this error, use the issue id "OldTargetApi" as explained in the <a h
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationOldTargetApiLink" onclick="reveal('explanationOldTargetApi');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card1Link" onclick="hideid('card1');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OldTargetApiCardLink" onclick="hideid('OldTargetApiCard');">
 Dismiss</button>            </div>
             </div>
           </section><a name="SimpleDateFormat"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card2" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SimpleDateFormatCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Implied locale in date format</h2>
@@ -349,59 +383,13 @@ Dismiss</button>            </div>
 <span class="lineno"> 160 </span>            txtResult.setText(formater.format(date));
 </pre>
 
-<span class="location"><a href="../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java">../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java</a>:263</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
-<span class="lineno"> 260 </span>    <span class="keyword">private</span> <span class="keyword">void</span> prepareDate(){
-<span class="lineno"> 261 </span>        String dtStart = <span class="string">""</span> + <span class="keyword">this</span>.textNumberFilter(<span class="string">""</span> + <span class="keyword">this</span>.getGrgYear()) + <span class="string">"-"</span> + <span class="keyword">this</span>.textNumberFilter(<span class="string">""</span> + <span class="keyword">this</span>.getGrgMonth()) + <span class="string">"-"</span> + <span class="keyword">this</span>.textNumberFilter(<span class="string">""</span> + <span class="keyword">this</span>.getGrgDay())
-<span class="lineno"> 262 </span>                + <span class="string">"T"</span> + <span class="keyword">this</span>.textNumberFilter(<span class="string">""</span> + <span class="keyword">this</span>.getHour()) + <span class="string">":"</span> + <span class="keyword">this</span>.textNumberFilter(<span class="string">""</span> + <span class="keyword">this</span>.getMinute()) + <span class="string">":"</span> + <span class="keyword">this</span>.textNumberFilter(<span class="string">""</span> + <span class="keyword">this</span>.getSecond()) + <span class="string">"Z"</span>;
-<span class="caretline"><span class="lineno"> 263 </span>        SimpleDateFormat format = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd'T'HH:mm:ss'Z'"</span>)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 264 </span>        <span class="keyword">int</span>[] convert = <span class="keyword">this</span>.toJalali(<span class="keyword">this</span>.getGrgYear(),<span class="keyword">this</span>.getGrgMonth(),<span class="keyword">this</span>.getGrgDay());
-<span class="lineno"> 265 </span>        <span class="keyword">this</span>.shYear = convert[<span class="number">0</span>];
-<span class="lineno"> 266 </span>        <span class="keyword">this</span>.shMonth = convert[<span class="number">1</span>];
-</pre>
-
-<span class="location"><a href="../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java">../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java</a>:703</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
-<span class="lineno"> 700 </span><span class="javadoc"> * initi with time in milesecond
-</span><span class="lineno"> 701 </span><span class="javadoc"> */</span>
-<span class="lineno"> 702 </span>    <span class="keyword">private</span> <span class="keyword">void</span> changeTime(){
-<span class="caretline"><span class="lineno"> 703 </span>        <span class="keyword">this</span>.initGrgDate(Integer.parseInt(<span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy"</span>)</span>.format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"MM"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)),</span>
-<span class="lineno"> 704 </span>                Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"dd"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)),
-<span class="lineno"> 705 </span>                Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"mm"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"ss"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)));
-<span class="lineno"> 706 </span>    }
-</pre>
-
-<span class="location"><a href="../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java">../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java</a>:704</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
-<span class="lineno"> 701 </span><span class="javadoc">     */</span>
-<span class="lineno"> 702 </span>    <span class="keyword">private</span> <span class="keyword">void</span> changeTime(){
-<span class="lineno"> 703 </span>        <span class="keyword">this</span>.initGrgDate(Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"MM"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)),
-<span class="caretline"><span class="lineno"> 704 </span>                Integer.parseInt(<span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"dd"</span>)</span>.format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)),</span>
-<span class="lineno"> 705 </span>                Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"mm"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"ss"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)));
-<span class="lineno"> 706 </span>    }
-<span class="lineno"> 707 </span>}</pre>
-
-<span class="location"><a href="../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java">../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java</a>:705</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
-<span class="lineno"> 702 </span>    <span class="keyword">private</span> <span class="keyword">void</span> changeTime(){
-<span class="lineno"> 703 </span>        <span class="keyword">this</span>.initGrgDate(Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"MM"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)),
-<span class="lineno"> 704 </span>                Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"dd"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)),
-<span class="caretline"><span class="lineno"> 705 </span>                Integer.parseInt(<span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"mm"</span>)</span>.format(<span class="keyword">this</span>.timeInMiliSecond)), Integer.parseInt(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"ss"</span>).format(<span class="keyword">this</span>.timeInMiliSecond)));</span>
-<span class="lineno"> 706 </span>    }
-<span class="lineno"> 707 </span>}</pre>
-
-<span class="location"><a href="../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDateFormat.java">../../../persiandate/src/main/java/saman/zamani/persiandate/PersianDateFormat.java</a>:152</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
-<span class="lineno"> 149 </span><span class="javadoc">   * @return PersianDate object
-</span><span class="lineno"> 150 </span><span class="javadoc">   */</span>
-<span class="lineno"> 151 </span>  <span class="keyword">public</span> PersianDate parseGrg(String date, String pattern) <span class="keyword">throws</span> ParseException {
-<span class="caretline"><span class="lineno"> 152 </span>    Date dateInGrg = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(pattern)</span>.parse(date);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 153 </span>    <span class="keyword">return</span> <span class="keyword">new</span> PersianDate(dateInGrg.getTime());
-<span class="lineno"> 154 </span>  }
-</pre>
-
 </div>
 <div class="metadata"><div class="explanation" id="explanationSimpleDateFormat" style="display: none;">
 Almost all callers should use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code> to get a ready-made instance of SimpleDateFormat suitable for the user's locale. The main reason you'd create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).<br/>
 <br/>
 Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/java/text/SimpleDateFormat.html">http://developer.android.com/reference/java/text/SimpleDateFormat.html</a>
-</div><br/>To suppress this error, use the issue id "SimpleDateFormat" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "SimpleDateFormat" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -421,74 +409,11 @@ Therefore, you should either use the form of the SimpleDateFormat constructor wh
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSimpleDateFormatLink" onclick="reveal('explanationSimpleDateFormat');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card2Link" onclick="hideid('card2');">
-Dismiss</button>            </div>
-            </div>
-          </section><a name="GradleDependency"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card3" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Obsolete Gradle Dependency</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:27</span>: <span class="message">A newer version of com.android.support:appcompat-v7 than 25.2.0 is available: 25.3.1</span><br /><pre class="errorlines">
-<span class="lineno"> 24 </span>    androidTestCompile(<span class="string">'com.android.support.test.espresso:espresso-core:2.2.2'</span>, {
-<span class="lineno"> 25 </span>        exclude group: <span class="string">'com.android.support'</span>, module: <span class="string">'support-annotations'</span>
-<span class="lineno"> 26 </span>    })
-<span class="caretline"><span class="lineno"> 27 </span>    <span class="warning">compile <span class="string">'com.android.support:appcompat-v7:25.2.0'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 28 </span>    compile <span class="string">'com.android.support:cardview-v7:25.2.0'</span>
-<span class="lineno"> 29 </span>    compile <span class="string">'com.android.support:design:25.2.0'</span>
-<span class="lineno"> 30 </span>    compile <span class="string">'com.jakewharton:butterknife:8.5.1'</span></pre>
-
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:28</span>: <span class="message">A newer version of com.android.support:cardview-v7 than 25.2.0 is available: 25.3.1</span><br /><pre class="errorlines">
-<span class="lineno"> 25 </span>        exclude group: <span class="string">'com.android.support'</span>, module: <span class="string">'support-annotations'</span>
-<span class="lineno"> 26 </span>    })
-<span class="lineno"> 27 </span>    compile <span class="string">'com.android.support:appcompat-v7:25.2.0'</span>
-<span class="caretline"><span class="lineno"> 28 </span>    <span class="warning">compile <span class="string">'com.android.support:cardview-v7:25.2.0'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 29 </span>    compile <span class="string">'com.android.support:design:25.2.0'</span>
-<span class="lineno"> 30 </span>    compile <span class="string">'com.jakewharton:butterknife:8.5.1'</span>
-<span class="lineno"> 31 </span>    annotationProcessor <span class="string">'com.jakewharton:butterknife-compiler:8.5.1'</span></pre>
-
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:29</span>: <span class="message">A newer version of com.android.support:design than 25.2.0 is available: 25.3.1</span><br /><pre class="errorlines">
-<span class="lineno"> 26 </span>    })
-<span class="lineno"> 27 </span>    compile <span class="string">'com.android.support:appcompat-v7:25.2.0'</span>
-<span class="lineno"> 28 </span>    compile <span class="string">'com.android.support:cardview-v7:25.2.0'</span>
-<span class="caretline"><span class="lineno"> 29 </span>    <span class="warning">compile <span class="string">'com.android.support:design:25.2.0'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 30 </span>    compile <span class="string">'com.jakewharton:butterknife:8.5.1'</span>
-<span class="lineno"> 31 </span>    annotationProcessor <span class="string">'com.jakewharton:butterknife-compiler:8.5.1'</span>
-</pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationGradleDependency" style="display: none;">
-This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
-To suppress this error, use the issue id "GradleDependency" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">GradleDependency</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Correctness</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 4/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGradleDependencyLink" onclick="reveal('explanationGradleDependency');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card3Link" onclick="hideid('card3');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SimpleDateFormatCardLink" onclick="hideid('SimpleDateFormatCard');">
 Dismiss</button>            </div>
             </div>
           </section><a name="SpUsage"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card4" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SpUsageCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Using dp instead of sp for text sizes</h2>
@@ -559,9 +484,9 @@ Dismiss</button>            </div>
 When setting text sizes, you should normally use <code>sp</code>, or "scale-independent pixels". This is like the <code>dp</code> unit, but it is also scaled by the user's font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user's preference.<br/>
 <br/>
 There <b>are</b> cases where you might need to use <code>dp</code>; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user's font size settings are not respected, so consider adjusting the layout itself to be more flexible.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/training/multiscreen/screendensities.html">http://developer.android.com/training/multiscreen/screendensities.html</a>
-</div><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "SpUsage" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -581,13 +506,13 @@ To suppress this error, use the issue id "SpUsage" as explained in the <a href="
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSpUsageLink" onclick="reveal('explanationSpUsage');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card4Link" onclick="hideid('card4');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SpUsageCardLink" onclick="hideid('SpUsageCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Security"></a>
 <a name="AllowBackup"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card5" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="AllowBackupCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">AllowBackup/FullBackupContent Problems</h2>
@@ -595,7 +520,7 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:6</span>: <span class="message">On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute <code>android:fullBackupContent</code> to specify an <code>@xml</code> resource which configures which files to backup. More info: https://developer.android.com/training/backup/autosyncapi.html</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:6</span>: <span class="message">On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute <code>android:fullBackupContent</code> to specify an <code>@xml</code> resource which configures which files to backup. More info: <a href="https://developer.android.com/training/backup/autosyncapi.html">https://developer.android.com/training/backup/autosyncapi.html</a></span><br /><pre class="errorlines">
 <span class="lineno">  3 </span>          <span class="attribute">package</span>=<span class="value">"saman.zamani.persiandatedemo"</span>
 <span class="lineno">  4 </span>>
 <span class="lineno">  5 </span>
@@ -618,9 +543,9 @@ To fix this warning, decide whether your application should support backup, and 
 <br/>
 If not set to false, and if targeting API 23 or later, lint will also warn that you should set <code>android:fullBackupContent</code> to configure auto backup.<br/><div class="moreinfo">More info: <ul><li><a href="https://developer.android.com/training/backup/autosyncapi.html">https://developer.android.com/training/backup/autosyncapi.html</a>
 <li><a href="http://developer.android.com/reference/android/R.attr.html#allowBackup">http://developer.android.com/reference/android/R.attr.html#allowBackup</a>
-</ul></div><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+</ul></div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "AllowBackup" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -640,13 +565,13 @@ To suppress this error, use the issue id "AllowBackup" as explained in the <a hr
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationAllowBackupLink" onclick="reveal('explanationAllowBackup');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card5Link" onclick="hideid('card5');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="AllowBackupCardLink" onclick="hideid('AllowBackupCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Performance"></a>
 <a name="DisableBaselineAlignment"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card6" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="DisableBaselineAlignmentCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Missing baselineAligned attribute</h2>
@@ -674,9 +599,9 @@ Dismiss</button>            </div>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationDisableBaselineAlignment" style="display: none;">
-When a LinearLayout is used to distribute the space proportionally between nested layouts, the baseline alignment property should be turned off to make the layout computation faster.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+When a LinearLayout is used to distribute the space proportionally between nested layouts, the baseline alignment property should be turned off to make the layout computation faster.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "DisableBaselineAlignment" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -696,11 +621,11 @@ To suppress this error, use the issue id "DisableBaselineAlignment" as explained
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationDisableBaselineAlignmentLink" onclick="reveal('explanationDisableBaselineAlignment');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card6Link" onclick="hideid('card6');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="DisableBaselineAlignmentCardLink" onclick="hideid('DisableBaselineAlignmentCard');">
 Dismiss</button>            </div>
             </div>
           </section><a name="UnusedResources"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card7" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="UnusedResourcesCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Unused resources</h2>
@@ -728,9 +653,9 @@ Dismiss</button>            </div>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationUnusedResources" style="display: none;">
-Unused resources make applications larger and slow down builds.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+Unused resources make applications larger and slow down builds.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "UnusedResources" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -750,13 +675,13 @@ To suppress this error, use the issue id "UnusedResources" as explained in the <
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationUnusedResourcesLink" onclick="reveal('explanationUnusedResources');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card7Link" onclick="hideid('card7');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="UnusedResourcesCardLink" onclick="hideid('UnusedResourcesCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Usability:Icons"></a>
 <a name="IconLocation"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card8" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconLocationCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Image defined in density-independent drawable folder</h2>
@@ -768,8 +693,8 @@ Dismiss</button>            </div>
 </div>
 <div class="metadata"><div class="explanation" id="explanationIconLocation" style="display: none;">
 The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to <code>drawable-mdpi</code> and consider providing higher and lower resolution versions in <code>drawable-ldpi</code>, <code>drawable-hdpi</code> and <code>drawable-xhdpi</code>. If the icon <b>really</b> is density independent (for example a solid color) you can place it in <code>drawable-nodpi</code>.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/screens_support.html">http://developer.android.com/guide/practices/screens_support.html</a>
-</div><br/>To suppress this error, use the issue id "IconLocation" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "IconLocation" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -792,13 +717,13 @@ The res/drawable folder is intended for density-independent graphics such as sha
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconLocationLink" onclick="reveal('explanationIconLocation');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card8Link" onclick="hideid('card8');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconLocationCardLink" onclick="hideid('IconLocationCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Usability"></a>
 <a name="GoogleAppIndexingWarning"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card9" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="GoogleAppIndexingWarningCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Missing support for Firebase App Indexing</h2>
@@ -818,9 +743,9 @@ Dismiss</button>            </div>
 </div>
 <div class="metadata"><div class="explanation" id="explanationGoogleAppIndexingWarning" style="display: none;">
 Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
-</div><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "GoogleAppIndexingWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -840,13 +765,13 @@ To suppress this error, use the issue id "GoogleAppIndexingWarning" as explained
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGoogleAppIndexingWarningLink" onclick="reveal('explanationGoogleAppIndexingWarning');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card9Link" onclick="hideid('card9');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="GoogleAppIndexingWarningCardLink" onclick="hideid('GoogleAppIndexingWarningCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Accessibility"></a>
 <a name="ContentDescription"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card10" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ContentDescriptionCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Image without contentDescription</h2>
@@ -854,7 +779,7 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:67</span>: <span class="message">[Accessibility] Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:67</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
 <span class="lineno">  64 </span>                            <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"16sp"</span>
 <span class="lineno">  65 </span>                            <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno">  66 </span>                    />
@@ -863,7 +788,7 @@ Dismiss</button>            </div>
 <span class="lineno">  69 </span>                            <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>
 <span class="lineno">  70 </span>                            <span class="prefix">android:</span><span class="attribute">background</span>=<span class="value">"#222"</span></pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:170</span>: <span class="message">[Accessibility] Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:170</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
 <span class="lineno"> 167 </span>                />
 <span class="lineno"> 168 </span>            <span class="tag">&lt;/LinearLayout></span>
 <span class="lineno"> 169 </span>
@@ -873,7 +798,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 173 </span>           <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/img_forg"</span>/>
 </pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:70</span>: <span class="message">[Accessibility] Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:70</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
 <span class="lineno">  67 </span>                            <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"16sp"</span>
 <span class="lineno">  68 </span>                            <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno">  69 </span>                    />
@@ -882,7 +807,7 @@ Dismiss</button>            </div>
 <span class="lineno">  72 </span>                            <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>
 <span class="lineno">  73 </span>                            <span class="prefix">android:</span><span class="attribute">background</span>=<span class="value">"#222"</span></pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:173</span>: <span class="message">[Accessibility] Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:173</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
 <span class="lineno"> 170 </span>                />
 <span class="lineno"> 171 </span>            <span class="tag">&lt;/LinearLayout></span>
 <span class="lineno"> 172 </span>
@@ -892,7 +817,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 176 </span>           <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/img_forg"</span>/>
 </pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_startup.xml">../../src/main/res/layout/activity_startup.xml</a>:71</span>: <span class="message">[Accessibility] Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_startup.xml">../../src/main/res/layout/activity_startup.xml</a>:71</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
 <span class="lineno">  68 </span>                <span class="tag">&lt;/LinearLayout></span>
 <span class="lineno">  69 </span>            <span class="tag">&lt;/LinearLayout></span>
 <span class="lineno">  70 </span>
@@ -908,9 +833,9 @@ Non-textual widgets like ImageViews and ImageButtons should use the <code>conten
 <br/>
 Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore="ContentDescription" attribute.<br/>
 <br/>
-Note that for text fields, you should not set both the <code>hint</code> and the <code>contentDescription</code> attributes since the hint will never be shown. Just set the <code>hint</code>. See <a href="http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases">http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases</a>.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+Note that for text fields, you should not set both the <code>hint</code> and the <code>contentDescription</code> attributes since the hint will never be shown. Just set the <code>hint</code>. See <a href="http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases">http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases</a>.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "ContentDescription" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -930,19 +855,19 @@ To suppress this error, use the issue id "ContentDescription" as explained in th
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationContentDescriptionLink" onclick="reveal('explanationContentDescription');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card10Link" onclick="hideid('card10');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ContentDescriptionCardLink" onclick="hideid('ContentDescriptionCard');">
 Dismiss</button>            </div>
             </div>
           </section><a name="LabelFor"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card11" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="LabelForCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Missing labelFor attribute</h2>
+    <h2 class="mdl-card__title-text">Missing accessibility label</h2>
   </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:105</span>: <span class="message">No label views point to this text field with an <code>android:labelFor="@+id/edt_day"</code> attribute</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:105</span>: <span class="message">Missing accessibility label: provide either a view with an <code>android:labelFor</code> that references this view or provide an <code>android:hint</code></span><br /><pre class="errorlines">
 <span class="lineno"> 102 </span>                                <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"14sp"</span>
 <span class="lineno"> 103 </span>                                <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno"> 104 </span>                        />
@@ -951,7 +876,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 107 </span>          <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/edt_day"</span>
 <span class="lineno"> 108 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"16dp"</span></pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:124</span>: <span class="message">No label views point to this text field with an <code>android:labelFor="@+id/edt_month"</code> attribute</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:124</span>: <span class="message">Missing accessibility label: provide either a view with an <code>android:labelFor</code> that references this view or provide an <code>android:hint</code></span><br /><pre class="errorlines">
 <span class="lineno"> 121 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"14sp"</span>
 <span class="lineno"> 122 </span>          <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno"> 123 </span>                        />
@@ -960,7 +885,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 126 </span>          <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/edt_month"</span>
 <span class="lineno"> 127 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"16dp"</span></pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:144</span>: <span class="message">No label views point to this text field with an <code>android:labelFor="@+id/edt_year"</code> attribute</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_agecalc.xml">../../src/main/res/layout/activity_agecalc.xml</a>:144</span>: <span class="message">Missing accessibility label: provide either a view with an <code>android:labelFor</code> that references this view or provide an <code>android:hint</code></span><br /><pre class="errorlines">
 <span class="lineno"> 141 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"14sp"</span>
 <span class="lineno"> 142 </span>          <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno"> 143 </span>                        />
@@ -969,7 +894,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 146 </span>          <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/edt_year"</span>
 <span class="lineno"> 147 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"16dp"</span></pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:108</span>: <span class="message">No label views point to this text field with an <code>android:labelFor="@+id/edt_day"</code> attribute</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:108</span>: <span class="message">Missing accessibility label: provide either a view with an <code>android:labelFor</code> that references this view or provide an <code>android:hint</code></span><br /><pre class="errorlines">
 <span class="lineno"> 105 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"14sp"</span>
 <span class="lineno"> 106 </span>          <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno"> 107 </span>                        />
@@ -978,7 +903,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 110 </span>          <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/edt_day"</span>
 <span class="lineno"> 111 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"16dp"</span></pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:127</span>: <span class="message">No label views point to this text field with an <code>android:labelFor="@+id/edt_month"</code> attribute</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:127</span>: <span class="message">Missing accessibility label: provide either a view with an <code>android:labelFor</code> that references this view or provide an <code>android:hint</code></span><br /><pre class="errorlines">
 <span class="lineno"> 124 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"14sp"</span>
 <span class="lineno"> 125 </span>          <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno"> 126 </span>                        />
@@ -987,7 +912,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 129 </span>          <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/edt_month"</span>
 <span class="lineno"> 130 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"16dp"</span></pre>
 
-<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:147</span>: <span class="message">No label views point to this text field with an <code>android:labelFor="@+id/edt_year"</code> attribute</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/res/layout/activity_converter.xml">../../src/main/res/layout/activity_converter.xml</a>:147</span>: <span class="message">Missing accessibility label: provide either a view with an <code>android:labelFor</code> that references this view or provide an <code>android:hint</code></span><br /><pre class="errorlines">
 <span class="lineno"> 144 </span>          <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"14sp"</span>
 <span class="lineno"> 145 </span>          <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
 <span class="lineno"> 146 </span>                        />
@@ -998,10 +923,13 @@ Dismiss</button>            </div>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationLabelFor" style="display: none;">
-Text fields should be labelled with a <code>labelFor</code> attribute, provided your <code>minSdkVersion</code> is at least 17.<br/>
+Editable text fields should provide an <code>android:hint</code> or, provided your <code>minSdkVersion</code> is at least 17, they may be referenced by a view with a <code>android:labelFor</code> attribute.<br/>
 <br/>
-If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint.<br/><br/>To suppress this error, use the issue id "LabelFor" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+When using <code>android:labelFor</code>, be sure to provide an <code>android:text</code> or an <code>android:contentDescription</code>.<br/>
+<br/>
+If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "LabelFor" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -1021,13 +949,13 @@ If your view is labeled but by a label in a different layout which includes this
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationLabelForLink" onclick="reveal('explanationLabelFor');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card11Link" onclick="hideid('card11');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="LabelForCardLink" onclick="hideid('LabelForCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Internationalization"></a>
 <a name="SetTextI18n"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card12" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SetTextI18nCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">TextView Internationalization</h2>
@@ -1100,8 +1028,8 @@ When calling <code>TextView#setText</code><br/>
 * Never call <code>Number#toString()</code> to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using <code>String#format</code> with proper format specifications (<code>%d</code> or <code>%f</code>) instead.<br/>
 * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.<br/>
 * Do not build messages by concatenating text chunks. Such messages can not be properly translated.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/resources/localization.html">http://developer.android.com/guide/topics/resources/localization.html</a>
-</div><br/>To suppress this error, use the issue id "SetTextI18n" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "SetTextI18n" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -1121,13 +1049,13 @@ When calling <code>TextView#setText</code><br/>
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSetTextI18nLink" onclick="reveal('explanationSetTextI18n');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card12Link" onclick="hideid('card12');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SetTextI18nCardLink" onclick="hideid('SetTextI18nCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Internationalization:Bidirectional Text"></a>
 <a name="RtlHardcoded"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card13" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="RtlHardcodedCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Using left/right instead of start/end attributes</h2>
@@ -1175,24 +1103,24 @@ Dismiss</button>            </div>
 <span class="lineno">  84 </span>        }
 </pre>
 
-<span class="location"><a href="../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java">../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java</a>:68</span>: <span class="message">Use "<code>Gravity.END</code>" instead of "<code>Gravity.RIGHT</code>" to ensure correct behavior in right-to-left locales</span><br /><pre class="errorlines">
-<span class="lineno">  65 </span>
-<span class="lineno">  66 </span>    <span class="annotation">@Override</span>
-<span class="lineno">  67 </span>    <span class="keyword">public</span> <span class="keyword">void</span> onBackPressed() {
-<span class="caretline"><span class="lineno">  68 </span>        <span class="keyword">if</span>(drawer.isDrawerOpen(Gravity.<span class="warning">RIGHT</span>)){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  69 </span>            drawer.closeDrawer(Gravity.RIGHT);
-<span class="lineno">  70 </span>        }<span class="keyword">else</span>{
-<span class="lineno">  71 </span>            <span class="keyword">super</span>.onBackPressed();
+<span class="location"><a href="../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java">../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java</a>:65</span>: <span class="message">Use "<code>Gravity.END</code>" instead of "<code>Gravity.RIGHT</code>" to ensure correct behavior in right-to-left locales</span><br /><pre class="errorlines">
+<span class="lineno">  62 </span>
+<span class="lineno">  63 </span>    <span class="annotation">@Override</span>
+<span class="lineno">  64 </span>    <span class="keyword">public</span> <span class="keyword">void</span> onBackPressed() {
+<span class="caretline"><span class="lineno">  65 </span>        <span class="keyword">if</span>(drawer.isDrawerOpen(Gravity.<span class="warning">RIGHT</span>)){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  66 </span>            drawer.closeDrawer(Gravity.RIGHT);
+<span class="lineno">  67 </span>        }<span class="keyword">else</span>{
+<span class="lineno">  68 </span>            <span class="keyword">super</span>.onBackPressed();
 </pre>
 
-<span class="location"><a href="../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java">../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java</a>:69</span>: <span class="message">Use "<code>Gravity.END</code>" instead of "<code>Gravity.RIGHT</code>" to ensure correct behavior in right-to-left locales</span><br /><pre class="errorlines">
-<span class="lineno">  66 </span>    <span class="annotation">@Override</span>
-<span class="lineno">  67 </span>    <span class="keyword">public</span> <span class="keyword">void</span> onBackPressed() {
-<span class="lineno">  68 </span>        <span class="keyword">if</span>(drawer.isDrawerOpen(Gravity.RIGHT)){
-<span class="caretline"><span class="lineno">  69 </span>            drawer.closeDrawer(Gravity.<span class="warning">RIGHT</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  70 </span>        }<span class="keyword">else</span>{
-<span class="lineno">  71 </span>            <span class="keyword">super</span>.onBackPressed();
-<span class="lineno">  72 </span>        }
+<span class="location"><a href="../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java">../../src/main/java/saman/zamani/persiandatedemo/StartupActivity.java</a>:66</span>: <span class="message">Use "<code>Gravity.END</code>" instead of "<code>Gravity.RIGHT</code>" to ensure correct behavior in right-to-left locales</span><br /><pre class="errorlines">
+<span class="lineno">  63 </span>    <span class="annotation">@Override</span>
+<span class="lineno">  64 </span>    <span class="keyword">public</span> <span class="keyword">void</span> onBackPressed() {
+<span class="lineno">  65 </span>        <span class="keyword">if</span>(drawer.isDrawerOpen(Gravity.RIGHT)){
+<span class="caretline"><span class="lineno">  66 </span>            drawer.closeDrawer(Gravity.<span class="warning">RIGHT</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  67 </span>        }<span class="keyword">else</span>{
+<span class="lineno">  68 </span>            <span class="keyword">super</span>.onBackPressed();
+<span class="lineno">  69 </span>        }
 </pre>
 
 </div>
@@ -1201,8 +1129,9 @@ Using <code>Gravity#LEFT</code> and <code>Gravity#RIGHT</code> can lead to probl
 <br/>
 For XML attributes such as paddingLeft and <code>layout_marginLeft</code>, use <code>paddingStart</code> and <code>layout_marginStart</code>. <b>NOTE</b>: If your <code>minSdkVersion</code> is less than 17, you should add <b>both</b> the older left/right attributes <b>as well as</b> the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.<br/>
 <br/>
-(Note: For <code>Gravity#LEFT</code> and <code>Gravity#START</code>, you can use these constants even when targeting older platforms, because the <code>start</code> bitmask is a superset of the <code>left</code> bitmask. Therefore, you can use <code>gravity="start"</code> rather than <code>gravity="left|start"</code>.)<br/><br/>To suppress this error, use the issue id "RtlHardcoded" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+(Note: For <code>Gravity#LEFT</code> and <code>Gravity#START</code>, you can use these constants even when targeting older platforms, because the <code>start</code> bitmask is a superset of the <code>left</code> bitmask. Therefore, you can use <code>gravity="start"</code> rather than <code>gravity="left|start"</code>.)<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "RtlHardcoded" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="chips">
@@ -1225,12 +1154,12 @@ For XML attributes such as paddingLeft and <code>layout_marginLeft</code>, use <
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationRtlHardcodedLink" onclick="reveal('explanationRtlHardcoded');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card13Link" onclick="hideid('card13');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="RtlHardcodedCardLink" onclick="hideid('RtlHardcodedCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="MissingIssues"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card14" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="MissingIssuesCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Disabled Checks</h2>
@@ -1246,8 +1175,8 @@ more <code>lint.xml</code> configuration files in the project directories.
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
 Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
-</div><br/>To suppress this error, use the issue id "AppLinksAutoVerifyError" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyError" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1256,8 +1185,8 @@ Ensures that app links are correctly set and associated with website.<br/><div c
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
 Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
-</div><br/>To suppress this error, use the issue id "AppLinksAutoVerifyWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1269,8 +1198,8 @@ According to the Android Design Guide,<br/>
 <br/>
 "Other platforms use an explicit back button with label to allow the user to navigate up the application's hierarchy. Instead, Android uses the main action bar's app icon for hierarchical navigation and the navigation bar's back button for temporal navigation."<br/>
 This check is not very sophisticated (it just looks for buttons with the label "Back"), so it is disabled by default to not trigger on common scenarios like pairs of Back/Next buttons to paginate through screens.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/patterns/pure-android.html">http://developer.android.com/design/patterns/pure-android.html</a>
-</div><br/>To suppress this error, use the issue id "BackButton" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "BackButton" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1280,9 +1209,9 @@ This check is not very sophisticated (it just looks for buttons with the label "
 <div class="explanation">
 The WebP format is typically more compact than PNG and JPEG. As of Android 4.2.1 it supports transparency and lossless conversion as well. Note that there is a quickfix in the IDE which lets you perform conversion.<br/>
 <br/>
-Launcher icons must be in the PNG format.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+Launcher icons must be in the PNG format.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "ConvertToWebp" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1290,8 +1219,8 @@ To suppress this error, use the issue id "ConvertToWebp" as explained in the <a 
 </div>
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
-An "easter egg" is code deliberately hidden in the code, both from potential users and even from other developers. This lint check looks for code which looks like it may be hidden from sight.<br/><br/>To suppress this error, use the issue id "EasterEgg" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+An "easter egg" is code deliberately hidden in the code, both from potential users and even from other developers. This lint check looks for code which looks like it may be hidden from sight.<br/>To suppress this error, use the issue id "EasterEgg" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1302,8 +1231,8 @@ An "easter egg" is code deliberately hidden in the code, both from potential use
 Accessing a field within the class that defines a getter for that field is at least 3 times faster than calling the getter. For simple getters that do nothing other than return the field, you might want to just reference the local field directly instead.<br/>
 <br/>
 <b>NOTE</b>: As of Android 2.3 (Gingerbread), this optimization is performed automatically by Dalvik, so there is no need to change your code; this is only relevant if you are targeting older versions of Android.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/design/performance.html#internal_get_set">http://developer.android.com/guide/practices/design/performance.html#internal_get_set</a>
-</div><br/>To suppress this error, use the issue id "FieldGetter" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "FieldGetter" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1312,9 +1241,9 @@ Accessing a field within the class that defines a getter for that field is at le
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
 Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
-</div><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "GoogleAppIndexingApiWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1323,8 +1252,8 @@ To suppress this error, use the issue id "GoogleAppIndexingApiWarning" as explai
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
 There are predefined sizes (for each density) for launcher icons. You should follow these conventions to make sure your icons fit in with the overall look of the platform.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/style/iconography.html">http://developer.android.com/design/style/iconography.html</a>
-</div><br/>To suppress this error, use the issue id "IconExpectedSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "IconExpectedSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1334,8 +1263,8 @@ There are predefined sizes (for each density) for launcher icons. You should fol
 <div class="explanation">
 The BuildConfig class (available in Tools 17) provides a constant, "DEBUG", which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a "if (false)" check, surrounding your logging calls with a check for BuildConfig.DEBUG is a good idea.<br/>
 <br/>
-If you <b>really</b> intend for the logging to be present in release mode, you can suppress this warning with a @SuppressLint annotation for the intentional logging calls.<br/><br/>To suppress this error, use the issue id "LogConditional" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+If you <b>really</b> intend for the logging to be present in release mode, you can suppress this warning with a @SuppressLint annotation for the intentional logging calls.<br/>To suppress this error, use the issue id "LogConditional" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1346,8 +1275,18 @@ If you <b>really</b> intend for the logging to be present in release mode, you c
 On Windows, line endings are typically recorded as carriage return plus newline: \r\n.<br/>
 <br/>
 This detector looks for invalid line endings with repeated carriage return characters (without newlines). Previous versions of the ADT plugin could accidentally introduce these into the file, and when editing the file, the editor could produce confusing visual artifacts.<br/><div class="moreinfo">More info: <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421">https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421</a>
-</div><br/>To suppress this error, use the issue id "MangledCRLF" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>To suppress this error, use the issue id "MangledCRLF" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
+</div>
+<div class="issue">
+<div class="id">MinSdkTooLow<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The value of the <code>minSdkVersion</code> property is too low and can be incrementedwithout noticeably reducing the number of supported devices.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "MinSdkTooLow" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1356,8 +1295,8 @@ This detector looks for invalid line endings with repeated carriage return chara
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
 If a class is referenced in the manifest or in a layout file, it must also exist in the project (or in one of the libraries included by the project. This check helps uncover typos in registration names, or attempts to rename or move classes without updating the manifest file properly.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
-</div><br/>To suppress this error, use the issue id "MissingRegistered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "MissingRegistered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1365,8 +1304,8 @@ If a class is referenced in the manifest or in a layout file, it must also exist
 </div>
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
-Margin values should be positive. Negative values are generally a sign that you are making assumptions about views surrounding the current one, or may be tempted to turn off child clipping to allow a view to escape its parent. Turning off child clipping to do this not only leads to poor graphical performance, it also results in wrong touch event handling since touch events are based strictly on a chain of parent-rect hit tests. Finally, making assumptions about the size of strings can lead to localization problems.<br/><br/>To suppress this error, use the issue id "NegativeMargin" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+Margin values should be positive. Negative values are generally a sign that you are making assumptions about views surrounding the current one, or may be tempted to turn off child clipping to allow a view to escape its parent. Turning off child clipping to do this not only leads to poor graphical performance, it also results in wrong touch event handling since touch events are based strictly on a chain of parent-rect hit tests. Finally, making assumptions about the size of strings can lead to localization problems.<br/>To suppress this error, use the issue id "NegativeMargin" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1374,9 +1313,9 @@ Margin values should be positive. Negative values are generally a sign that you 
 </div>
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
-This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the <code>GradleDependency</code> check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also <b>much</b> slower.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the <code>GradleDependency</code> check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also <b>much</b> slower.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "NewerVersionAvailable" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1385,8 +1324,9 @@ To suppress this error, use the issue id "NewerVersionAvailable" as explained in
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
 The <code>&lt;uses-permission></code> element should not require a permission that implies an unsupported Chrome OS hardware feature. Google Play assumes that certain hardware related permissions indicate that the underlying hardware features are required by default. To fix the issue, consider declaring the corresponding uses-feature element with <code>required="false"</code> attribute.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#implied-features">https://developer.android.com/topic/arc/manifest.html#implied-features</a>
-</div><br/>To suppress this error, use the issue id "PermissionImpliesUnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "PermissionImpliesUnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1397,8 +1337,8 @@ The <code>&lt;uses-permission></code> element should not require a permission th
 Activities, services and content providers should be registered in the <code>AndroidManifest.xml</code> file using <code>&lt;activity></code>, <code>&lt;service></code> and <code>&lt;provider></code> tags.<br/>
 <br/>
 If your activity is simply a parent class intended to be subclassed by other "real" activities, make it an abstract class.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
-</div><br/>To suppress this error, use the issue id "Registered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>To suppress this error, use the issue id "Registered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1408,9 +1348,9 @@ If your activity is simply a parent class intended to be subclassed by other "re
 <div class="explanation">
 If a <code>&lt;TextView></code> is used to display data, the user might want to copy that data and paste it elsewhere. To allow this, the <code>&lt;TextView></code> should specify <code>android:textIsSelectable="true"</code>.<br/>
 <br/>
-This lint check looks for TextViews which are likely to be displaying data: views whose text is set dynamically. This value will be ignored on platforms older than API 11, so it is okay to set it regardless of your <code>minSdkVersion</code>.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+This lint check looks for TextViews which are likely to be displaying data: views whose text is set dynamically. This value will be ignored on platforms older than API 11, so it is okay to set it regardless of your <code>minSdkVersion</code>.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "SelectableText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1418,9 +1358,9 @@ To suppress this error, use the issue id "SelectableText" as explained in the <a
 </div>
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
-Using the comment <code>// STOPSHIP</code> can be used to flag code that is incomplete but checked in. This comment marker can be used to indicate that the code should not be shipped until the issue is addressed, and lint will look for these.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+Using the comment <code>// STOPSHIP</code> can be used to flag code that is incomplete but checked in. This comment marker can be used to indicate that the code should not be shipped until the issue is addressed, and lint will look for these.  In Gradle projects, this is only checked for non-debug (release) builds.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "StopShip" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1433,9 +1373,9 @@ Straight single quotes and double quotes, when used as a pair, can be replaced b
 Note that you should never use grave accents and apostrophes to quote, `like this'.<br/>
 <br/>
 (Also note that you should not use curvy quotes for code fragments.)<br/><div class="moreinfo">More info: <a href="http://en.wikipedia.org/wiki/Quotation_mark">http://en.wikipedia.org/wiki/Quotation_mark</a>
-</div><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "TypographyQuotes" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1445,8 +1385,9 @@ To suppress this error, use the issue id "TypographyQuotes" as explained in the 
 <div class="explanation">
 This app loads native libraries using <code>System.loadLibrary()</code>.<br/>
 <br/>
-Consider adding <code>android:extractNativeLibs="false"</code> to the <code>&lt;application></code> tag in AndroidManifest.xml. Starting with Android 6.0, this will make installation faster, the app will take up less space on the device and updates will have smaller download sizes.<br/><br/>To suppress this error, use the issue id "UnpackedNativeCode" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+Consider adding <code>android:extractNativeLibs="false"</code> to the <code>&lt;application></code> tag in AndroidManifest.xml. Starting with Android 6.0, this will make installation faster, the app will take up less space on the device and updates will have smaller download sizes.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnpackedNativeCode" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1455,8 +1396,9 @@ Consider adding <code>android:extractNativeLibs="false"</code> to the <code>&lt;
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
 The <code>&lt;uses-feature></code> element should not require this unsupported Chrome OS hardware feature. Any uses-feature not explicitly marked with <code>required="false"</code> is necessary on the device to be installed on. Ensure that any features that might prevent it from being installed on a Chrome OS device are reviewed and marked as not required in the manifest.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#incompat-entries">https://developer.android.com/topic/arc/manifest.html#incompat-entries</a>
-</div><br/>To suppress this error, use the issue id "UnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 <div class="issue">
@@ -1464,20 +1406,30 @@ The <code>&lt;uses-feature></code> element should not require this unsupported C
 </div>
 <div class="metadata">Disabled By: Default<br/>
 <div class="explanation">
-This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.<br/><br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
 To suppress this error, use the issue id "UnusedIds" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
+</div>
+<div class="issue">
+<div class="id">WrongThreadInterprocedural<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Searches for interprocedural call paths that violate thread annotations in the program. Tracks the flow of instantiated types and lambda expressions to increase accuracy across method boundaries.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/components/processes-and-threads.html#Threads">http://developer.android.com/guide/components/processes-and-threads.html#Threads</a>
+</div>To suppress this error, use the issue id "WrongThreadInterprocedural" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
 </div>
 </div>
 </div>              </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SuppressedIssuesLink" onclick="reveal('SuppressedIssues');">
-List Missing Issues</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card14Link" onclick="hideid('card14');">
+List Missing Issues</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingIssuesCardLink" onclick="hideid('MissingIssuesCard');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="SuppressInfo"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card15" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SuppressCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Suppressing Warnings and Errors</h2>
@@ -1516,6 +1468,11 @@ The format of the <code>lint.xml</code> file is something like the following:<br
 <br/>
 &lt;?xml version="1.0" encoding="UTF-8"?><br/>
 &lt;lint><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore everything in the test source set --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="all"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="*/test/*" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Disable this given check in this project --><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="IconMissingDensityFolder" severity="ignore" /><br/>
 <br/>
@@ -1523,6 +1480,7 @@ The format of the <code>lint.xml</code> file is something like the following:<br
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="ObsoleteLayoutParam"><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout/activation.xml" /><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout-xlarge/activation.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore regexp="(foo|bar).java" /><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
 <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore the UselessLeaf issue in the given file --><br/>

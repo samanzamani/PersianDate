@@ -9,10 +9,20 @@ This is simple android calender converter for Convert Jalali date to Gregorian d
 # Gradle
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:0.3'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:0.4'
 }
 ```
 # what's new
+### version 0.4
+* Add `A` and `a` for format `ب.ظ|ق.ظ` and `` in  `PersianDateFormat` class [#5](https://github.com/samanzamani/PersianDate/issues/10)
+* Add new methods in `PersianDate` class
+  * `today()` => return today date (object)  PersianDate)
+  * `tomorrow()` => return tomorrow date (object)  PersianDate)
+  * `startOfDay()` => return date start of day (object)  PersianDate)
+  * `endOfDay()` => return date end of day (object) (PersianDate)
+  * `isMidNight()` => return a boolean for AM/PM (Boolean)
+  * `getShortTimeOfTheDay()` => return `ب.ظ`/`ق.ظ` (String)
+  * `getTimeOfTheDay()` => return `بعد از ظهر`/`قبل از ظهر` (String)
 ### version 0.3
 * Add new static method for quick form. since version 0.3 you can use `PersianDateFormat.format(persianDateObject,pattern)` for display date. The pattern can be NULL.
 * Add `toString` method for `PersianDate` class [#5](https://github.com/samanzamani/PersianDate/issues/5)
@@ -21,8 +31,6 @@ dependencies {
 * Correction `TimeInSecond` variable name [#2](https://github.com/samanzamani/PersianDate/issues/2)
 * Add two new static method for check both Jalali and Gregorian leap year [#3](https://github.com/samanzamani/PersianDate/issues/3)
 * Change timestamp when using setter methods [#4](https://github.com/samanzamani/PersianDate/issues/4)
-### version 0.1
-* Correction `SHAHRIVAR` keyword
 ## Let's convert some date :)
 
 ### Step 1

@@ -18,13 +18,13 @@ import java.lang.Override;
 public class StartupActivity_ViewBinding implements Unbinder {
   private StartupActivity target;
 
-  private View view2131558536;
+  private View view2131230909;
 
-  private View view2131558537;
+  private View view2131230907;
 
-  private View view2131558538;
+  private View view2131230747;
 
-  private View view2131558533;
+  private View view2131230806;
 
   @UiThread
   public StartupActivity_ViewBinding(StartupActivity target) {
@@ -44,7 +44,7 @@ public class StartupActivity_ViewBinding implements Unbinder {
     target.spnFormat = Utils.findRequiredViewAsType(source, R.id.spn_format, "field 'spnFormat'", AppCompatSpinner.class);
     view = Utils.findRequiredView(source, R.id.txt_to_jalali, "field 'txtToJalali' and method 'startConvert'");
     target.txtToJalali = Utils.castView(view, R.id.txt_to_jalali, "field 'txtToJalali'", TextView.class);
-    view2131558536 = view;
+    view2131230909 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class StartupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.txt_to_grg, "field 'txtToGrg' and method 'startConvert2'");
     target.txtToGrg = Utils.castView(view, R.id.txt_to_grg, "field 'txtToGrg'", TextView.class);
-    view2131558537 = view;
+    view2131230907 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -62,7 +62,7 @@ public class StartupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.ageCalc, "field 'ageCalc' and method 'startAgeActivity'");
     target.ageCalc = Utils.castView(view, R.id.ageCalc, "field 'ageCalc'", TextView.class);
-    view2131558538 = view;
+    view2131230747 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class StartupActivity_ViewBinding implements Unbinder {
     });
     target.txtToShow = Utils.findRequiredViewAsType(source, R.id.txt_to_show, "field 'txtToShow'", TextView.class);
     view = Utils.findRequiredView(source, R.id.img_forg, "method 'imgForg'");
-    view2131558533 = view;
+    view2131230806 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -98,13 +98,13 @@ public class StartupActivity_ViewBinding implements Unbinder {
     target.ageCalc = null;
     target.txtToShow = null;
 
-    view2131558536.setOnClickListener(null);
-    view2131558536 = null;
-    view2131558537.setOnClickListener(null);
-    view2131558537 = null;
-    view2131558538.setOnClickListener(null);
-    view2131558538 = null;
-    view2131558533.setOnClickListener(null);
-    view2131558533 = null;
+    view2131230909.setOnClickListener(null);
+    view2131230909 = null;
+    view2131230907.setOnClickListener(null);
+    view2131230907 = null;
+    view2131230747.setOnClickListener(null);
+    view2131230747 = null;
+    view2131230806.setOnClickListener(null);
+    view2131230806 = null;
   }
 }

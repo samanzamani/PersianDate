@@ -1,41 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="4" by="lint 2.3.3">
+<issues format="4" by="lint 3.1.3">
 
     <issue
-        id="OldTargetApi"
+        id="ObsoleteLintCustomCheck"
         severity="Warning"
-        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
-        category="Correctness"
-        priority="6"
-        summary="Target SDK attribute is not targeting latest version"
-        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.&#xA;&#xA;To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
-        url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
-        urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
-        errorLine1="        targetSdkVersion 25"
-        errorLine2="        ~~~~~~~~~~~~~~~~~~~"
-        quickfix="studio">
+        message="Lint found one or more custom checks that could not be loaded. The most likely reason for this is that it is using an older, incompatible or unsupported API in lint. Make sure these lint checks are updated to the new APIs. The issue registry class is butterknife.lint.LintRegistry. The class loading issue is com/android/tools/lint/detector/api/Detector$JavaPsiScanner: ClassLoader.defineClass1(ClassLoader.java:-2)←ClassLoader.defineClass(ClassLoader.java:763)←ClassLoader.defineClass(ClassLoader.java:642)←UrlClassLoader._defineClass(UrlClassLoader.java:276)←UrlClassLoader.defineClass(UrlClassLoader.java:272)←UrlClassLoader.findClass(UrlClassLoader.java:226)←ClassLoader.loadClass(ClassLoader.java:424)←ClassLoader.loadClass(ClassLoader.java:357)"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance, degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
         <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/build.gradle"
-            line="9"
-            column="9"/>
+            file="/Users/saman/.gradle/caches/transforms-1/files-1.1/butterknife-8.8.1.aar/8e21cb79a594eea62970f7c7f8b31333/jars/lint.jar"/>
     </issue>
 
     <issue
         id="OldTargetApi"
         severity="Warning"
-        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        message="Not targeting the latest versions of Android; compatibility &#xA;modes apply. Consider testing and updating this version. &#xA;Consult the android.os.Build.VERSION_CODES javadoc for details."
         category="Correctness"
         priority="6"
         summary="Target SDK attribute is not targeting latest version"
         explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.&#xA;&#xA;To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
         url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
         urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
-        errorLine1="        targetSdkVersion 25"
+        errorLine1="        targetSdkVersion 27"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/build.gradle"
-            line="18"
+            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/build.gradle"
+            line="9"
             column="9"/>
     </issue>
 
@@ -58,154 +51,13 @@
     </issue>
 
     <issue
-        id="SimpleDateFormat"
-        severity="Warning"
-        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
-        category="Correctness"
-        priority="6"
-        summary="Implied locale in date format"
-        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
-        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        errorLine1="  SimpleDateFormat format = new SimpleDateFormat(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;&quot;);"
-        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java"
-            line="263"
-            column="29"/>
-    </issue>
-
-    <issue
-        id="SimpleDateFormat"
-        severity="Warning"
-        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
-        category="Correctness"
-        priority="6"
-        summary="Implied locale in date format"
-        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
-        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        errorLine1="  this.initGrgDate(Integer.parseInt(new SimpleDateFormat(&quot;yyyy&quot;).format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat(&quot;MM&quot;).format(this.timeInMiliSecond)),"
-        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java"
-            line="703"
-            column="37"/>
-    </issue>
-
-    <issue
-        id="SimpleDateFormat"
-        severity="Warning"
-        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
-        category="Correctness"
-        priority="6"
-        summary="Implied locale in date format"
-        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
-        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        errorLine1="    Integer.parseInt(new SimpleDateFormat(&quot;dd&quot;).format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat(&quot;HH&quot;).format(this.timeInMiliSecond)),"
-        errorLine2="                     ~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java"
-            line="704"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="SimpleDateFormat"
-        severity="Warning"
-        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
-        category="Correctness"
-        priority="6"
-        summary="Implied locale in date format"
-        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
-        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        errorLine1="    Integer.parseInt(new SimpleDateFormat(&quot;mm&quot;).format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat(&quot;ss&quot;).format(this.timeInMiliSecond)));"
-        errorLine2="                     ~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/src/main/java/saman/zamani/persiandate/PersianDate.java"
-            line="705"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="SimpleDateFormat"
-        severity="Warning"
-        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
-        category="Correctness"
-        priority="6"
-        summary="Implied locale in date format"
-        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
-        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
-        errorLine1="    Date dateInGrg = new SimpleDateFormat(pattern).parse(date);"
-        errorLine2="                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/persiandate/src/main/java/saman/zamani/persiandate/PersianDateFormat.java"
-            line="152"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        severity="Warning"
-        message="A newer version of com.android.support:appcompat-v7 than 25.2.0 is available: 25.3.1"
-        category="Correctness"
-        priority="4"
-        summary="Obsolete Gradle Dependency"
-        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
-        errorLine1="    compile &apos;com.android.support:appcompat-v7:25.2.0&apos;"
-        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        quickfix="studio">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/build.gradle"
-            line="27"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        severity="Warning"
-        message="A newer version of com.android.support:cardview-v7 than 25.2.0 is available: 25.3.1"
-        category="Correctness"
-        priority="4"
-        summary="Obsolete Gradle Dependency"
-        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
-        errorLine1="    compile &apos;com.android.support:cardview-v7:25.2.0&apos;"
-        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        quickfix="studio">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/build.gradle"
-            line="28"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        severity="Warning"
-        message="A newer version of com.android.support:design than 25.2.0 is available: 25.3.1"
-        category="Correctness"
-        priority="4"
-        summary="Obsolete Gradle Dependency"
-        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
-        errorLine1="    compile &apos;com.android.support:design:25.2.0&apos;"
-        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        quickfix="studio">
-        <location
-            file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/build.gradle"
-            line="29"
-            column="5"/>
-    </issue>
-
-    <issue
         id="SpUsage"
         severity="Warning"
         message="Should use &quot;`sp`&quot; instead of &quot;`dp`&quot; for text sizes"
         category="Correctness"
         priority="3"
         summary="Using `dp` instead of `sp` for text sizes"
-        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There *are* cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
+        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There **are** cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
         url="http://developer.android.com/training/multiscreen/screendensities.html"
         urls="http://developer.android.com/training/multiscreen/screendensities.html"
         errorLine1="                android:textSize=&quot;16dp&quot;"
@@ -224,7 +76,7 @@
         category="Correctness"
         priority="3"
         summary="Using `dp` instead of `sp` for text sizes"
-        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There *are* cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
+        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There **are** cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
         url="http://developer.android.com/training/multiscreen/screendensities.html"
         urls="http://developer.android.com/training/multiscreen/screendensities.html"
         errorLine1="                android:textSize=&quot;16dp&quot;"
@@ -243,7 +95,7 @@
         category="Correctness"
         priority="3"
         summary="Using `dp` instead of `sp` for text sizes"
-        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There *are* cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
+        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There **are** cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
         url="http://developer.android.com/training/multiscreen/screendensities.html"
         urls="http://developer.android.com/training/multiscreen/screendensities.html"
         errorLine1="                android:textSize=&quot;16dp&quot;"
@@ -262,7 +114,7 @@
         category="Correctness"
         priority="3"
         summary="Using `dp` instead of `sp` for text sizes"
-        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There *are* cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
+        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There **are** cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
         url="http://developer.android.com/training/multiscreen/screendensities.html"
         urls="http://developer.android.com/training/multiscreen/screendensities.html"
         errorLine1="                android:textSize=&quot;16dp&quot;"
@@ -281,7 +133,7 @@
         category="Correctness"
         priority="3"
         summary="Using `dp` instead of `sp` for text sizes"
-        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There *are* cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
+        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There **are** cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
         url="http://developer.android.com/training/multiscreen/screendensities.html"
         urls="http://developer.android.com/training/multiscreen/screendensities.html"
         errorLine1="                android:textSize=&quot;16dp&quot;"
@@ -300,7 +152,7 @@
         category="Correctness"
         priority="3"
         summary="Using `dp` instead of `sp` for text sizes"
-        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There *are* cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
+        explanation="When setting text sizes, you should normally use `sp`, or &quot;scale-independent pixels&quot;. This is like the `dp` unit, but it is also scaled by the user&apos;s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user&apos;s preference.&#xA;&#xA;There **are** cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user&apos;s font size settings are not respected, so consider adjusting the layout itself to be more flexible."
         url="http://developer.android.com/training/multiscreen/screendensities.html"
         urls="http://developer.android.com/training/multiscreen/screendensities.html"
         errorLine1="                android:textSize=&quot;16dp&quot;"
@@ -406,7 +258,7 @@
         category="Usability:Icons"
         priority="5"
         summary="Image defined in density-independent drawable folder"
-        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
         url="http://developer.android.com/guide/practices/screens_support.html"
         urls="http://developer.android.com/guide/practices/screens_support.html">
         <location
@@ -435,7 +287,7 @@
     <issue
         id="ContentDescription"
         severity="Warning"
-        message="[Accessibility] Missing `contentDescription` attribute on image"
+        message="Missing `contentDescription` attribute on image"
         category="Accessibility"
         priority="3"
         summary="Image without `contentDescription`"
@@ -452,7 +304,7 @@
     <issue
         id="ContentDescription"
         severity="Warning"
-        message="[Accessibility] Missing `contentDescription` attribute on image"
+        message="Missing `contentDescription` attribute on image"
         category="Accessibility"
         priority="3"
         summary="Image without `contentDescription`"
@@ -469,7 +321,7 @@
     <issue
         id="ContentDescription"
         severity="Warning"
-        message="[Accessibility] Missing `contentDescription` attribute on image"
+        message="Missing `contentDescription` attribute on image"
         category="Accessibility"
         priority="3"
         summary="Image without `contentDescription`"
@@ -486,7 +338,7 @@
     <issue
         id="ContentDescription"
         severity="Warning"
-        message="[Accessibility] Missing `contentDescription` attribute on image"
+        message="Missing `contentDescription` attribute on image"
         category="Accessibility"
         priority="3"
         summary="Image without `contentDescription`"
@@ -503,7 +355,7 @@
     <issue
         id="ContentDescription"
         severity="Warning"
-        message="[Accessibility] Missing `contentDescription` attribute on image"
+        message="Missing `contentDescription` attribute on image"
         category="Accessibility"
         priority="3"
         summary="Image without `contentDescription`"
@@ -520,13 +372,14 @@
     <issue
         id="LabelFor"
         severity="Warning"
-        message="No label views point to this text field with an `android:labelFor=&quot;@+id/edt_day&quot;` attribute"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
         category="Accessibility"
         priority="2"
-        summary="Missing `labelFor` attribute"
-        explanation="Text fields should be labelled with a `labelFor` attribute, provided your `minSdkVersion` is at least 17.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
+        summary="Missing accessibility label"
+        explanation="Editable text fields should provide an `android:hint` or, provided your `minSdkVersion` is at least 17, they may be referenced by a view with a `android:labelFor` attribute.&#xA;&#xA;When using `android:labelFor`, be sure to provide an `android:text` or an `android:contentDescription`.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
         errorLine1="      &lt;EditText android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot;"
-        errorLine2="      ^">
+        errorLine2="      ^"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/res/layout/activity_agecalc.xml"
             line="105"
@@ -536,13 +389,14 @@
     <issue
         id="LabelFor"
         severity="Warning"
-        message="No label views point to this text field with an `android:labelFor=&quot;@+id/edt_month&quot;` attribute"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
         category="Accessibility"
         priority="2"
-        summary="Missing `labelFor` attribute"
-        explanation="Text fields should be labelled with a `labelFor` attribute, provided your `minSdkVersion` is at least 17.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
+        summary="Missing accessibility label"
+        explanation="Editable text fields should provide an `android:hint` or, provided your `minSdkVersion` is at least 17, they may be referenced by a view with a `android:labelFor` attribute.&#xA;&#xA;When using `android:labelFor`, be sure to provide an `android:text` or an `android:contentDescription`.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
         errorLine1="      &lt;EditText android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot;"
-        errorLine2="      ^">
+        errorLine2="      ^"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/res/layout/activity_agecalc.xml"
             line="124"
@@ -552,13 +406,14 @@
     <issue
         id="LabelFor"
         severity="Warning"
-        message="No label views point to this text field with an `android:labelFor=&quot;@+id/edt_year&quot;` attribute"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
         category="Accessibility"
         priority="2"
-        summary="Missing `labelFor` attribute"
-        explanation="Text fields should be labelled with a `labelFor` attribute, provided your `minSdkVersion` is at least 17.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
+        summary="Missing accessibility label"
+        explanation="Editable text fields should provide an `android:hint` or, provided your `minSdkVersion` is at least 17, they may be referenced by a view with a `android:labelFor` attribute.&#xA;&#xA;When using `android:labelFor`, be sure to provide an `android:text` or an `android:contentDescription`.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
         errorLine1="      &lt;EditText android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot;"
-        errorLine2="      ^">
+        errorLine2="      ^"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/res/layout/activity_agecalc.xml"
             line="144"
@@ -568,13 +423,14 @@
     <issue
         id="LabelFor"
         severity="Warning"
-        message="No label views point to this text field with an `android:labelFor=&quot;@+id/edt_day&quot;` attribute"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
         category="Accessibility"
         priority="2"
-        summary="Missing `labelFor` attribute"
-        explanation="Text fields should be labelled with a `labelFor` attribute, provided your `minSdkVersion` is at least 17.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
+        summary="Missing accessibility label"
+        explanation="Editable text fields should provide an `android:hint` or, provided your `minSdkVersion` is at least 17, they may be referenced by a view with a `android:labelFor` attribute.&#xA;&#xA;When using `android:labelFor`, be sure to provide an `android:text` or an `android:contentDescription`.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
         errorLine1="      &lt;EditText android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot;"
-        errorLine2="      ^">
+        errorLine2="      ^"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/res/layout/activity_converter.xml"
             line="108"
@@ -584,13 +440,14 @@
     <issue
         id="LabelFor"
         severity="Warning"
-        message="No label views point to this text field with an `android:labelFor=&quot;@+id/edt_month&quot;` attribute"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
         category="Accessibility"
         priority="2"
-        summary="Missing `labelFor` attribute"
-        explanation="Text fields should be labelled with a `labelFor` attribute, provided your `minSdkVersion` is at least 17.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
+        summary="Missing accessibility label"
+        explanation="Editable text fields should provide an `android:hint` or, provided your `minSdkVersion` is at least 17, they may be referenced by a view with a `android:labelFor` attribute.&#xA;&#xA;When using `android:labelFor`, be sure to provide an `android:text` or an `android:contentDescription`.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
         errorLine1="      &lt;EditText android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot;"
-        errorLine2="      ^">
+        errorLine2="      ^"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/res/layout/activity_converter.xml"
             line="127"
@@ -600,13 +457,14 @@
     <issue
         id="LabelFor"
         severity="Warning"
-        message="No label views point to this text field with an `android:labelFor=&quot;@+id/edt_year&quot;` attribute"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
         category="Accessibility"
         priority="2"
-        summary="Missing `labelFor` attribute"
-        explanation="Text fields should be labelled with a `labelFor` attribute, provided your `minSdkVersion` is at least 17.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
+        summary="Missing accessibility label"
+        explanation="Editable text fields should provide an `android:hint` or, provided your `minSdkVersion` is at least 17, they may be referenced by a view with a `android:labelFor` attribute.&#xA;&#xA;When using `android:labelFor`, be sure to provide an `android:text` or an `android:contentDescription`.&#xA;&#xA;If your view is labeled but by a label in a different layout which includes this one, just suppress this warning from lint."
         errorLine1="      &lt;EditText android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot;"
-        errorLine2="      ^">
+        errorLine2="      ^"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/res/layout/activity_converter.xml"
             line="147"
@@ -728,9 +586,10 @@
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
-        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
         errorLine1="  if(drawer.isDrawerOpen(Gravity.RIGHT)){"
-        errorLine2="                                 ~~~~~">
+        errorLine2="                                 ~~~~~"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/java/saman/zamani/persiandatedemo/AgeCalculator.java"
             line="79"
@@ -744,9 +603,10 @@
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
-        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
         errorLine1="   drawer.closeDrawer(Gravity.RIGHT);"
-        errorLine2="                              ~~~~~">
+        errorLine2="                              ~~~~~"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/java/saman/zamani/persiandatedemo/AgeCalculator.java"
             line="80"
@@ -760,9 +620,10 @@
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
-        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
         errorLine1="  if(drawer.isDrawerOpen(Gravity.RIGHT)){"
-        errorLine2="                                 ~~~~~">
+        errorLine2="                                 ~~~~~"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/java/saman/zamani/persiandatedemo/DateConverter.java"
             line="80"
@@ -776,9 +637,10 @@
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
-        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
         errorLine1="   drawer.closeDrawer(Gravity.RIGHT);"
-        errorLine2="                              ~~~~~">
+        errorLine2="                              ~~~~~"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/java/saman/zamani/persiandatedemo/DateConverter.java"
             line="81"
@@ -792,12 +654,13 @@
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
-        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
         errorLine1="  if(drawer.isDrawerOpen(Gravity.RIGHT)){"
-        errorLine2="                                 ~~~~~">
+        errorLine2="                                 ~~~~~"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/java/saman/zamani/persiandatedemo/StartupActivity.java"
-            line="68"
+            line="65"
             column="34"/>
     </issue>
 
@@ -808,12 +671,13 @@
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
-        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
         errorLine1="   drawer.closeDrawer(Gravity.RIGHT);"
-        errorLine2="                              ~~~~~">
+        errorLine2="                              ~~~~~"
+        quickfix="studio">
         <location
             file="/Users/saman/Documents/Project_intelij/PersianDateDemo/app/src/main/java/saman/zamani/persiandatedemo/StartupActivity.java"
-            line="69"
+            line="66"
             column="31"/>
     </issue>
 

@@ -20,19 +20,19 @@ import java.lang.Override;
 public class AgeCalculator_ViewBinding implements Unbinder {
   private AgeCalculator target;
 
-  private View view2131558536;
+  private View view2131230909;
 
-  private View view2131558537;
+  private View view2131230907;
 
-  private View view2131558535;
+  private View view2131230911;
 
-  private View view2131558520;
+  private View view2131230837;
 
-  private View view2131558523;
+  private View view2131230838;
 
-  private View view2131558532;
+  private View view2131230757;
 
-  private View view2131558533;
+  private View view2131230806;
 
   @UiThread
   public AgeCalculator_ViewBinding(AgeCalculator target) {
@@ -52,7 +52,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.txtToGrg2 = Utils.findRequiredViewAsType(source, R.id.txt_to_grg2, "field 'txtToGrg2'", TextView.class);
     view = Utils.findRequiredView(source, R.id.txt_to_jalali, "field 'txtToJalali' and method 'startConvert'");
     target.txtToJalali = Utils.castView(view, R.id.txt_to_jalali, "field 'txtToJalali'", TextView.class);
-    view2131558536 = view;
+    view2131230909 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.txt_to_grg, "field 'txtToGrg' and method 'startConvert2'");
     target.txtToGrg = Utils.castView(view, R.id.txt_to_grg, "field 'txtToGrg'", TextView.class);
-    view2131558537 = view;
+    view2131230907 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.ageCalc = Utils.findRequiredViewAsType(source, R.id.ageCalc, "field 'ageCalc'", TextView.class);
     view = Utils.findRequiredView(source, R.id.txt_to_show, "field 'txtToShow' and method 'startConvert3'");
     target.txtToShow = Utils.castView(view, R.id.txt_to_show, "field 'txtToShow'", TextView.class);
-    view2131558535 = view;
+    view2131230911 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -80,7 +80,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.rd_togrg, "field 'rdTogrg' and method 'GrgSelect'");
     target.rdTogrg = Utils.castView(view, R.id.rd_togrg, "field 'rdTogrg'", AppCompatRadioButton.class);
-    view2131558520 = view;
+    view2131230837 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -89,7 +89,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.rd_tojalali, "field 'rdTojalali' and method 'JalaliSelect'");
     target.rdTojalali = Utils.castView(view, R.id.rd_tojalali, "field 'rdTojalali'", AppCompatRadioButton.class);
-    view2131558523 = view;
+    view2131230838 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -101,7 +101,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.txtDay = Utils.findRequiredViewAsType(source, R.id.txt_day, "field 'txtDay'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_calc, "field 'btnCalc' and method 'calc'");
     target.btnCalc = Utils.castView(view, R.id.btn_calc, "field 'btnCalc'", Button.class);
-    view2131558532 = view;
+    view2131230757 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -113,7 +113,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.edtYear = Utils.findRequiredViewAsType(source, R.id.edt_year, "field 'edtYear'", EditText.class);
     target.txtResult = Utils.findRequiredViewAsType(source, R.id.txt_result, "field 'txtResult'", TextView.class);
     view = Utils.findRequiredView(source, R.id.img_forg, "method 'imgForg'");
-    view2131558533 = view;
+    view2131230806 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -150,19 +150,19 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.edtYear = null;
     target.txtResult = null;
 
-    view2131558536.setOnClickListener(null);
-    view2131558536 = null;
-    view2131558537.setOnClickListener(null);
-    view2131558537 = null;
-    view2131558535.setOnClickListener(null);
-    view2131558535 = null;
-    view2131558520.setOnClickListener(null);
-    view2131558520 = null;
-    view2131558523.setOnClickListener(null);
-    view2131558523 = null;
-    view2131558532.setOnClickListener(null);
-    view2131558532 = null;
-    view2131558533.setOnClickListener(null);
-    view2131558533 = null;
+    view2131230909.setOnClickListener(null);
+    view2131230909 = null;
+    view2131230907.setOnClickListener(null);
+    view2131230907 = null;
+    view2131230911.setOnClickListener(null);
+    view2131230911 = null;
+    view2131230837.setOnClickListener(null);
+    view2131230837 = null;
+    view2131230838.setOnClickListener(null);
+    view2131230838 = null;
+    view2131230757.setOnClickListener(null);
+    view2131230757 = null;
+    view2131230806.setOnClickListener(null);
+    view2131230806 = null;
   }
 }
