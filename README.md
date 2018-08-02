@@ -14,12 +14,12 @@ dependencies {
 ```
 # what's new
 ### version 0.4
-* Add `A` and `a` for format `ب.ظ|ق.ظ` and `قبل از ظهر|بعد از ظهر` in  `PersianDateFormat` class [#5](https://github.com/samanzamani/PersianDate/issues/10)
+* Add `A` and `a` for format `ب.ظ|ق.ظ` and `قبل از ظهر|بعد از ظهر` in  `PersianDateFormat` class [#10](https://github.com/samanzamani/PersianDate/issues/10)
 * Add new methods in `PersianDate` class
-  * `today()` => return today date (object)  PersianDate)
-  * `tomorrow()` => return tomorrow date (object)  PersianDate)
-  * `startOfDay()` => return date start of day (object)  PersianDate)
-  * `endOfDay()` => return date end of day (object) (PersianDate)
+  * `today()` => return today date ((object)  PersianDate)
+  * `tomorrow()` => return tomorrow date ((object)  PersianDate)
+  * `startOfDay()` => return date start of day ((object)  PersianDate)
+  * `endOfDay()` => return date end of day ((object) PersianDate)
   * `isMidNight()` => return a boolean for AM/PM (Boolean)
   * `getShortTimeOfTheDay()` => return `ب.ظ`/`ق.ظ` (String)
   * `getTimeOfTheDay()` => return `بعد از ظهر`/`قبل از ظهر` (String)
