@@ -23,6 +23,12 @@ public class PersianDate
 	public static final int DAY = 10;
 	public static final int BAHMAN = 11;
 	public static final int ESFAND = 12;
+	public static final int AM = 1;
+	public static final int PM = 2;
+	public static final String AM_SHORT_NAME = "ق.ظ";
+	public static final String PM_SHORT_NAME = "ب.ظ";
+	public static final String AM_NAME = "قبل از ظهر";
+	public static final String PM_NAME = "بعد از ظهر";
 	private int shYear;
 	private int shMonth;
 	private int shDay;
@@ -765,5 +771,57 @@ public class PersianDate
 	 */
 	public PersianDate endOfDay(){
 		return this.endOfDay(this);
+	}
+
+	/**
+	 * Check midnight
+	 *
+	 * @param persianDate
+	 * @return
+	 */
+	public Boolean isMidNight(PersianDate persianDate){
+		return persianDate.isMidNight();
+	}
+
+	/**
+	 * Check is midNight
+	 *
+	 * @return
+	 */
+	public Boolean isMidNight(){
+		return (this.hour < 12);
+	}
+
+	/**
+	 * Get short name time of the day
+	 *
+	 * @return
+	 */
+	public String getShortTimeOfTheDay(){
+		return (this.isMidNight()) ? AM_SHORT_NAME : PM_SHORT_NAME;
+	}
+	/**
+	 * Get short name time of the day
+	 *
+	 * @return
+	 */
+	public String getShortTimeOfTheDay(PersianDate persianDate){
+		return (persianDate.isMidNight()) ? AM_SHORT_NAME : PM_SHORT_NAME;
+	}
+	/**
+	 * Get time of the day
+	 *
+	 * @return
+	 */
+	public String getTimeOfTheDay(){
+		return (this.isMidNight()) ? AM_NAME : PM_NAME;
+	}
+	/**
+	 * Get time of the day
+	 *
+	 * @return
+	 */
+	public String getTimeOfTheDay(PersianDate persianDate){
+		return (persianDate.isMidNight()) ? AM_NAME : PM_NAME;
 	}
 }

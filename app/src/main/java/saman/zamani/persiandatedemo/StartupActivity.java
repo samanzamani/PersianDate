@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,9 @@ public class StartupActivity extends AppCompatActivity
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
+		PersianDate pdate = new PersianDate();
+		pdate.setHour(12).setSecond(20).setMinute(59);
+		Log.i("LOG", PersianDateFormat.format(pdate,"a A H:i:s"));
 		ButterKnife.bind(this);
 		bYekan = Typeface.createFromAsset(this.getAssets(), "byekan.ttf");
 		//toolbar

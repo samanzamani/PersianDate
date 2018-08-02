@@ -15,7 +15,7 @@ public class PersianDateFormat {
   /**
    * Key for convert Date to String
    */
-  private String key[] = {"l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z",
+  private String key[] = {"a","l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z","A",
       "L"};
   private String pattern;
   /**
@@ -46,7 +46,7 @@ public class PersianDateFormat {
 
   public static String format(PersianDate date, String pattern) {
     if(pattern == null) pattern="l j F Y H:i:s";
-    String key[] = {"l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z", "L"};
+    String key[] = {"a","l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z","A" ,"L"};
     String year2 = null;
     if (("" + date.getShYear()).length() == 2) {
       year2 = "" + date.getShYear();
@@ -55,13 +55,13 @@ public class PersianDateFormat {
     } else {
       year2 = ("" + date.getShYear()).substring(2, 4);
     }
-    String values[] = {date.dayName(), "" + date.getShDay(), date.monthName(),
+    String values[] = {date.getShortTimeOfTheDay(),date.dayName(), "" + date.getShDay(), date.monthName(),
         "" + date.getShYear(),
         textNumberFilterStatic("" + date.getHour()), textNumberFilterStatic("" + date.getMinute()),
         textNumberFilterStatic("" + date.getSecond()),
         textNumberFilterStatic("" + date.getShDay()), "" + date.getHour(), "" + date.getShMonth(),
         textNumberFilterStatic("" + date.getShMonth()),
-        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(),
+        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(), date.getTimeOfTheDay(),
         (date.isLeap() ? "1" : "0")};
     for (int i = 0; i < key.length; i++) {
       pattern = pattern.replace(key[i], values[i]);
@@ -78,13 +78,13 @@ public class PersianDateFormat {
     } else {
       year2 = ("" + date.getShYear()).substring(2, 4);
     }
-    String values[] = {date.dayName(), "" + date.getShDay(), date.monthName(),
+    String values[] = {date.isMidNight() ? "ق.ظ" : "ب.ظ" ,date.dayName(), "" + date.getShDay(), date.monthName(),
         "" + date.getShYear(),
         this.textNumberFilter("" + date.getHour()), this.textNumberFilter("" + date.getMinute()),
         this.textNumberFilter("" + date.getSecond()),
         this.textNumberFilter("" + date.getShDay()), "" + date.getHour(), "" + date.getShMonth(),
         this.textNumberFilter("" + date.getShMonth()),
-        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(),
+        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(), date.getTimeOfTheDay(),
         (date.isLeap() ? "1" : "0")};
     return this.stringUtils(this.pattern, this.key, values);
   }
