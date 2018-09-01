@@ -1,6 +1,7 @@
 # Persian Date(Jalali)
 [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+<br/>
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
 [ ![Download](https://api.bintray.com/packages/mrnuke/maven/PersianDate/images/download.svg) ](https://bintray.com/mrnuke/maven/PersianDate/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
