@@ -1,9 +1,10 @@
 # Persian Date(Jalali)
+[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
 [ ![Download](https://api.bintray.com/packages/mrnuke/maven/PersianDate/images/download.svg) ](https://bintray.com/mrnuke/maven/PersianDate/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
 [![Method and size](https://img.shields.io/badge/Methods%20and%20size-100%20|%2011%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.samanzamani.persiandate%3APersianDate%3A0.1)
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/samanzamani/PersianDate)
 # About
 This is simple android calender converter for Convert Jalali date to Gregorian date.
 # Gradle
@@ -51,7 +52,7 @@ pdformater.format(pdate);
 ---
 + **PersianDate class methods**
 
-| method        | describtion  |
+| method        | description  |
 | ------------- | -----|
 | PersianDate(Long timestamp)      | make time with timestamp |
 | PersianDate(DATE date)      |   Constractor for make PersianDate object from Date object  |
@@ -98,7 +99,7 @@ pdformater.format(pdate);
 ---
 + **PersianDate class methods for display and parse date**
 
-| method        | describtion  |
+| method        | description  |
 | ------------- | -----|
 | format()      | (String) Display date |
 | parse(String date,String pattern)      | (PersianDate) Convert string Jalali date (1396-05-05 & 'YYYY-MM-dd') to Persiandate |
@@ -109,7 +110,7 @@ pdformater.format(pdate);
 
 | String key        | Role  |
 | ------------- | -----|
-| YYYY      | Year (1396-2012-...) |
+| yyyy      | Year (1396-2012-...) |
 | MM      | Month number (12-01-02-...) |
 | dd      | Day number (21-01-02-...) |
 | HH      | Hour  (21-01-02-...) |

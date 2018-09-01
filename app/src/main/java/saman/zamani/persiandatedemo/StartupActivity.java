@@ -24,6 +24,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import java.text.ParseException;
 import java.util.Timer;
 import java.util.TimerTask;
 import saman.zamani.persiandate.PersianDate;
@@ -73,9 +74,12 @@ public class StartupActivity extends AppCompatActivity
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
-		PersianDate pdate = new PersianDate();
-		pdate.setHour(12).setSecond(20).setMinute(59);
-		Log.i("LOG", PersianDateFormat.format(pdate,"a A H:i:s"));
+		PersianDateFormat format = new PersianDateFormat();
+		try{
+			Log.i("LOG", format.parse("1397-08-31","yyyy-MM-dd").toString());
+		}catch (ParseException e){
+			e.printStackTrace();
+		}
 		ButterKnife.bind(this);
 		bYekan = Typeface.createFromAsset(this.getAssets(), "byekan.ttf");
 		//toolbar

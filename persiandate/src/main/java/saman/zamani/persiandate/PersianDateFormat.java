@@ -114,16 +114,15 @@ public class PersianDateFormat {
       add(0);
     }};
     for (int i = 0; i < key_parse.length; i++) {
-      if ((pattern.indexOf(key_parse[i]) >= 0)) {
+      if ((pattern.contains(key_parse[i]))) {
         int start_temp = pattern.indexOf(key_parse[i]);
         int end_temp = start_temp + key_parse[i].length();
-        String date_replcae = date.substring(start_temp, end_temp);
-        if (date_replcae.matches("[-+]?\\d*\\.?\\d+")) {
-          JalaliDate.set(i, Integer.parseInt(date_replcae));
+        String dateReplace = date.substring(start_temp, end_temp);
+        if (dateReplace.matches("[-+]?\\d*\\.?\\d+")) {
+          JalaliDate.set(i, Integer.parseInt(dateReplace));
         } else {
-          throw new ParseException("Parse Exeption", 10);
+          throw new ParseException("Parse Exception", 10);
         }
-
       }
     }
     return new PersianDate()
