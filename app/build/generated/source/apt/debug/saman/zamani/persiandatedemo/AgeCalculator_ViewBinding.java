@@ -20,17 +20,17 @@ import java.lang.Override;
 public class AgeCalculator_ViewBinding implements Unbinder {
   private AgeCalculator target;
 
-  private View view2131230909;
+  private View view2131230918;
 
-  private View view2131230907;
+  private View view2131230916;
 
-  private View view2131230911;
+  private View view2131230920;
 
-  private View view2131230837;
+  private View view2131230840;
 
-  private View view2131230838;
+  private View view2131230841;
 
-  private View view2131230757;
+  private View view2131230756;
 
   private View view2131230806;
 
@@ -52,7 +52,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.txtToGrg2 = Utils.findRequiredViewAsType(source, R.id.txt_to_grg2, "field 'txtToGrg2'", TextView.class);
     view = Utils.findRequiredView(source, R.id.txt_to_jalali, "field 'txtToJalali' and method 'startConvert'");
     target.txtToJalali = Utils.castView(view, R.id.txt_to_jalali, "field 'txtToJalali'", TextView.class);
-    view2131230909 = view;
+    view2131230918 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.txt_to_grg, "field 'txtToGrg' and method 'startConvert2'");
     target.txtToGrg = Utils.castView(view, R.id.txt_to_grg, "field 'txtToGrg'", TextView.class);
-    view2131230907 = view;
+    view2131230916 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.ageCalc = Utils.findRequiredViewAsType(source, R.id.ageCalc, "field 'ageCalc'", TextView.class);
     view = Utils.findRequiredView(source, R.id.txt_to_show, "field 'txtToShow' and method 'startConvert3'");
     target.txtToShow = Utils.castView(view, R.id.txt_to_show, "field 'txtToShow'", TextView.class);
-    view2131230911 = view;
+    view2131230920 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -80,7 +80,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.rd_togrg, "field 'rdTogrg' and method 'GrgSelect'");
     target.rdTogrg = Utils.castView(view, R.id.rd_togrg, "field 'rdTogrg'", AppCompatRadioButton.class);
-    view2131230837 = view;
+    view2131230840 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -89,7 +89,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.rd_tojalali, "field 'rdTojalali' and method 'JalaliSelect'");
     target.rdTojalali = Utils.castView(view, R.id.rd_tojalali, "field 'rdTojalali'", AppCompatRadioButton.class);
-    view2131230838 = view;
+    view2131230841 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -101,7 +101,7 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.txtDay = Utils.findRequiredViewAsType(source, R.id.txt_day, "field 'txtDay'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_calc, "field 'btnCalc' and method 'calc'");
     target.btnCalc = Utils.castView(view, R.id.btn_calc, "field 'btnCalc'", Button.class);
-    view2131230757 = view;
+    view2131230756 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -150,18 +150,18 @@ public class AgeCalculator_ViewBinding implements Unbinder {
     target.edtYear = null;
     target.txtResult = null;
 
-    view2131230909.setOnClickListener(null);
-    view2131230909 = null;
-    view2131230907.setOnClickListener(null);
-    view2131230907 = null;
-    view2131230911.setOnClickListener(null);
-    view2131230911 = null;
-    view2131230837.setOnClickListener(null);
-    view2131230837 = null;
-    view2131230838.setOnClickListener(null);
-    view2131230838 = null;
-    view2131230757.setOnClickListener(null);
-    view2131230757 = null;
+    view2131230918.setOnClickListener(null);
+    view2131230918 = null;
+    view2131230916.setOnClickListener(null);
+    view2131230916 = null;
+    view2131230920.setOnClickListener(null);
+    view2131230920 = null;
+    view2131230840.setOnClickListener(null);
+    view2131230840 = null;
+    view2131230841.setOnClickListener(null);
+    view2131230841 = null;
+    view2131230756.setOnClickListener(null);
+    view2131230756 = null;
     view2131230806.setOnClickListener(null);
     view2131230806 = null;
   }

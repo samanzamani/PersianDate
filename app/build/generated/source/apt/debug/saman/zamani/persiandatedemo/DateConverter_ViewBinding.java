@@ -20,15 +20,15 @@ import java.lang.Override;
 public class DateConverter_ViewBinding implements Unbinder {
   private DateConverter target;
 
-  private View view2131230747;
+  private View view2131230746;
 
-  private View view2131230911;
+  private View view2131230920;
 
-  private View view2131230837;
+  private View view2131230840;
 
-  private View view2131230838;
+  private View view2131230841;
 
-  private View view2131230757;
+  private View view2131230756;
 
   private View view2131230806;
 
@@ -52,7 +52,7 @@ public class DateConverter_ViewBinding implements Unbinder {
     target.txtToGrg = Utils.findRequiredViewAsType(source, R.id.txt_to_grg, "field 'txtToGrg'", TextView.class);
     view = Utils.findRequiredView(source, R.id.ageCalc, "field 'ageCalc' and method 'startAgeActivity'");
     target.ageCalc = Utils.castView(view, R.id.ageCalc, "field 'ageCalc'", TextView.class);
-    view2131230747 = view;
+    view2131230746 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class DateConverter_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.txt_to_show, "field 'txtToShow' and method 'startConvert'");
     target.txtToShow = Utils.castView(view, R.id.txt_to_show, "field 'txtToShow'", TextView.class);
-    view2131230911 = view;
+    view2131230920 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,7 +70,7 @@ public class DateConverter_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.rd_togrg, "field 'rdTogrg' and method 'GrgSelect'");
     target.rdTogrg = Utils.castView(view, R.id.rd_togrg, "field 'rdTogrg'", AppCompatRadioButton.class);
-    view2131230837 = view;
+    view2131230840 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -79,7 +79,7 @@ public class DateConverter_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.rd_tojalali, "field 'rdTojalali' and method 'JalaliSelect'");
     target.rdTojalali = Utils.castView(view, R.id.rd_tojalali, "field 'rdTojalali'", AppCompatRadioButton.class);
-    view2131230838 = view;
+    view2131230841 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -91,7 +91,7 @@ public class DateConverter_ViewBinding implements Unbinder {
     target.txtDay = Utils.findRequiredViewAsType(source, R.id.txt_day, "field 'txtDay'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_calc, "field 'btnCalc' and method 'calc'");
     target.btnCalc = Utils.castView(view, R.id.btn_calc, "field 'btnCalc'", Button.class);
-    view2131230757 = view;
+    view2131230756 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -140,16 +140,16 @@ public class DateConverter_ViewBinding implements Unbinder {
     target.edtYear = null;
     target.txtResult = null;
 
-    view2131230747.setOnClickListener(null);
-    view2131230747 = null;
-    view2131230911.setOnClickListener(null);
-    view2131230911 = null;
-    view2131230837.setOnClickListener(null);
-    view2131230837 = null;
-    view2131230838.setOnClickListener(null);
-    view2131230838 = null;
-    view2131230757.setOnClickListener(null);
-    view2131230757 = null;
+    view2131230746.setOnClickListener(null);
+    view2131230746 = null;
+    view2131230920.setOnClickListener(null);
+    view2131230920 = null;
+    view2131230840.setOnClickListener(null);
+    view2131230840 = null;
+    view2131230841.setOnClickListener(null);
+    view2131230841 = null;
+    view2131230756.setOnClickListener(null);
+    view2131230756 = null;
     view2131230806.setOnClickListener(null);
     view2131230806 = null;
   }

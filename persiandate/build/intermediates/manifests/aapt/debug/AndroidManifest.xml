@@ -8,9 +8,7 @@
         android:minSdkVersion="2"
         android:targetSdkVersion="25" />
 
-    <application
-        android:allowBackup="true"
-        android:label="@string/app_name" >
+    <application android:label="@string/app_name" >
     </application>
 
 </manifest>

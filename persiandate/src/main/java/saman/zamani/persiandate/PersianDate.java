@@ -1,7 +1,9 @@
 package saman.zamani.persiandate;
 
+import android.util.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 /**
  * Created by Saman on 3/29/2017 AD.
@@ -315,11 +317,29 @@ public class PersianDate
 	 * @return true or false
 	 */
 	public boolean isLeap(int year) {
-		double Year = year;
-		Year = (Year - 474) % 128;
-		Year = ((Year >= 30) ? 0 : 29) + Year;
-		Year = Year - Math.floor(Year / 33) - 1;
-		return ((Year % 4) == 0);
+		double referenceYear = 1375;
+		double startYear = 1375;
+		double yearRes = year - referenceYear;
+		if(yearRes > 0){
+			if(yearRes >= 33){
+				double numb = yearRes / 33;
+				startYear = referenceYear + Math.floor(numb)*33;
+			}
+		}else{
+			if(yearRes >= -33){
+				startYear = referenceYear-33;
+			}else{
+				double numb = Math.abs(yearRes / 33);
+				startYear = referenceYear - (Math.floor(numb)+1)*33;
+			}
+		}
+		double[] leapYears = {startYear,startYear+4,startYear+8,startYear+16,startYear+20,startYear+24,startYear+28,startYear+33};
+		return (Arrays.binarySearch(leapYears,year)) >= 0;
+//		double Year = year;
+//		Year = (Year - 474) % 128;
+//		Year = ((Year >= 30) ? 0 : 29) + Year;
+//		Year = Year - Math.floor(Year / 33) - 1;
+//		return ((Year % 4) == 0);
 	}
 
 	/**
@@ -378,7 +398,6 @@ public class PersianDate
 		int[] ret = {hshYear, hshMonth, hshDay};
 		return ret;
 	}
-
 	/**
 	 * Convert Jalali date to Grg
 	 *
@@ -413,7 +432,6 @@ public class PersianDate
 				break;
 			}
 		}
-
 		int[] ret = {grgYear, grgMonth, grgDay};
 		return ret;
 	}

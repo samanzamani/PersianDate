@@ -18,11 +18,11 @@ import java.lang.Override;
 public class StartupActivity_ViewBinding implements Unbinder {
   private StartupActivity target;
 
-  private View view2131230909;
+  private View view2131230918;
 
-  private View view2131230907;
+  private View view2131230916;
 
-  private View view2131230747;
+  private View view2131230746;
 
   private View view2131230806;
 
@@ -44,7 +44,7 @@ public class StartupActivity_ViewBinding implements Unbinder {
     target.spnFormat = Utils.findRequiredViewAsType(source, R.id.spn_format, "field 'spnFormat'", AppCompatSpinner.class);
     view = Utils.findRequiredView(source, R.id.txt_to_jalali, "field 'txtToJalali' and method 'startConvert'");
     target.txtToJalali = Utils.castView(view, R.id.txt_to_jalali, "field 'txtToJalali'", TextView.class);
-    view2131230909 = view;
+    view2131230918 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class StartupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.txt_to_grg, "field 'txtToGrg' and method 'startConvert2'");
     target.txtToGrg = Utils.castView(view, R.id.txt_to_grg, "field 'txtToGrg'", TextView.class);
-    view2131230907 = view;
+    view2131230916 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -62,7 +62,7 @@ public class StartupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.ageCalc, "field 'ageCalc' and method 'startAgeActivity'");
     target.ageCalc = Utils.castView(view, R.id.ageCalc, "field 'ageCalc'", TextView.class);
-    view2131230747 = view;
+    view2131230746 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -98,12 +98,12 @@ public class StartupActivity_ViewBinding implements Unbinder {
     target.ageCalc = null;
     target.txtToShow = null;
 
-    view2131230909.setOnClickListener(null);
-    view2131230909 = null;
-    view2131230907.setOnClickListener(null);
-    view2131230907 = null;
-    view2131230747.setOnClickListener(null);
-    view2131230747 = null;
+    view2131230918.setOnClickListener(null);
+    view2131230918 = null;
+    view2131230916.setOnClickListener(null);
+    view2131230916 = null;
+    view2131230746.setOnClickListener(null);
+    view2131230746 = null;
     view2131230806.setOnClickListener(null);
     view2131230806 = null;
   }
