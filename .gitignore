@@ -2,8 +2,6 @@
 .gradle
 .idea
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
 /captures
@@ -12,4 +10,4 @@
 /persiandate/src/test/
 /app/src/androidTest/
 /app/src/test/
-/app/app.iml
+**/build/
