@@ -21,11 +21,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import butterknife.BindFont;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import java.text.ParseException;
-import java.util.Arrays;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import saman.zamani.persiandate.PersianDate;
@@ -38,9 +39,10 @@ import saman.zamani.persiandate.PersianDateFormat;
 public class StartupActivity extends AppCompatActivity
 {
 	private String[] displayFormat = {"فرمت نمایش را انتخاب کنید","Y/m/d","l j F Y \n H:i:s","j F y","z روز از سال","s","H:i","l w:i:s"};
-	private Typeface bYekan;
 	Handler h = new Handler();
 	private String pattern = "l j F Y \n H:i:s";
+	@BindFont(R.font.byekan)
+	Typeface bYekan;
 	@BindView(R.id.drawer_layout)
 	DrawerLayout drawer;
 	@BindView(R.id.nav_view)
@@ -91,7 +93,6 @@ public class StartupActivity extends AppCompatActivity
 //		Log.i("LOG","Year is:" + pdate.startOfDay().getGrgYear() + " month is: " + pdate.startOfDay().getGrgMonth() + " day is :" + pdate.startOfDay().getGrgDay());
 		Log.i("LOG","---------------$$$------------------");
 		ButterKnife.bind(this);
-		bYekan = Typeface.createFromAsset(this.getAssets(), "byekan.ttf");
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");

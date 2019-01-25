@@ -10,12 +10,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import butterknife.BindFont;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import android.support.v7.widget.AppCompatRadioButton;
@@ -32,8 +33,9 @@ import java.util.Date;
 
 public class DateConverter extends AppCompatActivity
 {
-	private Typeface bYekan;
 	private PersianDateFormat formater = new PersianDateFormat("l j F Y");
+	@BindFont(R.font.byekan)
+    Typeface bYekan;
 	@BindView(R.id.drawer_layout)
 	DrawerLayout drawer;
 	@BindView(R.id.nav_view)
@@ -88,7 +90,6 @@ public class DateConverter extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_converter);
 		ButterKnife.bind(this);
-		bYekan = Typeface.createFromAsset(this.getAssets(), "byekan.ttf");
 		Bundle bundle = getIntent().getExtras();
 		if(bundle != null){
 			if(bundle.getString("TYPE").equals("TO_JALALI")){
