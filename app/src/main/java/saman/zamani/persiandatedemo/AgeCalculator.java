@@ -17,8 +17,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import butterknife.BindFont;
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import saman.zamani.persiandate.PersianDate;
@@ -39,40 +42,18 @@ public class AgeCalculator extends AppCompatActivity
 	NavigationView navView;
 	@BindView(R.id.top_bar)
 	Toolbar top_bar;
-	@BindView(R.id.txt_title)
-	TextView txtTitle;
-	@BindView(R.id.txt_to_jalali2)
-	TextView txtToJalali2;
-	@BindView(R.id.txt_to_grg2)
-	TextView txtToGrg2;
-	@BindView(R.id.txt_to_jalali)
-	TextView txtToJalali;
-	@BindView(R.id.txt_to_grg)
-	TextView txtToGrg;
-	@BindView(R.id.ageCalc)
-	TextView ageCalc;
-	@BindView(R.id.txt_to_show)
-	TextView txtToShow;
+	@BindView(R.id.btn_calc)
+	Button btnCalc;
 	@BindView(R.id.rd_togrg)
 	AppCompatRadioButton rdTogrg;
 	@BindView(R.id.rd_tojalali)
 	AppCompatRadioButton rdTojalali;
-	@BindView(R.id.txt_year)
-	TextView txtYear;
-	@BindView(R.id.txt_month)
-	TextView txtMonth;
-	@BindView(R.id.txt_day)
-	TextView txtDay;
-	@BindView(R.id.btn_calc)
-	Button btnCalc;
-	@BindView(R.id.edt_day)
-	EditText edtDay;
-	@BindView(R.id.edt_month)
-	EditText edtMonth;
-	@BindView(R.id.edt_year)
-	EditText edtYear;
-	@BindView(R.id.txt_result)
-	TextView txtResult;
+	@BindViews({R.id.edt_day,R.id.edt_month,R.id.edt_year})
+	List<EditText> editTexts;
+	@BindViews({R.id.txt_result,R.id.txt_day,R.id.txt_month,R.id.txt_year,R.id.txt_to_show,R.id.ageCalc,R.id.txt_to_grg,R.id.txt_to_jalali,R.id.txt_to_grg2,R.id.txt_to_jalali2,R.id.txt_title})
+	List<TextView> textViews;
+
+	final ButterKnife.Setter<TextView, Typeface> SET_FONT = (view, tf, index) -> view.setTypeface(tf);
 
 	@Override
 	public void onBackPressed() {
@@ -97,18 +78,8 @@ public class AgeCalculator extends AppCompatActivity
 		}
 		rdTojalali.setChecked(true);
 		//Set fonts
-		txtToJalali2.setTypeface(bYekan);
-		txtToGrg2.setTypeface(bYekan);
-		txtToJalali.setTypeface(bYekan);
-		txtToGrg.setTypeface(bYekan);
-		ageCalc.setTypeface(bYekan);
-		txtToShow.setTypeface(bYekan);
-		txtTitle.setTypeface(bYekan);
-		txtYear.setTypeface(bYekan);
-		txtMonth.setTypeface(bYekan);
-		txtDay.setTypeface(bYekan);
+		ButterKnife.apply(textViews,SET_FONT,bYekan);
 		btnCalc.setTypeface(bYekan);
-		txtResult.setTypeface(bYekan);
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");
@@ -131,32 +102,32 @@ public class AgeCalculator extends AppCompatActivity
 		}
 	}
 	@OnClick(R.id.btn_calc) void calc(){
-		if(edtDay.getText().toString().equals("") || edtDay.getText().toString().equals("") || edtDay.getText().toString().equals("")){
+		if(editTexts.get(0).getText().toString().equals("") || editTexts.get(0).getText().toString().equals("") || editTexts.get(0).getText().toString().equals("")){
 			Toast.makeText(this,getString(R.string.allFieldRequred),Toast.LENGTH_LONG).show();
 			return;
 		}
-		int day = Integer.parseInt(edtDay.getText().toString());
-		int month = Integer.parseInt(edtMonth.getText().toString());
-		int year = Integer.parseInt(edtYear.getText().toString());
+		int day = Integer.parseInt(editTexts.get(0).getText().toString());
+		int month = Integer.parseInt(editTexts.get(1).getText().toString());
+		int year = Integer.parseInt(editTexts.get(2).getText().toString());
 		if(day > 31){
 			Toast.makeText(this,getString(R.string.dayWrong),Toast.LENGTH_LONG).show();
-			edtDay.setText(""+31);
+			editTexts.get(0).setText(""+31);
 			return;
 		}
 		if(month > 12){
 			Toast.makeText(this,getString(R.string.monthWrong),Toast.LENGTH_LONG).show();
-			edtMonth.setText(""+12);
+			editTexts.get(1).setText(""+12);
 			return;
 		}
 		PersianDate date;
 		if(rdTojalali.isChecked()){
 			date = new PersianDate().initJalaliDate(year,month,day);
 			long[] age = date.untilToday();
-			txtResult.setText("" + age[0] + " روز " + age[1] + " ساعت " + age[2] + " دقیقه " + age[3] + " ثانیه");
+			textViews.get(0).setText("" + age[0] + " روز " + age[1] + " ساعت " + age[2] + " دقیقه " + age[3] + " ثانیه");
 		}else{
 			date = new PersianDate().initGrgDate(year,month,day);
 			long[] age = date.untilToday();
-			txtResult.setText("" + age[0] + " روز " + age[1] + " ساعت " + age[2] + " دقیقه " + age[3] + " ثانیه");
+			textViews.get(0).setText("" + age[0] + " روز " + age[1] + " ساعت " + age[2] + " دقیقه " + age[3] + " ثانیه");
 		}
 	}
 

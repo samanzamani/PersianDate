@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.MainThread;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -24,9 +25,11 @@ import android.widget.TextView;
 
 import butterknife.BindFont;
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import saman.zamani.persiandate.PersianDate;
@@ -49,20 +52,12 @@ public class StartupActivity extends AppCompatActivity
 	NavigationView navView;
 	@BindView(R.id.top_bar)
 	Toolbar top_bar;
-	@BindView(R.id.txt_title)
-	TextView txtTitle;
-	@BindView(R.id.txt_date)
-	TextView txtDate;
 	@BindView(R.id.spn_format)
 	AppCompatSpinner spnFormat;
-	@BindView(R.id.txt_to_jalali)
-	TextView txtToJalali;
-	@BindView(R.id.txt_to_grg)
-	TextView txtToGrg;
-	@BindView(R.id.ageCalc)
-	TextView ageCalc;
-	@BindView(R.id.txt_to_show)
-	TextView txtToShow;
+	@BindViews({R.id.txt_title,R.id.txt_date,R.id.txt_to_jalali,R.id.txt_to_grg,R.id.ageCalc,R.id.txt_to_show})
+	List<TextView> textViews;
+
+	final ButterKnife.Setter<TextView, Typeface> SET_FONT = (view, tf, index) -> view.setTypeface(tf);
 
 	@Override
 	public void onBackPressed() {
@@ -101,12 +96,7 @@ public class StartupActivity extends AppCompatActivity
 				this, drawer, top_bar, R.string.open, R.string.close);
 		drawer.setDrawerListener(toggle);
 		toggle.syncState();
-		txtTitle.setTypeface(bYekan);
-		txtDate.setTypeface(bYekan);
-		ageCalc.setTypeface(bYekan);
-		txtToGrg.setTypeface(bYekan);
-		txtToJalali.setTypeface(bYekan);
-		txtToShow.setTypeface(bYekan);
+		ButterKnife.apply(textViews,SET_FONT,bYekan);
 		new Timer().scheduleAtFixedRate(new TimerTask()
 		{
 			@Override
@@ -166,7 +156,7 @@ public class StartupActivity extends AppCompatActivity
 		{
 			@Override
 			public void run() {
-				txtDate.setText(number2persian(new PersianDateFormat(pattern).format(new PersianDate())));
+				textViews.get(1).setText(number2persian(new PersianDateFormat(pattern).format(new PersianDate())));
 			}
 		});
 	}
