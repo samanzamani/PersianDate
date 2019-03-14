@@ -5,11 +5,11 @@
               android:layout_height="match_parent"
               android:layout_width="match_parent"
               android:orientation="vertical" android:layoutDirection="rtl">
-	<android.support.design.widget.AppBarLayout
+	<com.google.android.material.appbar.AppBarLayout
 			android:id="@+id/appbar"
 			android:layout_width="match_parent"
 			android:layout_height="?attr/actionBarSize">
-		<android.support.v7.widget.Toolbar
+		<androidx.appcompat.widget.Toolbar
 				android:id="@+id/top_bar"
 				android:layout_width="match_parent"
 				android:layoutDirection="rtl"
@@ -23,9 +23,9 @@
 					android:textSize="14sp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content" android:layout_weight="1"/>
-		</android.support.v7.widget.Toolbar>
-	</android.support.design.widget.AppBarLayout>
-	<android.support.v4.widget.DrawerLayout
+		</androidx.appcompat.widget.Toolbar>
+	</com.google.android.material.appbar.AppBarLayout>
+	<androidx.drawerlayout.widget.DrawerLayout
 			xmlns:android="http://schemas.android.com/apk/res/android"
 			xmlns:app="http://schemas.android.com/apk/res-auto"
 			xmlns:tools="http://schemas.android.com/tools"
@@ -55,7 +55,7 @@
 						android:background="#ffffff"
 						android:layout_marginTop="24dp"
 						android:layout_width="match_parent" android:layout_height="wrap_content">
-					<android.support.v7.widget.AppCompatSpinner
+					<androidx.appcompat.widget.AppCompatSpinner
 							android:id="@+id/spn_format"
 							android:layout_width="0dp"
 							android:paddingEnd="16dp"
@@ -73,7 +73,7 @@
 			           android:layout_gravity="bottom"
 			           android:id="@+id/img_forg"/>
 		</LinearLayout>
-		<android.support.design.widget.NavigationView
+		<com.google.android.material.navigation.NavigationView
 				android:id="@+id/nav_view"
 				android:layout_width="wrap_content"
 				app:itemTextColor="#000"
@@ -122,7 +122,7 @@
 						android:textSize="16sp"
 				/>
 			</LinearLayout>
-		</android.support.design.widget.NavigationView>
+		</com.google.android.material.navigation.NavigationView>
 
-	</android.support.v4.widget.DrawerLayout>
+	</androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

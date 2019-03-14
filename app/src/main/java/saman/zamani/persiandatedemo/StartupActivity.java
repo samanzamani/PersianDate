@@ -6,14 +6,15 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatSpinner;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.navigation.NavigationView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -21,13 +22,19 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import butterknife.BindFont;
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import java.text.ParseException;
-import java.util.Arrays;
+
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import butterknife.Setter;
+import butterknife.ViewCollections;
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;
 
@@ -38,29 +45,22 @@ import saman.zamani.persiandate.PersianDateFormat;
 public class StartupActivity extends AppCompatActivity
 {
 	private String[] displayFormat = {"فرمت نمایش را انتخاب کنید","Y/m/d","l j F Y \n H:i:s","j F y","z روز از سال","s","H:i","l w:i:s"};
-	private Typeface bYekan;
 	Handler h = new Handler();
 	private String pattern = "l j F Y \n H:i:s";
+	@BindFont(R.font.byekan)
+	Typeface bYekan;
 	@BindView(R.id.drawer_layout)
 	DrawerLayout drawer;
 	@BindView(R.id.nav_view)
 	NavigationView navView;
 	@BindView(R.id.top_bar)
 	Toolbar top_bar;
-	@BindView(R.id.txt_title)
-	TextView txtTitle;
-	@BindView(R.id.txt_date)
-	TextView txtDate;
 	@BindView(R.id.spn_format)
 	AppCompatSpinner spnFormat;
-	@BindView(R.id.txt_to_jalali)
-	TextView txtToJalali;
-	@BindView(R.id.txt_to_grg)
-	TextView txtToGrg;
-	@BindView(R.id.ageCalc)
-	TextView ageCalc;
-	@BindView(R.id.txt_to_show)
-	TextView txtToShow;
+	@BindViews({R.id.txt_title,R.id.txt_date,R.id.txt_to_jalali,R.id.txt_to_grg,R.id.ageCalc,R.id.txt_to_show})
+	List<TextView> textViews;
+
+	final Setter<TextView, Typeface> SET_FONT = (view, tf, index) -> view.setTypeface(tf);
 
 	@Override
 	public void onBackPressed() {
@@ -91,7 +91,6 @@ public class StartupActivity extends AppCompatActivity
 //		Log.i("LOG","Year is:" + pdate.startOfDay().getGrgYear() + " month is: " + pdate.startOfDay().getGrgMonth() + " day is :" + pdate.startOfDay().getGrgDay());
 		Log.i("LOG","---------------$$$------------------");
 		ButterKnife.bind(this);
-		bYekan = Typeface.createFromAsset(this.getAssets(), "byekan.ttf");
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");
@@ -100,12 +99,7 @@ public class StartupActivity extends AppCompatActivity
 				this, drawer, top_bar, R.string.open, R.string.close);
 		drawer.setDrawerListener(toggle);
 		toggle.syncState();
-		txtTitle.setTypeface(bYekan);
-		txtDate.setTypeface(bYekan);
-		ageCalc.setTypeface(bYekan);
-		txtToGrg.setTypeface(bYekan);
-		txtToJalali.setTypeface(bYekan);
-		txtToShow.setTypeface(bYekan);
+		ViewCollections.set(textViews,SET_FONT,bYekan);
 		new Timer().scheduleAtFixedRate(new TimerTask()
 		{
 			@Override
@@ -165,7 +159,7 @@ public class StartupActivity extends AppCompatActivity
 		{
 			@Override
 			public void run() {
-				txtDate.setText(number2persian(new PersianDateFormat(pattern).format(new PersianDate())));
+				textViews.get(1).setText(number2persian(new PersianDateFormat(pattern).format(new PersianDate())));
 			}
 		});
 	}
