@@ -29,6 +29,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -75,21 +76,6 @@ public class StartupActivity extends AppCompatActivity
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
-		PersianDate pdate = new PersianDate();
-		pdate.setShYear(1408).setShMonth(12);
-//		Log.i("LOG","---------------$$$------------------");
-//		Log.i("LOG","String:" + Arrays.toString(pdate.toJalali(2028, 1, 1)));
-//		Log.i("LOG","inv String:" + Arrays.toString(pdate.toGregorian(1407, 10, 12)));
-//		Log.i("LOG","Year is:" + pdate.getShYear());
-		Log.i("LOG","---------------$$$------------------");
-		Log.i("LOG","Year is:" + pdate.startOfDay().getGrgYear() + " month is: " + pdate.startOfDay().getGrgMonth() + " day is :" + pdate.startOfDay().getGrgDay());
-		Log.i("LOG",""+pdate.isLeap());
-//		Log.i("LOG","---------------$$$------------------");
-//		Log.i("LOG","String:" + Arrays.toString(pdate.toJalali(2029, 1, 1)));
-//		Log.i("LOG","inv String:" + Arrays.toString(pdate.toGregorian(1407, 10, 12)));
-//		Log.i("LOG","Year is:" + pdate.getShYear());
-//		Log.i("LOG","Year is:" + pdate.startOfDay().getGrgYear() + " month is: " + pdate.startOfDay().getGrgMonth() + " day is :" + pdate.startOfDay().getGrgDay());
-		Log.i("LOG","---------------$$$------------------");
 		ButterKnife.bind(this);
 		//toolbar
 		setSupportActionBar(top_bar);
@@ -97,7 +83,7 @@ public class StartupActivity extends AppCompatActivity
 		setSupportActionBar(top_bar);
 		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
 				this, drawer, top_bar, R.string.open, R.string.close);
-		drawer.setDrawerListener(toggle);
+		drawer.addDrawerListener(toggle);
 		toggle.syncState();
 		ViewCollections.set(textViews,SET_FONT,bYekan);
 		new Timer().scheduleAtFixedRate(new TimerTask()
@@ -194,7 +180,7 @@ public class StartupActivity extends AppCompatActivity
 	}
 
 	@OnClick(R.id.img_forg)
-	void imgForg() {
+	void imgFork() {
 		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/samanzamani/PersianDate"));
 		startActivity(browserIntent);
 	}

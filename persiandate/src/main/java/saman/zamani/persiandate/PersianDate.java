@@ -1,9 +1,9 @@
 package saman.zamani.persiandate;
 
-import android.util.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 /**
  * Created by Saman on 3/29/2017 AD.
@@ -12,7 +12,7 @@ import java.util.Date;
 public class PersianDate
 {
 	/*----- Define Variable ---*/
-	private Long timeInMiliSecond;
+	private Long timeInMilliSecond;
 	public static final int FARVARDIN = 1;
 	public static final int ORDIBEHEST = 2;
 	public static final int KHORDAD = 3;
@@ -45,22 +45,22 @@ public class PersianDate
 	 * Constractou
 	 */
 	public PersianDate() {
-		this.timeInMiliSecond = new Date().getTime();
+		this.timeInMilliSecond = new Date().getTime();
 		this.changeTime();
 	}
 
 	/**
 	 * Constractou
 	 */
-	public PersianDate(Long timeInMiliSecond) {
-		this.timeInMiliSecond = timeInMiliSecond;
+	public PersianDate(Long timeInMilliSecond) {
+		this.timeInMilliSecond = timeInMilliSecond;
 		this.changeTime();
 	}
 	/**
 	 * Constractou
 	 */
 	public PersianDate(Date date) {
-		this.timeInMiliSecond = date.getTime();
+		this.timeInMilliSecond = date.getTime();
 		this.changeTime();
 	}
 
@@ -276,7 +276,7 @@ public class PersianDate
 		Date date = null;
 		try{
 			date = format.parse(dtStart);
-			this.timeInMiliSecond = date.getTime();
+			this.timeInMilliSecond = date.getTime();
 		}catch(ParseException e){
 			e.printStackTrace();
 		}
@@ -288,7 +288,7 @@ public class PersianDate
 	 * @return Value of time in mile
 	 */
 	public Long getTime() {
-		return this.timeInMiliSecond;
+		return this.timeInMilliSecond;
 	}
 
 	/**
@@ -311,7 +311,7 @@ public class PersianDate
 	}
 
 	/**
-	 * Check custome year is leap
+	 * Check custom year is leap
 	 *
 	 * @param year int year
 	 * @return true or false
@@ -345,8 +345,8 @@ public class PersianDate
 	/**
 	 * Check static is leap year for Jalali Date
 	 *
-	 * @param year
-	 * @return
+	 * @param year Jalali year
+	 * @return true if year is leap
 	 */
 	public static boolean isJalaliLeap(int year){
 		return (new PersianDate().isLeap(year));
@@ -388,6 +388,9 @@ public class PersianDate
 			hshElapsed = grgElapsed - XmasToNorooz;
 			hshLeap = this.isLeap(hshYear);
 		}
+		if(year >= 2029 && (year-2029)%4 == 0){
+			hshElapsed++;
+		}
 		for(int i = 1; i <= 12; i++){
 			if(hshSumOfDays[(hshLeap ? 1 : 0)][i] >= hshElapsed){
 				hshMonth = i;
@@ -424,7 +427,8 @@ public class PersianDate
 			hshLeap = this.isLeap(year - 1);
 			grgElapsed = hshElapsed + 79 + (hshLeap ? 1 : 0) - (grgIsLeap(grgYear - 1) ? 1 : 0);
 		}
-
+		if(grgYear >= 2030 && (grgYear-2030)%4 == 0)
+			grgElapsed--;
 		for(int i = 1; i <= 12; i++){
 			if(grgSumOfDays[grgLeap ? 1 : 0][i] >= grgElapsed){
 				grgMonth = i;
@@ -442,30 +446,29 @@ public class PersianDate
 	 * @return
 	 */
 	public int dayOfWeek() {
-		return this.dayOfWeek(this.getShYear(), this.getShMonth(), this.getShDay());
+		return this.dayOfWeek(this);
 	}
 
 	/**
-	 * cal day of the week
+	 * Get day of week from PersianDate object
 	 *
-	 * @param hshYear
-	 * @param hshMonth
-	 * @param hshDay
+	 * @param date
 	 * @return
 	 */
-	public int dayOfWeek(int hshYear, int hshMonth, int hshDay) {
-		int value;
-		value = hshYear - 1376 + hshSumOfDays[0][hshMonth - 1] + hshDay - 1;
+	public int dayOfWeek(PersianDate date) {
+		return this.dayOfWeek(date.toDate());
+	}
 
-		for(int i = 1380; i < hshYear; i++)
-			if(this.isLeap(i)) value++;
-		for(int i = hshYear; i < 1380; i++)
-			if(this.isLeap(i)) value--;
-
-		value = value % 7;
-		if(value < 0) value = value + 7;
-
-		return (value);
+	/**
+	 * Get day of week from Date object
+	 *
+	 * @param date
+	 * @return
+	 */
+	public int dayOfWeek(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		return cal.get(Calendar.DAY_OF_WEEK);
 	}
 
 	/**
@@ -493,19 +496,17 @@ public class PersianDate
 	 * @return
 	 */
 	public String dayName() {
-		return this.dayName(this.getShYear(), this.getShMonth(), this.getShDay());
+		return this.dayName(this);
 	}
 
 	/**
-	 * Return day name
+	 * Get Day Name
 	 *
-	 * @param hshYear  Year
-	 * @param hshMonth Month
-	 * @param hshDay   Day
+	 * @param date
 	 * @return
 	 */
-	public String dayName(int hshYear, int hshMonth, int hshDay) {
-		return this.dayNames[this.dayOfWeek(hshYear, hshMonth, hshDay)];
+	public String dayName(PersianDate date) {
+		return this.dayNames[this.dayOfWeek(date)];
 	}
 
 	/**
@@ -574,8 +575,8 @@ public class PersianDate
 	 * @return
 	 */
 	public PersianDate addDate(int year ,int month,int day,int hour,int minute,int second){
-		this.timeInMiliSecond += (((year*365)+(month*30)+day)*24*3_600*1_000);
-		this.timeInMiliSecond += ((second + (hour*3600) + (minute*60)) * 1_000);
+		this.timeInMilliSecond += (((year*365)+(month*30)+day)*24*3_600*1_000);
+		this.timeInMilliSecond += ((second + (hour*3600) + (minute*60)) * 1_000);
 		this.changeTime();
 		return this;
 	}
@@ -613,7 +614,7 @@ public class PersianDate
 	 * @return
 	 */
 	public Boolean after(PersianDate dateInput){
-		return (this.timeInMiliSecond < dateInput.getTime());
+		return (this.timeInMilliSecond < dateInput.getTime());
 	}
 	/**
 	 * copare to data
@@ -631,7 +632,7 @@ public class PersianDate
 	 * @return
 	 */
 	public Boolean equals(PersianDate dateInput){
-		return (this.timeInMiliSecond == dateInput.getTime());
+		return (this.timeInMilliSecond == dateInput.getTime());
 	}
 	/**
 	 * compare 2 data
@@ -640,7 +641,7 @@ public class PersianDate
 	 * @return  0 = equal,1=data1 > anotherDate,-1=data1 > anotherDate
 	 */
 	public int compareTo(PersianDate anotherDate) {
-		return (this.timeInMiliSecond <anotherDate.getTime() ? -1 : (this.timeInMiliSecond ==anotherDate.getTime() ? 0 : 1));
+		return (this.timeInMilliSecond <anotherDate.getTime() ? -1 : (this.timeInMilliSecond ==anotherDate.getTime() ? 0 : 1));
 	}
 	/**
 	 * Return Day in difreent date
@@ -648,7 +649,7 @@ public class PersianDate
 	 * @return
 	 */
 	public long getDayuntilToday(){
-		return this.getDayuntilToday(new PersianDate());
+		return this.getDayUntilToday(new PersianDate());
 	}
 	/**
 	 * Return difreent just day in copare 2 date
@@ -656,7 +657,7 @@ public class PersianDate
 	 * @param date date for compare
 	 * @return
 	 */
-	public long getDayuntilToday(PersianDate date){
+	public long getDayUntilToday(PersianDate date){
 		long[] ret =  this.untilToday(date);
 		return ret[0];
 	}
@@ -679,7 +680,7 @@ public class PersianDate
 		long minutesInMilli = secondsInMilli * 60;
 		long hoursInMilli = minutesInMilli * 60;
 		long daysInMilli = hoursInMilli * 24;
-		long different = Math.abs(this.timeInMiliSecond -date.getTime());
+		long different = Math.abs(this.timeInMilliSecond -date.getTime());
 
 		long elapsedDays = different / daysInMilli;
 		different = different % daysInMilli;
@@ -704,7 +705,7 @@ public class PersianDate
 	 * @return
 	 */
 	public Date toDate() {
-		return new Date(this.timeInMiliSecond);
+		return new Date(this.timeInMilliSecond);
 	}
 
 	/**
@@ -724,9 +725,9 @@ public class PersianDate
 	 * initi with time in milesecond
 	 */
 	private void changeTime(){
-		this.initGrgDate(Integer.parseInt(new SimpleDateFormat("yyyy").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("MM").format(this.timeInMiliSecond)),
-				Integer.parseInt(new SimpleDateFormat("dd").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("HH").format(this.timeInMiliSecond)),
-				Integer.parseInt(new SimpleDateFormat("mm").format(this.timeInMiliSecond)), Integer.parseInt(new SimpleDateFormat("ss").format(this.timeInMiliSecond)));
+		this.initGrgDate(Integer.parseInt(new SimpleDateFormat("yyyy").format(this.timeInMilliSecond)), Integer.parseInt(new SimpleDateFormat("MM").format(this.timeInMilliSecond)),
+				Integer.parseInt(new SimpleDateFormat("dd").format(this.timeInMilliSecond)), Integer.parseInt(new SimpleDateFormat("HH").format(this.timeInMilliSecond)),
+				Integer.parseInt(new SimpleDateFormat("mm").format(this.timeInMilliSecond)), Integer.parseInt(new SimpleDateFormat("ss").format(this.timeInMilliSecond)));
 	}
 
 	/**
