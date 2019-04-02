@@ -6,18 +6,22 @@
 [ ![Download](https://api.bintray.com/packages/mrnuke/maven/PersianDate/images/download.svg) ](https://bintray.com/mrnuke/maven/PersianDate/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
 [![Method and size](https://img.shields.io/badge/Methods%20and%20size-100%20|%2011%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.samanzamani.persiandate%3APersianDate%3A0.1)
-# Known issues
-* مشکلی در تبدیل تاریخ بعد از سال ۲۰۲۹ میلادی به شمسی وجود داره که در حال بررسی و رفع مشکل هستم.
-* مشکل محاسبه سال کبیسه برطرف شده که در اپدیت بعدی قابل استفاده خواهد بود.
+# Important update
+If you use a version below 0.5 you should upgrade your library to version 0.5 or higher.
+There will be an error in the version before 0.5 in the calculation of the date after 2029.
 # About
 This is simple android calender converter for Convert Jalali date to Gregorian date.
 # Gradle
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:0.4'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:0.5'
 }
 ```
 # what's new
+### version 0.5
+* Solved leap Jalali leap year [#16](https://github.com/samanzamani/PersianDate/issues/16)
+* Change method `WeekOfDay` [Detail](https://github.com/samanzamani/PersianDate/commit/c23b65151a1c2c845005f82e53572ec2014f2c97#diff-d6d92c64f48a18497720ace8b21b0dbd)
+* bug fixed
 ### version 0.4
 * Add `A` and `a` for format `ب.ظ|ق.ظ` and `قبل از ظهر|بعد از ظهر` in  `PersianDateFormat` class [#10](https://github.com/samanzamani/PersianDate/issues/10)
 * Add new methods in `PersianDate` class
@@ -28,14 +32,8 @@ dependencies {
   * `isMidNight()` => return a boolean for AM/PM (Boolean)
   * `getShortTimeOfTheDay()` => return `ب.ظ`/`ق.ظ` (String)
   * `getTimeOfTheDay()` => return `بعد از ظهر`/`قبل از ظهر` (String)
-### version 0.3
-* Add new static method for quick form. since version 0.3 you can use `PersianDateFormat.format(persianDateObject,pattern)` for display date. The pattern can be NULL.
-* Add `toString` method for `PersianDate` class [#5](https://github.com/samanzamani/PersianDate/issues/5)
 
-### version 0.2
-* Correction `TimeInSecond` variable name [#2](https://github.com/samanzamani/PersianDate/issues/2)
-* Add two new static method for check both Jalali and Gregorian leap year [#3](https://github.com/samanzamani/PersianDate/issues/3)
-* Change timestamp when using setter methods [#4](https://github.com/samanzamani/PersianDate/issues/4)
+
 ## Let's convert some date :)
 
 ### Step 1
