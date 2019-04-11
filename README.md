@@ -61,8 +61,8 @@ pdformater.format(pdate);
 | setShYear(int year) |    Set Jalali year |
 | setShMonth(int month) |    Set Jalali month |
 | setShDay(int day) |    Set Jalali day |
-| setGrgYear(int day) |    Set Gregorian year |
-| setGrgMonth(int day) |    Set Gregorian month |
+| setGrgYear(int year) |    Set Gregorian year |
+| setGrgMonth(int month) |    Set Gregorian month |
 | setGrgDay(int day) |    Set Gregorian day |
 | setHour(int hour) |    Set hour of day |
 | setMinute(int minute) |    Set minute of day |
