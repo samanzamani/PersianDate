@@ -468,7 +468,8 @@ public class PersianDate
 	public int dayOfWeek(Date date) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		return cal.get(Calendar.DAY_OF_WEEK);
+		if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) return 0;
+		return (cal.get(Calendar.DAY_OF_WEEK));
 	}
 
 	/**

@@ -14,24 +14,18 @@ This is simple android calender converter for Convert Jalali date to Gregorian d
 # Gradle
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:0.5'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:0.6'
 }
 ```
 # what's new
+
+### version 0.6
+* Reported bug fixed [#19](https://github.com/samanzamani/PersianDate/issues/19)
+
 ### version 0.5
 * Solved leap Jalali leap year [#16](https://github.com/samanzamani/PersianDate/issues/16)
 * Change method `WeekOfDay` [Detail](https://github.com/samanzamani/PersianDate/commit/c23b65151a1c2c845005f82e53572ec2014f2c97#diff-d6d92c64f48a18497720ace8b21b0dbd)
 * bug fixed
-### version 0.4
-* Add `A` and `a` for format `ب.ظ|ق.ظ` and `قبل از ظهر|بعد از ظهر` in  `PersianDateFormat` class [#10](https://github.com/samanzamani/PersianDate/issues/10)
-* Add new methods in `PersianDate` class
-  * `today()` => return today date ((object)  PersianDate)
-  * `tomorrow()` => return tomorrow date ((object)  PersianDate)
-  * `startOfDay()` => return date start of day ((object)  PersianDate)
-  * `endOfDay()` => return date end of day ((object) PersianDate)
-  * `isMidNight()` => return a boolean for AM/PM (Boolean)
-  * `getShortTimeOfTheDay()` => return `ب.ظ`/`ق.ظ` (String)
-  * `getTimeOfTheDay()` => return `بعد از ظهر`/`قبل از ظهر` (String)
 
 
 ## Let's convert some date :)
