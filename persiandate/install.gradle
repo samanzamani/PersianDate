@@ -11,7 +11,7 @@ ext {
     siteUrl = 'https://github.com/samanzamani/PersianDate'
     gitUrl = 'https://github.com/samanzamani/PersianDate.git'
 
-    libraryVersion = '0.6'
+    libraryVersion = '0.7'
 
     developerId = 'zamani'
     developerName = 'Saman Zamani'

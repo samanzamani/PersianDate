@@ -565,7 +565,7 @@ public class PersianDate
 	}
 
 	/**
-	 * add to date
+	 * add date
 	 *
 	 * @param year Number of Year you want add
 	 * @param month Number of month you want add
@@ -573,10 +573,30 @@ public class PersianDate
 	 * @param hour Number of hour you want add
 	 * @param minute Number of minute you want add
 	 * @param second Number of second you want add
-	 * @return
+	 * @return new date
 	 */
-	public PersianDate addDate(int year ,int month,int day,int hour,int minute,int second){
-		this.timeInMilliSecond += (((year*365)+(month*30)+day)*24*3_600*1_000);
+	public PersianDate addDate(long year ,long month,long day,long hour,long minute,long second){
+		if(month >= 12){
+			year += Math.round(month / 12);
+			month = month%12;
+		}
+		for (long i = (year-1); i >= 0; i--) {
+			if(this.isLeap(this.getShYear()+(int) i)){
+				day += 366;
+			}else{
+				day += 365;
+			}
+		}
+		for (long i = (month-1); i >= 0; i--) {
+			int monthTmp = this.getShMonth() + (int) i;
+			int yearTmp = this.getShYear();
+			if(monthTmp > 12){
+				monthTmp -=12;
+				yearTmp++;
+			}
+			day += this.getMonthLength(yearTmp,monthTmp);
+		}
+		this.timeInMilliSecond += (day*24*3_600*1_000);
 		this.timeInMilliSecond += ((second + (hour*3600) + (minute*60)) * 1_000);
 		this.changeTime();
 		return this;
@@ -590,20 +610,20 @@ public class PersianDate
 	 * @param day Number of day you want add
 	 * @return
 	 */
-	public PersianDate addDate(int year ,int month,int day){
+	public PersianDate addDate(long year ,long month,long day){
 		return this.addDate(year,month,day,0,0,0);
 	}
 
-	public PersianDate addYear(int year){
-		return this.addDate(year,0,0,0,0,0);
+	public PersianDate addYear(long year){
+		return this.addDate(year,0,0L,0,0,0);
 	}
-	public PersianDate addMonth(int month){
-		return this.addDate(0,month,0,0,0,0);
+	public PersianDate addMonth(long month){
+		return this.addDate(0,month, 0L,0,0,0);
 	}
-	public PersianDate addWeek(int week){
+	public PersianDate addWeek(long week){
 		return this.addDate(0,0,(week*7),0,0,0);
 	}
-	public PersianDate addDay(int day){
+	public PersianDate addDay(long day){
 		return this.addDate(0,0,day,0,0,0);
 	}
 
@@ -843,5 +863,45 @@ public class PersianDate
 	 */
 	public String getTimeOfTheDay(PersianDate persianDate){
 		return (persianDate.isMidNight()) ? AM_NAME : PM_NAME;
+	}
+
+	/**
+	 * Get number of days in month
+	 *
+	 * @param year Jalali year
+	 * @param month Jalali month
+	 * @return number of days in month
+	 */
+	public Integer getMonthLength(Integer year,Integer month){
+		if(month <= 6){
+			return 31;
+		}else if(month <= 11){
+			return 30;
+		}else{
+			if(this.isLeap(year)){
+				return 30;
+			}else{
+				return 29;
+			}
+		}
+	}
+
+	/**
+	 * Get number of days in month
+	 *
+	 * @param persianDate persianDate object
+	 * @return number of days in month
+	 */
+	public Integer getMonthLength(PersianDate persianDate){
+		return this.getMonthLength(persianDate.getShYear(),persianDate.getShMonth());
+	}
+
+	/**
+   * Get number of days in month
+	 *
+	 * @return number of days in month
+	 */
+	public Integer getMonthLength(){
+		return this.getMonthLength(this);
 	}
 }

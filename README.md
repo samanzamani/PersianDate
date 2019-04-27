@@ -14,18 +14,15 @@ This is simple android calender converter for Convert Jalali date to Gregorian d
 # Gradle
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:0.6'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:0.7'
 }
 ```
 # what's new
-
+### version 0.7
+* Fix addDate - addYear - addMonth methods [#20](https://github.com/samanzamani/PersianDate/issues/20)
+* add new method for calculate month length => `getMonthLength`
 ### version 0.6
 * Reported bug fixed [#19](https://github.com/samanzamani/PersianDate/issues/19)
-
-### version 0.5
-* Solved leap Jalali leap year [#16](https://github.com/samanzamani/PersianDate/issues/16)
-* Change method `WeekOfDay` [Detail](https://github.com/samanzamani/PersianDate/commit/c23b65151a1c2c845005f82e53572ec2014f2c97#diff-d6d92c64f48a18497720ace8b21b0dbd)
-* bug fixed
 
 
 ## Let's convert some date :)

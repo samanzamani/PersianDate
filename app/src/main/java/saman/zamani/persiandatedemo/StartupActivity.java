@@ -77,6 +77,9 @@ public class StartupActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
 		ButterKnife.bind(this);
+		PersianDate persianDate = new PersianDate();
+		Log.i("LOG","Date is:" + persianDate.toString());
+		Log.i("LOG","Date is:" + persianDate.addYear(15).toString());
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");

@@ -5,7 +5,7 @@ publish {
     repoName = 'maven'
     groupId = 'com.github.samanzamani.persiandate'
     artifactId = 'PersianDate'
-    publishVersion = '0.6'
+    publishVersion = '0.7'
     desc = 'A simple jalali date converter'
     website = 'https://github.com/samanzamani/PersianDate'
 }
