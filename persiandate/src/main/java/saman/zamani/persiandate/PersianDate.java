@@ -71,6 +71,9 @@ public class PersianDate
 	private int[][] hshSumOfDays = {{0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 365}, {0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 366}};
 	private String[] dayNames = {"شنبه", "یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه"};
 	private String[] monthNames = {"فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"};
+	private String[] AfghanMonthNames = {"حمل", "ثور", "جوزا", "سرطان", "اسد", "سنبله", "میزان", "عقرب", "قوس", "جدی", "دلو", "حوت"};
+	private String[] KurdishMonthNames = {"جیژنان", "گولان", "زه ردان", "په رپه ر", "گه لاویژ", "نوخشان", "به ران", "خه زان", "ساران", "بفران", "به ندان", "رمشان"};
+	private String[] PashtoMonthNames = {"وری", "غويی", "غبرګولی", "چنګاښ", "زمری", "وږی", "تله", "لړم", "ليندۍ", "مرغومی", "سلواغه", "كب"};
 
 	/*---- Setter And getter ----*/
 	public int getShYear() {
@@ -427,8 +430,12 @@ public class PersianDate
 			hshLeap = this.isLeap(year - 1);
 			grgElapsed = hshElapsed + 79 + (hshLeap ? 1 : 0) - (grgIsLeap(grgYear - 1) ? 1 : 0);
 		}
-		if(grgYear >= 2030 && (grgYear-2030)%4 == 0)
+		if(grgYear >= 2030 && (grgYear-2030)%4 == 0){
 			grgElapsed--;
+		}
+		if(grgYear == 1989){
+			grgElapsed++;
+		}
 		for(int i = 1; i <= 12; i++){
 			if(grgSumOfDays[grgLeap ? 1 : 0][i] >= grgElapsed){
 				grgMonth = i;
@@ -436,14 +443,13 @@ public class PersianDate
 				break;
 			}
 		}
-		int[] ret = {grgYear, grgMonth, grgDay};
-		return ret;
+		return new int[]{grgYear, grgMonth, grgDay};
 	}
 
 	/**
 	 * calc day of week
 	 *
-	 * @return
+	 * @return int
 	 */
 	public int dayOfWeek() {
 		return this.dayOfWeek(this);
@@ -452,8 +458,8 @@ public class PersianDate
 	/**
 	 * Get day of week from PersianDate object
 	 *
-	 * @param date
-	 * @return
+	 * @param PersianDate persianDate
+	 * @return int
 	 */
 	public int dayOfWeek(PersianDate date) {
 		return this.dayOfWeek(date.toDate());
@@ -489,6 +495,63 @@ public class PersianDate
 	 */
 	public String monthName(int month) {
 		return this.monthNames[month - 1];
+	}
+
+	/**
+	 * Get month name in Afghan
+	 *
+	 * @param month
+	 * @return
+	 */
+	public String AfghanMonthName(int month) {
+		return this.AfghanMonthNames[month - 1];
+	}
+
+	/**
+	 * Get current date Afghan month name
+	 *
+	 * @return
+	 */
+	public String AfghanMonthName() {
+		return this.AfghanMonthName(this.getShMonth());
+	}
+
+	/**
+	 * Get month name in Kurdish
+	 *
+	 * @param month
+	 * @return
+	 */
+	public String KurdishMonthName(int month) {
+		return this.KurdishMonthNames[month - 1];
+	}
+
+	/**
+	 * Get current date Kurdish month name
+	 *
+	 * @return
+	 */
+	public String KurdishMonthName() {
+		return this.KurdishMonthName(this.getShMonth());
+	}
+
+	/**
+	 * Get month name in Pashto
+	 *
+	 * @param month
+	 * @return
+	 */
+	public String PashtoMonthName(int month) {
+		return this.PashtoMonthNames[month - 1];
+	}
+
+	/**
+	 * Get current date Pashto month name
+	 *
+	 * @return
+	 */
+	public String PashtoMonthName() {
+		return this.PashtoMonthName(this.getShMonth());
 	}
 
 	/**

@@ -29,8 +29,10 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -76,10 +78,10 @@ public class StartupActivity extends AppCompatActivity
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
+		PersianDate pDate = new PersianDate();
+		pDate.initJalaliDate(1368,PersianDate.DAY,5);
+		Log.i("LOG", new SimpleDateFormat("yyyy-MM-dd hh:mm:ss",new Locale("fa_IR")).format(pDate.toDate()));
 		ButterKnife.bind(this);
-		PersianDate persianDate = new PersianDate();
-		Log.i("LOG","Date is:" + persianDate.toString());
-		Log.i("LOG","Date is:" + persianDate.addYear(15).toString());
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");

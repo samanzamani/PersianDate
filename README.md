@@ -18,11 +18,13 @@ dependencies {
 }
 ```
 # what's new
+### version 0.8
+* Fix date formatting in year 1989 [#29](https://github.com/samanzamani/PersianDate/issues/29)
+* add three new method to get month name in `Afghan`,`Kurdish` and `Pashto` name and from version 0.8 you can use `X`,`C` and `E` to display month name in `Afghan`,`Kurdish` and `Pashto` in `PersianDateFormat` [#28](https://github.com/samanzamani/PersianDate/issues/28)
+
 ### version 0.7
 * Fix addDate - addYear - addMonth methods [#20](https://github.com/samanzamani/PersianDate/issues/20)
 * add new method for calculate month length => `getMonthLength`
-### version 0.6
-* Reported bug fixed [#19](https://github.com/samanzamani/PersianDate/issues/19)
 
 
 ## Let's convert some date :)

@@ -15,20 +15,17 @@ public class PersianDateFormat {
   /**
    * Key for convert Date to String
    */
-  private String key[] = {"a","l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z","A",
-      "L"};
+  private String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y",
+      "z", "A",
+      "L","X","C","E"};
   private String pattern;
   /**
    * key_parse for convert String to PersianDate
    *
-   * yyyy = Year (1396)
-   * MM = month (02-12-...)
-   * dd = day (13-02-15-...)
-   * HH = Hour (13-02-15-...)
-   * mm = minutes (13-02-15-...)
-   * ss = second (13-02-15-...)
+   * yyyy = Year (1396) MM = month (02-12-...) dd = day (13-02-15-...) HH = Hour (13-02-15-...) mm =
+   * minutes (13-02-15-...) ss = second (13-02-15-...)
    */
-  private String key_parse[] = {"yyyy", "MM", "dd", "HH", "mm", "ss"};
+  private String[] key_parse = {"yyyy", "MM", "dd", "HH", "mm", "ss"};
 
   /**
    * Constracutor
@@ -46,8 +43,9 @@ public class PersianDateFormat {
 
   public static String format(PersianDate date, String pattern) {
     if(pattern == null) pattern="l j F Y H:i:s";
-    String key[] = {"a","l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z","A" ,"L"};
-    String year2 = null;
+    String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z",
+        "A", "L","X","C","E"};
+    String year2;
     if (("" + date.getShYear()).length() == 2) {
       year2 = "" + date.getShYear();
     } else if (("" + date.getShYear()).length() == 3) {
@@ -55,14 +53,20 @@ public class PersianDateFormat {
     } else {
       year2 = ("" + date.getShYear()).substring(2, 4);
     }
-    String values[] = {date.getShortTimeOfTheDay(),date.dayName(), "" + date.getShDay(), date.monthName(),
+    String[] values = {date.getShortTimeOfTheDay(), date.dayName(), "" + date.getShDay(),
+        date.monthName(),
         "" + date.getShYear(),
         textNumberFilterStatic("" + date.getHour()), textNumberFilterStatic("" + date.getMinute()),
         textNumberFilterStatic("" + date.getSecond()),
         textNumberFilterStatic("" + date.getShDay()), "" + date.getHour(), "" + date.getShMonth(),
         textNumberFilterStatic("" + date.getShMonth()),
-        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(), date.getTimeOfTheDay(),
-        (date.isLeap() ? "1" : "0")};
+        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(),
+        date.getTimeOfTheDay(),
+        (date.isLeap() ? "1" : "0"),
+        date.AfghanMonthName(),
+        date.KurdishMonthName(),
+        date.PashtoMonthName()
+    };
     for (int i = 0; i < key.length; i++) {
       pattern = pattern.replace(key[i], values[i]);
     }
@@ -78,14 +82,20 @@ public class PersianDateFormat {
     } else {
       year2 = ("" + date.getShYear()).substring(2, 4);
     }
-    String values[] = {date.isMidNight() ? "ق.ظ" : "ب.ظ" ,date.dayName(), "" + date.getShDay(), date.monthName(),
+    String[] values = {date.isMidNight() ? "ق.ظ" : "ب.ظ", date.dayName(), "" + date.getShDay(),
+        date.monthName(),
         "" + date.getShYear(),
         this.textNumberFilter("" + date.getHour()), this.textNumberFilter("" + date.getMinute()),
         this.textNumberFilter("" + date.getSecond()),
         this.textNumberFilter("" + date.getShDay()), "" + date.getHour(), "" + date.getShMonth(),
         this.textNumberFilter("" + date.getShMonth()),
-        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(), date.getTimeOfTheDay(),
-        (date.isLeap() ? "1" : "0")};
+        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(),
+        date.getTimeOfTheDay(),
+        (date.isLeap() ? "1" : "0"),
+        date.AfghanMonthName(),
+        date.KurdishMonthName(),
+        date.PashtoMonthName()
+    };
     return this.stringUtils(this.pattern, this.key, values);
   }
 
