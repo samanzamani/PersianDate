@@ -14,7 +14,7 @@ This is simple android calender converter for Convert Jalali date to Gregorian d
 # Gradle
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:0.7'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:0.8'
 }
 ```
 # what's new
