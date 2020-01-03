@@ -78,9 +78,6 @@ public class StartupActivity extends AppCompatActivity
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
-		PersianDate pDate = new PersianDate();
-		pDate.initJalaliDate(1368,PersianDate.DAY,5);
-		Log.i("LOG", new SimpleDateFormat("yyyy-MM-dd hh:mm:ss",new Locale("fa_IR")).format(pDate.toDate()));
 		ButterKnife.bind(this);
 		//toolbar
 		setSupportActionBar(top_bar);
