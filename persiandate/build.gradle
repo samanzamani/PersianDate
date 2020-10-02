@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.panpf.bintray-publish'
 publish {
     userOrg = 'mrnuke'
     repoName = 'maven'
@@ -10,10 +10,10 @@ publish {
     website = 'https://github.com/samanzamani/PersianDate'
 }
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 12
         versionName "Alfa"
     }

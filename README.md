@@ -6,9 +6,8 @@
 [ ![Download](https://api.bintray.com/packages/mrnuke/maven/PersianDate/images/download.svg) ](https://bintray.com/mrnuke/maven/PersianDate/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
 [![Method and size](https://img.shields.io/badge/Methods%20and%20size-100%20|%2011%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.samanzamani.persiandate%3APersianDate%3A0.1)
-# ![attention](https://samanzamani.ir/wp-content/uploads/2019/04/warning.png)  Important update  ![attention](https://samanzamani.ir/wp-content/uploads/2019/04/warning.png)
-If you use a version below 0.5 you should upgrade your library to version 0.5 or higher.
-There will be an error in the version before 0.5 in the calculation of the date after 2029.
+# Update
+I'm going to release v0.9 as soon as possible with some bug fixing, so please send any problem or feature request. 
 # About
 This is simple android calender converter for Convert Jalali date to Gregorian date.
 # Gradle

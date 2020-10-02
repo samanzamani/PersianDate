@@ -5,9 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-/**
- * Created by Saman on 3/29/2017 AD.
- */
 
 public class PersianDate
 {
@@ -186,7 +183,7 @@ public class PersianDate
 	 * @param day    day in Grg
 	 * @param hour   hour
 	 * @param minute min
-	 * @param second secon
+	 * @param second second
 	 * @return
 	 */
 	public PersianDate initGrgDate(int year, int month, int day, int hour, int minute, int second) {
