@@ -371,8 +371,8 @@ public class PersianDate
 	 * @return a int[year][month][day] in jalali date
 	 */
 	public int[] toJalali(int year, int month, int day) {
-		int hshDay = 0;
-		int hshMonth = 0;
+		int hshDay = 1;
+		int hshMonth = 1;
 		int hshElapsed;
 		int hshYear = year - 621;
 		boolean grgLeap = this.grgIsLeap(year);
