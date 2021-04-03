@@ -37,7 +37,14 @@ public class PersianDate
 	private int hour;
 	private int minute;
 	private int second;
-
+	
+	enum Dialect {
+  		AFGHANI,
+		IRANIAN,
+  		KURDISH,
+  		PASHTO
+	}
+	
 	/**
 	 * Constractou
 	 */
@@ -480,8 +487,22 @@ public class PersianDate
 	 *
 	 * @return
 	 */
-	public String monthName() {
-		return this.monthName(this.getShMonth());
+	public String monthName(Dialect dialect) {
+		switch(dialect) {
+  			case AFGHANI:
+				return this.AfghanMonthName(this.getShMonth());
+    				break;
+  			case IRANIAN:
+    				return this.monthName(this.getShMonth());
+    				break;
+    			case KURDISH:
+        			return this.KurdishMonthName(this.getShMonth());
+        			break;
+			case PASHTO:
+				return this.PashtoMonthName(this.getShMonth());
+  			default:
+    				return this.monthName(this.getShMonth());
+		}
 	}
 
 	/**
@@ -490,8 +511,22 @@ public class PersianDate
 	 * @param month Month
 	 * @return
 	 */
-	public String monthName(int month) {
-		return this.monthNames[month - 1];
+	public String monthName(int month, Dialect dialect) {
+		switch(dialect) {
+  			case AFGHANI:
+				return this.AfghanMonthNames[month - 1];
+    				break;
+  			case IRANIAN:
+    				return this.monthNames[month - 1];
+    				break;
+    			case KURDISH:
+        			return this.KurdishMonthNames[month - 1];
+        			break;
+			case PASHTO:
+				return this.PashtoMonthNames[month - 1];
+  			default:
+    				return this.monthNames[month - 1];
+		}
 	}
 
 	/**
