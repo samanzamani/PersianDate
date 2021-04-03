@@ -501,11 +501,36 @@ public class PersianDate {
     return (cal.get(Calendar.DAY_OF_WEEK));
   }
 
-  /**
-   * return month name
-   *
-   * @return string
-   */
+	/**
+	 * Return list of month
+	 * @param dialect dialect
+	 * @return month names
+	 */
+	public String[] monthList(Dialect dialect) {
+  	switch (dialect){
+			case AFGHAN:
+				return this.AfghanMonthNames;
+			case KURDISH:
+				return this.KurdishMonthNames;
+			case PASHTO:
+				return this.PashtoMonthNames;
+			default:
+				return this.monthNames;
+		}
+	}
+	/**
+	 * Return list of month
+	 *
+	 * @return month names
+	 */
+	public String[] monthList() {
+  	return monthList(Dialect.IRANIAN);
+	}
+		/**
+     * return month name
+     *
+     * @return string
+     */
   public String monthName(Dialect dialect) {
     return monthName(this.getShMonth(),dialect);
   }
