@@ -3,7 +3,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 <br/>
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
-[![JitPack](https://jitpack.io/v/petarov/java-app-icons.svg)](https://jitpack.io/#samanzamani/PersianDate)
+[![](https://jitpack.io/v/samanzamani/PersianDate.svg)](https://jitpack.io/#samanzamani/PersianDate)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
 [![Method and size](https://img.shields.io/badge/Methods%20and%20size-100%20|%2011%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.samanzamani.persiandate%3APersianDate%3A0.1)
 
