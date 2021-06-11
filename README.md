@@ -33,7 +33,7 @@ dependencies {
 ```
 # what's new
 ### version 1.0
-* I will create wiki part for introduce new features.
+* I will create a wiki part to introduce new features.
 
 ### version 0.8
 * Fix date formatting in year 1989 [#29](https://github.com/samanzamani/PersianDate/issues/29)
