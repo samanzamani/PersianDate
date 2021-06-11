@@ -43,7 +43,7 @@ import saman.zamani.persiandate.PersianDateFormat;
 
 public class StartupActivity extends AppCompatActivity
 {
-	private String[] displayFormat = {"فرمت نمایش را انتخاب کنید","Y/m/d","l j F Y \n H:i:s","j F y","z روز از سال","s","H:i","l w:i:s"};
+	private final String[] displayFormat = {"فرمت نمایش را انتخاب کنید","Y/m/d","l j F Y \n H:i:s","j F y","z روز از سال","s","H:i","l w:i:s"};
 	Handler h = new Handler();
 	private String pattern = "l j F Y \n H:i:s";
 	@BindFont(R.font.byekan)
@@ -75,16 +75,10 @@ public class StartupActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
 		ButterKnife.bind(this);
-		PersianDate persianDate = new PersianDate();
-		persianDate.setShYear(1408);
-		persianDate.setShMonth(1);
-		persianDate.setShDay(1);
 
 //some lines of code
 
-		Log.i("LOG","Date is: " + PersianDateFormat.format(persianDate,null));
-//		PersianDate persianDate2 = new PersianDate(persianDate.getTime());
-//		Log.i("LOG","Date is" + PersianDateFormat.format(persianDate2,null));
+
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");

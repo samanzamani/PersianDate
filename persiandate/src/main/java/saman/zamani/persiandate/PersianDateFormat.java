@@ -1,13 +1,14 @@
 package saman.zamani.persiandate;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Saman on 3/31/2017 AD.
+ * Created by SamanZaman(saman.zamani1@gmail.com) on 3/31/2017 AD.
+ *
+ * Last update on Sunday, April 4, 2021
  */
 
 public class PersianDateFormat {
@@ -15,17 +16,17 @@ public class PersianDateFormat {
   /**
    * Key for convert Date to String
    */
-  private String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y",
+  private final String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y",
       "z", "A",
       "L","X","C","E"};
-  private String pattern;
+  private final String pattern;
   /**
    * key_parse for convert String to PersianDate
    *
    * yyyy = Year (1396) MM = month (02-12-...) dd = day (13-02-15-...) HH = Hour (13-02-15-...) mm =
    * minutes (13-02-15-...) ss = second (13-02-15-...)
    */
-  private String[] key_parse = {"yyyy", "MM", "dd", "HH", "mm", "ss"};
+  private final String[] key_parse = {"yyyy", "MM", "dd", "HH", "mm", "ss"};
 
   /**
    * Constracutor
@@ -74,7 +75,7 @@ public class PersianDateFormat {
   }
 
   public String format(PersianDate date) {
-    String year2 = null;
+    String year2;
     if (("" + date.getShYear()).length() == 2) {
       year2 = "" + date.getShYear();
     } else if (("" + date.getShYear()).length() == 3) {
@@ -136,12 +137,12 @@ public class PersianDateFormat {
       }
     }
     return new PersianDate()
-        .initJalaliDate(JalaliDate.get(0), JalaliDate.get(1), JalaliDate.get(2), JalaliDate.get(3),
-            JalaliDate.get(4), JalaliDate.get(5));
+        .initJalaliDate(JalaliDate.get(0), JalaliDate.get(1), JalaliDate.get(2), JalaliDate.get(4),
+            JalaliDate.get(3), JalaliDate.get(5));
   }
 
   /**
-   * Convert String Grg date to persiand date object
+   * Convert String Grg date to persian date object
    *
    * @param date date in String
    * @return PersianDate object

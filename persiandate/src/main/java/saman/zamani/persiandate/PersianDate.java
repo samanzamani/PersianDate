@@ -5,7 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
+/**
+ * Created by Saman Zaman(saman.zamani1@gmail.com) on 3/31/2017 AD.
+ *
+ * Last update on Monday, May 11, 2021
+ */
 public class PersianDate {
 
   /*----- Define Variable ---*/
@@ -37,6 +44,7 @@ public class PersianDate {
   private int hour;
   private int minute;
   private int second;
+  private Locale locale = Locale.getDefault();
 
   enum Dialect {
     AFGHAN,
@@ -50,7 +58,7 @@ public class PersianDate {
    */
   public PersianDate() {
     this.timeInMilliSecond = new Date().getTime();
-    this.changeTime();
+    this.init();
   }
 
   /**
@@ -58,7 +66,7 @@ public class PersianDate {
    */
   public PersianDate(Long timeInMilliSecond) {
     this.timeInMilliSecond = timeInMilliSecond;
-    this.changeTime();
+    this.init();
   }
 
   /**
@@ -66,18 +74,15 @@ public class PersianDate {
    */
   public PersianDate(Date date) {
     this.timeInMilliSecond = date.getTime();
-    this.changeTime();
+    this.init();
   }
 
-  /**
-   * ---- Don not change---
-   */
-  private final int[][] grgSumOfDays = {
-      {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365},
-      {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366}};
-  private final int[][] hshSumOfDays = {
-      {0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 365},
-      {0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 366}};
+  @Override
+  public String toString() {
+    return PersianDateFormat.format(this, null);
+  }
+
+  //region CONST
   private final String[] dayNames = {"شنبه", "یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه",
       "جمعه"};
   private final String[] monthNames = {"فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
@@ -89,14 +94,25 @@ public class PersianDate {
   private final String[] PashtoMonthNames = {"وری", "غويی", "غبرګولی", "چنګاښ", "زمری", "وږی",
       "تله", "لړم", "ليندۍ", "مرغومی", "سلواغه", "كب"};
 
+  //endregion
+  //region Setter & Getters
   /*---- Setter And getter ----*/
+  public Locale getLocale() {
+    return locale;
+  }
+
+  public PersianDate setLocal(Locale locale) {
+    this.locale = locale;
+    return this;
+  }
+
   public int getShYear() {
     return shYear;
   }
 
   public PersianDate setShYear(int shYear) {
     this.shYear = shYear;
-    this.prepareDate2(this.getShYear(), this.getShMonth(), this.getShDay());
+    this.changeTime(true);
     return this;
   }
 
@@ -106,7 +122,7 @@ public class PersianDate {
 
   public PersianDate setShMonth(int shMonth) {
     this.shMonth = shMonth;
-    this.prepareDate2(this.getShYear(), this.getShMonth(), this.getShDay());
+    this.changeTime(true);
     return this;
   }
 
@@ -116,7 +132,7 @@ public class PersianDate {
 
   public PersianDate setShDay(int shDay) {
     this.shDay = shDay;
-    this.prepareDate2(this.getShYear(), this.getShMonth(), this.getShDay());
+    this.changeTime(true);
     return this;
   }
 
@@ -126,7 +142,7 @@ public class PersianDate {
 
   public PersianDate setGrgYear(int grgYear) {
     this.grgYear = grgYear;
-    prepareDate();
+    changeTime(false);
     return this;
   }
 
@@ -136,7 +152,7 @@ public class PersianDate {
 
   public PersianDate setGrgMonth(int grgMonth) {
     this.grgMonth = grgMonth;
-    prepareDate();
+    changeTime(false);
     return this;
   }
 
@@ -146,7 +162,7 @@ public class PersianDate {
 
   public PersianDate setGrgDay(int grgDay) {
     this.grgDay = grgDay;
-    prepareDate();
+    changeTime(false);
     return this;
   }
 
@@ -156,7 +172,7 @@ public class PersianDate {
 
   public PersianDate setHour(int hour) {
     this.hour = hour;
-    prepareDate();
+    changeTime(false);
     return this;
   }
 
@@ -166,7 +182,7 @@ public class PersianDate {
 
   public PersianDate setMinute(int minute) {
     this.minute = minute;
-    prepareDate();
+    changeTime(false);
     return this;
   }
 
@@ -176,7 +192,7 @@ public class PersianDate {
 
   public PersianDate setSecond(int second) {
     this.second = second;
-    prepareDate();
+    changeTime(false);
     return this;
   }
 
@@ -210,19 +226,7 @@ public class PersianDate {
     this.hour = hour;
     this.minute = minute;
     this.second = second;
-    this.setGrgYear(year)
-        .setGrgMonth(month)
-        .setGrgDay(day)
-        .setHour(hour)
-        .setMinute(minute)
-        .setSecond(second);
-    int[] convert = this.toJalali(year, month, day);
-    this.shYear = convert[0];
-    this.shMonth = convert[1];
-    this.shDay = convert[2];
-    this.setShYear(convert[0])
-        .setShMonth(convert[1])
-        .setShDay(convert[2]);
+    changeTime(false);
     return this;
   }
 
@@ -251,58 +255,16 @@ public class PersianDate {
    */
   public PersianDate initJalaliDate(int year, int month, int day, int hour, int minute,
       int second) {
-    this.setShYear(year)
-        .setShMonth(month)
-        .setShDay(day)
-        .setHour(hour)
-        .setMinute(minute)
-        .setSecond(second);
-    int[] convert = this.toGregorian(year, month, day);
-    this.setGrgYear(convert[0])
-        .setGrgMonth(convert[1])
-        .setGrgDay(convert[2]);
+    this.shYear = year;
+    this.shMonth = month;
+    this.shDay = day;
+    this.hour = hour;
+    this.minute = minute;
+    this.second = second;
+    this.changeTime(true);
     return this;
   }
 
-  /**
-   * Helper function for initialize jalali date
-   *
-   * @param year Year
-   * @param month Month
-   * @param day Day
-   * @return PersianDate
-   */
-  private PersianDate prepareDate2(int year, int month, int day) {
-    int[] convert = this.toGregorian(year, month, day);
-    this.grgYear = convert[0];
-    this.grgMonth = convert[1];
-    this.setGrgDay(convert[2]);
-    return this;
-  }
-
-  /**
-   * Helper function for initialize
-   */
-  private void prepareDate() {
-    String dtStart = "" + this.textNumberFilter("" + this.getGrgYear()) + "-" + this
-        .textNumberFilter("" + this.getGrgMonth()) + "-" + this
-        .textNumberFilter("" + this.getGrgDay())
-        + "T" + this.textNumberFilter("" + this.getHour()) + ":" + this
-        .textNumberFilter("" + this.getMinute()) + ":" + this
-        .textNumberFilter("" + this.getSecond()) + "Z";
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-    int[] convert = this.toJalali(this.getGrgYear(), this.getGrgMonth(), this.getGrgDay());
-    this.shYear = convert[0];
-    this.shMonth = convert[1];
-    this.shDay = convert[2];
-    Date date = null;
-    try {
-      date = format.parse(dtStart);
-      this.timeInMilliSecond = date.getTime();
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
-  }
 
   /**
    * return time in long value
@@ -320,7 +282,13 @@ public class PersianDate {
    * @return boolean
    */
   public boolean grgIsLeap(int Year) {
-    return ((Year % 4) == 0 && ((Year % 100) != 0 || (Year % 400) == 0));
+    if (Year % 4 == 0) {
+      if (Year % 100 == 0) {
+        return Year % 400 == 0;
+      }
+      return true;
+    }
+    return false;
   }
 
   /**
@@ -342,27 +310,27 @@ public class PersianDate {
     double referenceYear = 1375;
     double startYear = 1375;
     double yearRes = year - referenceYear;
+    //first of all make sure year is not multiplier of 1375
+    if (yearRes == 0 || yearRes % 33 == 0) {
+      return true;//year is 1375 or 1375+-(i)*33
+    }
+
     if (yearRes > 0) {
-      if (yearRes >= 33) {
+      if (yearRes > 33) {
         double numb = yearRes / 33;
-        startYear = referenceYear + Math.floor(numb) * 33;
+        startYear = referenceYear + (Math.floor(numb) * 33);
       }
     } else {
-      if (yearRes >= -33) {
+      if (yearRes > -33) {
         startYear = referenceYear - 33;
       } else {
         double numb = Math.abs(yearRes / 33);
-        startYear = referenceYear - (Math.floor(numb) + 1) * 33;
+        startYear = referenceYear - (Math.ceil(numb) * 33);
       }
     }
     double[] leapYears = {startYear, startYear + 4, startYear + 8, startYear + 16, startYear + 20,
         startYear + 24, startYear + 28, startYear + 33};
     return (Arrays.binarySearch(leapYears, year)) >= 0;
-//		double Year = year;
-//		Year = (Year - 474) % 128;
-//		Year = ((Year >= 30) ? 0 : 29) + Year;
-//		Year = Year - Math.floor(Year / 33) - 1;
-//		return ((Year % 4) == 0);
   }
 
   /**
@@ -386,85 +354,70 @@ public class PersianDate {
   }
 
   /**
-   * Convert Grg date to jalali date
-   *
-   * @param year year in Grg date
-   * @param month month in Grg date
-   * @param day day in Grg date
-   * @return a int[year][month][day] in jalali date
+   *   Author: JDF.SCR.IR =>> Download Full Version :  http://jdf.scr.ir/jdf
+   *   License: GNU/LGPL _ Open Source & Free :: Version: 2.80 : [2020=1399]
    */
-  public int[] toJalali(int year, int month, int day) {
-    int hshDay = 1;
-    int hshMonth = 1;
-    int hshElapsed;
-    int hshYear = year - 621;
-    boolean grgLeap = this.grgIsLeap(year);
-    boolean hshLeap = this.isLeap(hshYear - 1);
-    int grgElapsed = grgSumOfDays[(grgLeap ? 1 : 0)][month - 1] + day;
-    int XmasToNorooz = (hshLeap && grgLeap) ? 80 : 79;
-    if (grgElapsed <= XmasToNorooz) {
-      hshElapsed = grgElapsed + 286;
-      hshYear--;
-			if (hshLeap && !grgLeap) {
-				hshElapsed++;
-			}
+  public int[] gregorian_to_jalali(int gy, int gm, int gd) {
+    int[] out = {
+        (gm > 2) ? (gy + 1) : gy,
+        0,
+        0
+    };
+    {
+      int[] g_d_m = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
+      out[2] = 355666 + (365 * gy) + ((int) ((out[0] + 3) / 4)) - ((int) ((out[0] + 99) / 100))
+          + ((int) ((out[0] + 399) / 400)) + gd + g_d_m[gm - 1];
+    }
+    out[0] = -1595 + (33 * ((int) (out[2] / 12053)));
+    out[2] %= 12053;
+    out[0] += 4 * ((int) (out[2] / 1461));
+    out[2] %= 1461;
+    if (out[2] > 365) {
+      out[0] += (int) ((out[2] - 1) / 365);
+      out[2] = (out[2] - 1) % 365;
+    }
+    if (out[2] < 186) {
+      out[1] = 1 + (int) (out[2] / 31);
+      out[2] = 1 + (out[2] % 31);
     } else {
-      hshElapsed = grgElapsed - XmasToNorooz;
-      hshLeap = this.isLeap(hshYear);
+      out[1] = 7 + (int) ((out[2] - 186) / 30);
+      out[2] = 1 + ((out[2] - 186) % 30);
     }
-    if (year >= 2029 && (year - 2029) % 4 == 0) {
-      hshElapsed++;
-    }
-    for (int i = 1; i <= 12; i++) {
-      if (hshSumOfDays[(hshLeap ? 1 : 0)][i] >= hshElapsed) {
-        hshMonth = i;
-        hshDay = hshElapsed - hshSumOfDays[(hshLeap ? 1 : 0)][i - 1];
-        break;
-      }
-    }
-    return new int[]{hshYear, hshMonth, hshDay};
+    return out;
   }
-
   /**
-   * Convert Jalali date to Grg
-   *
-   * @param year Year in jalali
-   * @param month Month in Jalali
-   * @param day Day in Jalali
-   * @return int[year][month][day]
+   *   Author: JDF.SCR.IR =>> Download Full Version :  http://jdf.scr.ir/jdf
+   *   License: GNU/LGPL _ Open Source & Free :: Version: 2.80 : [2020=1399]
    */
-  public int[] toGregorian(int year, int month, int day) {
-    int grgYear = year + 621;
-    int grgDay = 0;
-    int grgMonth = 0;
-    int grgElapsed;
-
-    boolean hshLeap = this.isLeap(year);
-    boolean grgLeap = this.grgIsLeap(grgYear);
-
-    int hshElapsed = hshSumOfDays[hshLeap ? 1 : 0][month - 1] + day;
-
-    if (month > 10 || (month == 10 && hshElapsed > 286 + (grgLeap ? 1 : 0))) {
-      grgElapsed = hshElapsed - (286 + (grgLeap ? 1 : 0));
-      grgLeap = grgIsLeap(++grgYear);
-    } else {
-      hshLeap = this.isLeap(year - 1);
-      grgElapsed = hshElapsed + 79 + (hshLeap ? 1 : 0) - (grgIsLeap(grgYear - 1) ? 1 : 0);
-    }
-    if (grgYear >= 2030 && (grgYear - 2030) % 4 == 0) {
-      grgElapsed--;
-    }
-    if (grgYear == 1989) {
-      grgElapsed++;
-    }
-    for (int i = 1; i <= 12; i++) {
-      if (grgSumOfDays[grgLeap ? 1 : 0][i] >= grgElapsed) {
-        grgMonth = i;
-        grgDay = grgElapsed - grgSumOfDays[grgLeap ? 1 : 0][i - 1];
-        break;
+  public int[] jalali_to_gregorian(int jy, int jm, int jd) {
+    jy += 1595;
+    int[] out = {
+        0,
+        0,
+        -355668 + (365 * jy) + (((int) (jy / 33)) * 8) + ((int) (((jy % 33) + 3) / 4)) + jd + (
+            (jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186)
+    };
+    out[0] = 400 * ((int) (out[2] / 146097));
+    out[2] %= 146097;
+    if (out[2] > 36524) {
+      out[0] += 100 * ((int) (--out[2] / 36524));
+      out[2] %= 36524;
+      if (out[2] >= 365) {
+        out[2]++;
       }
     }
-    return new int[]{grgYear, grgMonth, grgDay};
+    out[0] += 4 * ((int) (out[2] / 1461));
+    out[2] %= 1461;
+    if (out[2] > 365) {
+      out[0] += (int) ((out[2] - 1) / 365);
+      out[2] = (out[2] - 1) % 365;
+    }
+    int[] sal_a = {0, 31, ((out[0] % 4 == 0 && out[0] % 100 != 0) || (out[0] % 400 == 0)) ? 29 : 28,
+        31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    for (out[2]++; out[1] < 13 && out[2] > sal_a[out[1]]; out[1]++) {
+      out[2] -= sal_a[out[1]];
+    }
+    return out;
   }
 
   /**
@@ -495,44 +448,47 @@ public class PersianDate {
   public int dayOfWeek(Date date) {
     Calendar cal = Calendar.getInstance();
     cal.setTime(date);
-		if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
-			return 0;
-		}
+    if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
+      return 0;
+    }
     return (cal.get(Calendar.DAY_OF_WEEK));
   }
 
-	/**
-	 * Return list of month
-	 * @param dialect dialect
-	 * @return month names
-	 */
-	public String[] monthList(Dialect dialect) {
-  	switch (dialect){
-			case AFGHAN:
-				return this.AfghanMonthNames;
-			case KURDISH:
-				return this.KurdishMonthNames;
-			case PASHTO:
-				return this.PashtoMonthNames;
-			default:
-				return this.monthNames;
-		}
-	}
-	/**
-	 * Return list of month
-	 *
-	 * @return month names
-	 */
-	public String[] monthList() {
-  	return monthList(Dialect.IRANIAN);
-	}
-		/**
-     * return month name
-     *
-     * @return string
-     */
+  /**
+   * Return list of month
+   *
+   * @param dialect dialect
+   * @return month names
+   */
+  public String[] monthList(Dialect dialect) {
+    switch (dialect) {
+      case AFGHAN:
+        return this.AfghanMonthNames;
+      case KURDISH:
+        return this.KurdishMonthNames;
+      case PASHTO:
+        return this.PashtoMonthNames;
+      default:
+        return this.monthNames;
+    }
+  }
+
+  /**
+   * Return list of month
+   *
+   * @return month names
+   */
+  public String[] monthList() {
+    return monthList(Dialect.IRANIAN);
+  }
+
+  /**
+   * return month name
+   *
+   * @return string
+   */
   public String monthName(Dialect dialect) {
-    return monthName(this.getShMonth(),dialect);
+    return monthName(this.getShMonth(), dialect);
   }
 
   /**
@@ -697,7 +653,7 @@ public class PersianDate {
     }
     this.timeInMilliSecond += (day * 24 * 3_600 * 1_000);
     this.timeInMilliSecond += ((second + (hour * 3600) + (minute * 60)) * 1_000);
-    this.changeTime();
+    this.init();
     return this;
   }
 
@@ -809,12 +765,6 @@ public class PersianDate {
     return new long[]{elapsedDays, elapsedHours, elapsedMinutes, elapsedSeconds};
   }
 
-	@Override
-  public String toString() {
-    return PersianDateFormat.format(this, null);
-  }
-  /*----- Helper Function-----*/
-
   /**
    * convert PersianDate class to date
    */
@@ -822,34 +772,13 @@ public class PersianDate {
     return new Date(this.timeInMilliSecond);
   }
 
-  /**
-   * Helper function
-   */
-  private String textNumberFilter(String date) {
-    if (date.length() < 2) {
-      return "0" + date;
-    }
-    return date;
-  }
-
-  /**
-   * initialize with time in millisecond
-   */
-  private void changeTime() {
-    this.initGrgDate(Integer.parseInt(new SimpleDateFormat("yyyy").format(this.timeInMilliSecond)),
-        Integer.parseInt(new SimpleDateFormat("MM").format(this.timeInMilliSecond)),
-        Integer.parseInt(new SimpleDateFormat("dd").format(this.timeInMilliSecond)),
-        Integer.parseInt(new SimpleDateFormat("HH").format(this.timeInMilliSecond)),
-        Integer.parseInt(new SimpleDateFormat("mm").format(this.timeInMilliSecond)),
-        Integer.parseInt(new SimpleDateFormat("ss").format(this.timeInMilliSecond)));
-  }
 
   /**
    * Return today
    */
   public static PersianDate today() {
     PersianDate persianDate = new PersianDate();
-		persianDate.setHour(0).setMinute(0).setSecond(0);
+    persianDate.setHour(0).setMinute(0).setSecond(0);
     return persianDate;
   }
 
@@ -858,8 +787,8 @@ public class PersianDate {
    */
   public static PersianDate tomorrow() {
     PersianDate persianDate = new PersianDate();
-		persianDate.addDay(1);
-		persianDate.setHour(0).setMinute(0).setSecond(0);
+    persianDate.addDay(1);
+    persianDate.setHour(0).setMinute(0).setSecond(0);
     return persianDate;
   }
 
@@ -974,4 +903,96 @@ public class PersianDate {
   public Integer getMonthLength() {
     return this.getMonthLength(this);
   }
+
+  //endregion
+
+  /*----- Helper Function-----*/
+  //region Private functions
+
+  /**
+   * Helper function
+   */
+  private String textNumberFilter(String date) {
+    if (date.length() < 2) {
+      return "0" + date;
+    }
+    return date;
+  }
+
+  private void init() {
+    this.grgYear = Integer
+        .parseInt(new SimpleDateFormat("yyyy", this.locale).format(this.timeInMilliSecond));
+    this.grgMonth = Integer
+        .parseInt(new SimpleDateFormat("MM", this.locale).format(this.timeInMilliSecond));
+    this.grgDay = Integer
+        .parseInt(new SimpleDateFormat("dd", this.locale).format(this.timeInMilliSecond));
+    this.hour = Integer
+        .parseInt(new SimpleDateFormat("HH", this.locale).format(this.timeInMilliSecond));
+    this.minute = Integer
+        .parseInt(new SimpleDateFormat("mm", this.locale).format(this.timeInMilliSecond));
+    this.second = Integer
+        .parseInt(new SimpleDateFormat("ss", this.locale).format(this.timeInMilliSecond));
+    changeTime(false);
+  }
+
+  private void changeTime(boolean isJalaliChanged) {
+    if (isJalaliChanged) {
+      this.TimeCalcFromJalali(this.shYear, this.shMonth, this.shDay, this.hour, this.minute,
+          this.second);
+    } else {
+      this.TimeCalcFromGrg(this.grgYear, this.grgMonth, this.grgDay, this.hour, this.minute,
+          this.second);
+    }
+  }
+
+  private void TimeCalcFromJalali(int year, int month, int day, int hr, int min, int sec) {
+    int[] grgTimes = {0/*YEAR*/, 0/*MONTH*/, 0/*DAY*/, 0/*HOUR*/, 0/*MINUTE*/, 0/*SECOND*/};
+    int[] jalaliTimes = {year/*YEAR*/, month/*MONTH*/, day/*DAY*/, hr/*HOUR*/, min/*MINUTE*/, sec
+/*SECOND*/};
+    //convert timestamp to grg date
+    int[] convertedTime = this.jalali_to_gregorian(year, month, day);
+    grgTimes[0] = convertedTime[0];
+    grgTimes[1] = convertedTime[1];
+    grgTimes[2] = convertedTime[2];
+    grgTimes[3] = hr;
+    grgTimes[4] = min;
+    grgTimes[5] = sec;
+    notify(grgTimes, jalaliTimes);
+  }
+
+  private void TimeCalcFromGrg(int year, int month, int day, int hr, int min, int sec) {
+    int[] grgTimes = {year/*YEAR*/, month/*MONTH*/, day/*DAY*/, hr/*HOUR*/, min/*MINUTE*/, sec
+/*SECOND*/};
+    int[] jalaliTimes = {0/*YEAR*/, 0/*MONTH*/, 0/*DAY*/, 0/*HOUR*/, 0/*MINUTE*/, 0/*SECOND*/};
+    int[] convertedTime = this.gregorian_to_jalali(year, month, day);
+    jalaliTimes[0] = convertedTime[0];
+    jalaliTimes[1] = convertedTime[1];
+    jalaliTimes[2] = convertedTime[2];
+    jalaliTimes[3] = hr;
+    jalaliTimes[4] = min;
+    jalaliTimes[5] = sec;
+    notify(grgTimes, jalaliTimes);
+  }
+
+  private void updateTimeStamp(){
+    try {
+      this.timeInMilliSecond = Objects.requireNonNull(new SimpleDateFormat("dd/MM/yyyy", this.locale)
+          .parse("" + this.grgDay + "/" + this.grgMonth + "/" + this.getGrgYear())).getTime();
+    } catch (ParseException e) {
+      this.timeInMilliSecond = new Date().getTime();
+    }
+  }
+  private void notify(int[] grg, int[] jalali) {
+    this.grgYear = grg[0];
+    this.grgMonth = grg[1];
+    this.grgDay = grg[2];
+    this.shYear = jalali[0];
+    this.shMonth = jalali[1];
+    this.shDay = jalali[2];
+    this.hour = jalali[3];
+    this.minute = jalali[4];
+    this.second = jalali[5];
+    updateTimeStamp();
+  }
+  //endregion
 }

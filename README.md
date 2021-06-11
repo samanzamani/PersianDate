@@ -1,29 +1,45 @@
 # Persian Date(Jalali)
+<div align="center">
 [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 <br/>
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
-[ ![Download](https://api.bintray.com/packages/mrnuke/maven/PersianDate/images/download.svg) ](https://bintray.com/mrnuke/maven/PersianDate/_latestVersion)
+[![JitPack](https://jitpack.io/v/petarov/java-app-icons.svg)](https://jitpack.io/#samanzamani/PersianDate)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
 [![Method and size](https://img.shields.io/badge/Methods%20and%20size-100%20|%2011%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.samanzamani.persiandate%3APersianDate%3A0.1)
-# Update
-I'm going to release v0.9 as soon as possible with some bug fixing, so please send any problem or feature request. 
-# About
-This is simple android calender converter for Convert Jalali date to Gregorian date.
-# Gradle
+</div>
+
+# Short about stable version
+After 4 years (since 2017) and more than 8 versions of this library, I believe that this is the stable version of this library.
+ Note that there is some bug in the core function and I prefer to use 2 methods from [jdf](https://jdf.scr.ir/) library.
+ The stable version includes some new features and bugs fixed that I will talk about more in the wiki part. 
+ Special Thanks to all contributors and reporters.
+
+# Install
+## Gradle
+Step 1.Add it in your root build.gradle at the end of repositories:
+```groovy
+allprojects {
+    repositories {
+		...
+		maven { url 'https://jitpack.io' }
+    }
+}
+```
+Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:0.8'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:1.0'
 }
 ```
 # what's new
+### version 1.0
+* I will create wiki part for introduce new features.
+
 ### version 0.8
 * Fix date formatting in year 1989 [#29](https://github.com/samanzamani/PersianDate/issues/29)
 * add three new method to get month name in `Afghan`,`Kurdish` and `Pashto` name and from version 0.8 you can use `X`,`C` and `E` to display month name in `Afghan`,`Kurdish` and `Pashto` in `PersianDateFormat` [#28](https://github.com/samanzamani/PersianDate/issues/28)
 
-### version 0.7
-* Fix addDate - addYear - addMonth methods [#20](https://github.com/samanzamani/PersianDate/issues/20)
-* add new method for calculate month length => `getMonthLength`
 
 
 ## Let's convert some date :)
@@ -34,7 +50,7 @@ dependencies {
 PersianDate pdate = new PersianDate();
 ```
 
-### step2
+### Step 2
 
 ```java
 PersianDateFormat pdformater = new PersianDateFormat();
