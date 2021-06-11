@@ -28,7 +28,7 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:v1.0'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:1.1'
 }
 ```
 # what's new
