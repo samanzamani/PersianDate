@@ -1,5 +1,4 @@
 # Persian Date(Jalali)
-<div align="center">
 [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 <br/>
@@ -7,7 +6,7 @@
 [![JitPack](https://jitpack.io/v/petarov/java-app-icons.svg)](https://jitpack.io/#samanzamani/PersianDate)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
 [![Method and size](https://img.shields.io/badge/Methods%20and%20size-100%20|%2011%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.samanzamani.persiandate%3APersianDate%3A0.1)
-</div>
+
 
 # Short about stable version
 After 4 years (since 2017) and more than 8 versions of this library, I believe that this is the stable version of this library.
@@ -21,15 +20,15 @@ Step 1.Add it in your root build.gradle at the end of repositories:
 ```groovy
 allprojects {
     repositories {
-		...
-		maven { url 'https://jitpack.io' }
+        ...
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani.persiandate:PersianDate:1.0'
+    implementation 'com.github.samanzamani.persiandate:PersianDate:v1.0'
 }
 ```
 # what's new
