@@ -28,11 +28,11 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.2'
+    implementation 'com.github.samanzamani:PersianDate:1.3.2'
 }
 ```
 # what's new
-### version 1.3
+### version 1.3.2
 * Update JDK v11
 ### version 1.2
 * Fix reported bug [#54](https://github.com/samanzamani/PersianDate/issues/54)
