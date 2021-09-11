@@ -651,7 +651,13 @@ public class PersianDate {
       }
       AddDay += this.getMonthLength(yearTmp, monthTmp);
     }
-    AddHour += 1;//fix bug #57
+    //https://github.com/samanzamani/PersianDate/issues/57
+    if(this.shMonth <= 6 && (this.shMonth+AddMonth) >= 7) {
+      AddHour += 1;
+    }
+    if(this.shMonth >= 7 && (this.shMonth+AddMonth) <= 6) {
+      AddHour -= 1;
+    }
     this.timeInMilliSecond += (AddDay * 24 * 3_600 * 1_000);
     this.timeInMilliSecond += ((AddSecond + (AddHour * 3600) + (AddMinute * 60)) * 1_000);
     this.init();
@@ -978,8 +984,8 @@ public class PersianDate {
 
   private void updateTimeStamp(){
     try {
-      this.timeInMilliSecond = Objects.requireNonNull(new SimpleDateFormat("dd/MM/yyyy", this.locale)
-          .parse("" + this.grgDay + "/" + this.grgMonth + "/" + this.getGrgYear())).getTime();
+      this.timeInMilliSecond = Objects.requireNonNull(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss", this.locale)
+          .parse("" + this.grgDay + "/" + this.grgMonth + "/" + this.getGrgYear() + " " + this.hour + ":" + this.minute + ":" + this.second)).getTime();//reported in #https://github.com/samanzamani/PersianDate/issues/54
     } catch (ParseException e) {
       this.timeInMilliSecond = new Date().getTime();
     }
