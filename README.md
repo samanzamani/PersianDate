@@ -28,17 +28,13 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.1'
+    implementation 'com.github.samanzamani:PersianDate:1.2'
 }
 ```
 # what's new
-### version 1.0
-* I will create a wiki part to introduce new features.
-
-### version 0.8
-* Fix date formatting in year 1989 [#29](https://github.com/samanzamani/PersianDate/issues/29)
-* add three new method to get month name in `Afghan`,`Kurdish` and `Pashto` name and from version 0.8 you can use `X`,`C` and `E` to display month name in `Afghan`,`Kurdish` and `Pashto` in `PersianDateFormat` [#28](https://github.com/samanzamani/PersianDate/issues/28)
-
+### version 1.2
+* Fix reported bug #54
+* Fix reported bug #57
 
 
 ## Let's convert some date :)
