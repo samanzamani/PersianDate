@@ -32,9 +32,11 @@ dependencies {
 }
 ```
 # what's new
+### version 1.3
+* Update JDK v11
 ### version 1.2
-* Fix reported bug #54
-* Fix reported bug #57
+* Fix reported bug [#54](https://github.com/samanzamani/PersianDate/issues/54)
+* Fix reported bug [#57](https://github.com/samanzamani/PersianDate/issues/57)
 
 
 ## Let's convert some date :)
