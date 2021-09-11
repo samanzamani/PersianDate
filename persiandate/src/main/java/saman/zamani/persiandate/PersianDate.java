@@ -651,7 +651,7 @@ public class PersianDate {
       }
       AddDay += this.getMonthLength(yearTmp, monthTmp);
     }
-    AddHour += 1;
+    AddHour += 1;//fix bug #57
     this.timeInMilliSecond += (AddDay * 24 * 3_600 * 1_000);
     this.timeInMilliSecond += ((AddSecond + (AddHour * 3600) + (AddMinute * 60)) * 1_000);
     this.init();

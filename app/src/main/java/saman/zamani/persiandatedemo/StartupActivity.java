@@ -77,14 +77,6 @@ public class StartupActivity extends AppCompatActivity
 		setContentView(R.layout.activity_startup);
 		ButterKnife.bind(this);
 
-//		PersianDate pDate = new PersianDate().initJalaliDate(1405,6,1,23,59,59);
-//		Log.i("LOG",PersianDateFormat.format(pDate,"l j F Y H:i:s"));
-//		Log.i("LOG",PersianDateFormat.format(pDate.addDay(30),"l j F Y H:i:s"));
-//		Log.i("LOG",PersianDateFormat.format(new PersianDate(1632166200000L),null));
-//		Log.i("LOG",PersianDateFormat.format(new PersianDate(1632256200000L),null));
-		PersianDate pDate = new PersianDate().initJalaliDate(1400,4,1,0,0,0);
-		Log.i("LOG","from code #1: " + PersianDateFormat.format(pDate,null));
-		Log.i("LOG","from code #1: " + PersianDateFormat.format(pDate.addMonth(1),null));
 
 		//toolbar
 		setSupportActionBar(top_bar);
@@ -99,7 +91,7 @@ public class StartupActivity extends AppCompatActivity
 		{
 			@Override
 			public void run() {
-//				changeTime();
+				changeTime();
 			}
 		}, 0, 1000);//put here time 1000 milliseconds=1 second
 		//DO: Spinner
