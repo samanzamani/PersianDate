@@ -46,7 +46,7 @@ public class PersianDate {
   private int second;
   private Locale locale = Locale.getDefault();
 
-  enum Dialect {
+  public enum Dialect {
     AFGHAN,
     IRANIAN,
     KURDISH,
