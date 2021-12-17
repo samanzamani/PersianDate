@@ -28,7 +28,7 @@ dependencies {
 ### version 1.3.3
 * Update documentation
 * Fix reported bug [#54](https://github.com/samanzamani/PersianDate/issues/38)
-* Add Farsi character in Formatter class [(Documentation)](#PersianDateNumberCharacter) [#46](https://github.com/samanzamani/PersianDate/issues/46)
+* Add Farsi character in Formatter class [(Documentation)](#persianDateNumberCharacter) [#46](https://github.com/samanzamani/PersianDate/issues/46)
 
 ### version 1.3.2
 * Update JDK v11
@@ -48,10 +48,8 @@ PersianDateFormat pdformater = new PersianDateFormat();
 pdformater.format(pdate);
 ```
 [More example](#example)
-
-***PersianDate***
+***PersianDateNumberCharacter***
 ---
-+ **PersianDateNumberCharacter**
   Since v1.3.3 you can use `PersianDateNumberCharacter.FARSI` in `PersianDateFomrat` object.
   ```java
     PersianDate pDate = new PersianDate();
@@ -65,6 +63,9 @@ pdformater.format(pdate);
     PersianDateFormat.format(pDate,'y F j');
     PersianDateFormat.format(pDate,'y F j',PersianDateNumberCharacter.FARSI); //return Farsi character
   ```
+
+***PersianDate***
+---
 + **PersianDate class methods**
 
 | method        | description  |
