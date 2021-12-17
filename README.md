@@ -7,13 +7,6 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PersianDate-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6141)
 [![Method and size](https://img.shields.io/badge/Methods%20and%20size-100%20|%2011%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.samanzamani.persiandate%3APersianDate%3A0.1)
 
-
-# Short about stable version
-After 4 years (since 2017) and more than 8 versions of this library, I believe that this is the stable version of this library.
- Note that there is some bug in the core function and I prefer to use 2 methods from [jdf](https://jdf.scr.ir/) library.
- The stable version includes some new features and bugs fixed that I will talk about more in the wiki part. 
- Special Thanks to all contributors and reporters.
-
 # Install
 ## Gradle
 Step 1.Add it in your root build.gradle at the end of repositories:
@@ -28,16 +21,17 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.3.2'
+    implementation 'com.github.samanzamani:PersianDate:1.3.3'
 }
 ```
 # what's new
+### version 1.3.3
+* Update documentation
+* Fix reported bug [#54](https://github.com/samanzamani/PersianDate/issues/38)
+* Add Farsi character in Formatter class [(Documentation)](#PersianDateNumberCharacter) [#46](https://github.com/samanzamani/PersianDate/issues/46)
+
 ### version 1.3.2
 * Update JDK v11
-### version 1.2
-* Fix reported bug [#54](https://github.com/samanzamani/PersianDate/issues/54)
-* Fix reported bug [#57](https://github.com/samanzamani/PersianDate/issues/57)
-
 
 ## Let's convert some date :)
 
@@ -57,6 +51,20 @@ pdformater.format(pdate);
 
 ***PersianDate***
 ---
++ **PersianDateNumberCharacter**
+  Since v1.3.3 you can use `PersianDateNumberCharacter.FARSI` in `PersianDateFomrat` object.
+  ```java
+    PersianDate pDate = new PersianDate();
+    PersianDateFormat pdformater1 = new PersianDateFormat();
+    PersianDateFormat pdformater2 = new PersianDateFormat('y F j');
+    PersianDateFormat pdformater3 = new PersianDateFormat('y F j',PersianDateNumberCharacter.FARSI); //return Farsi character
+  ```
+  Or
+  ```java
+    PersianDate pDate = new PersianDate();
+    PersianDateFormat.format(pDate,'y F j');
+    PersianDateFormat.format(pDate,'y F j',PersianDateNumberCharacter.FARSI); //return Farsi character
+  ```
 + **PersianDate class methods**
 
 | method        | description  |
