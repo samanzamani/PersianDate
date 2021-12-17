@@ -8,10 +8,15 @@ import java.util.Date;
 /**
  * Created by SamanZaman(saman.zamani1@gmail.com) on 3/31/2017 AD.
  *
- * Last update on Sunday, April 4, 2021
+ * Last update on Sunday, November 17, 2021
  */
 
 public class PersianDateFormat {
+  //number Format
+  public enum PersianDateNumberCharacter {
+    ENGLISH,
+    FARSI
+  }
   //variable
   /**
    * Key for convert Date to String
@@ -19,7 +24,10 @@ public class PersianDateFormat {
   private final String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y",
       "z", "A",
       "L","X","C","E"};
-  private final String pattern;
+  //from version 1.3.3 pattern is public and has de
+  private String pattern = "l j F Y H:i:s";
+  private PersianDateNumberCharacter numberCharacter = PersianDateNumberCharacter.ENGLISH;
+
   /**
    * key_parse for convert String to PersianDate
    *
@@ -29,20 +37,67 @@ public class PersianDateFormat {
   private final String[] key_parse = {"yyyy", "MM", "dd", "HH", "mm", "ss"};
 
   /**
-   * Constracutor
+   * Constructor for create formatter with just pattern
    */
   public PersianDateFormat(String pattern) {
     this.pattern = pattern;
   }
 
   /**
-   * initilize pattern
+   * Constructor for create pattern with number character format
+   *
+   * @param pattern pattern use for format
+   * @param numberCharacter character type can be PersianDateNumberCharacter.FARSI | PersianDateNumberCharacter.English
    */
-  public PersianDateFormat() {
-    pattern = "l j F Y H:i:s";
+  public PersianDateFormat(String pattern,PersianDateNumberCharacter numberCharacter) {
+    this.pattern = pattern;
+    this.numberCharacter = numberCharacter;
+  }
+  /**
+   * Change pattern
+   *
+   * @param pattern change format pattern
+   */
+  public void setPattern(String pattern) {
+    this.pattern = pattern;
   }
 
-  public static String format(PersianDate date, String pattern) {
+  /**
+   * Change number character
+   *
+   * @param numberCharacter number character
+   */
+  public void setNumberCharacter(
+      PersianDateNumberCharacter numberCharacter) {
+    this.numberCharacter = numberCharacter;
+  }
+
+  /**
+   * Constructor without pattern
+   */
+  public PersianDateFormat() {}
+
+  /**
+   * Format date
+   *
+   *
+   * @param date PersianDate object of date
+   * @param pattern Pattern you want to show
+   * @return date in pattern
+   */
+  public static String format(PersianDate date, String pattern){
+    return format(date,pattern, PersianDateNumberCharacter.ENGLISH);
+  }
+
+  /**
+   * Convert with charter type
+   *
+   * @param date date in PersianDate object
+   * @param pattern pattern
+   * @param numberFormatCharacter number charter
+   * @return return date
+   */
+  public static String format(PersianDate date, String pattern, PersianDateNumberCharacter numberFormatCharacter) {
     if(pattern == null) pattern="l j F Y H:i:s";
     String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z",
         "A", "L","X","C","E"};
@@ -68,6 +123,9 @@ public class PersianDateFormat {
         date.KurdishMonthName(),
         date.PashtoMonthName()
     };
+    if(numberFormatCharacter == PersianDateNumberCharacter.FARSI){
+      PersianDateFormat.farsiCharacter(values);
+    }
     for (int i = 0; i < key.length; i++) {
       pattern = pattern.replace(key[i], values[i]);
     }
@@ -97,11 +155,14 @@ public class PersianDateFormat {
         date.KurdishMonthName(),
         date.PashtoMonthName()
     };
+    if(this.numberCharacter == PersianDateNumberCharacter.FARSI){
+      farsiCharacter(values);
+    }
     return this.stringUtils(this.pattern, this.key, values);
   }
 
   /**
-   * Parse jalli date from String
+   * Parse Jallali date from String
    *
    * @param date date in string
    */
@@ -110,7 +171,7 @@ public class PersianDateFormat {
   }
 
   /**
-   * Parse jalli date from String
+   * Parse Jallali date from String
    *
    * @param date date in string
    * @param pattern pattern
@@ -152,7 +213,7 @@ public class PersianDateFormat {
   }
 
   /**
-   * Convert String Grg date to persiand date object
+   * Convert String Grg date to persian date object
    *
    * @param date date String
    * @param pattern pattern
@@ -167,7 +228,7 @@ public class PersianDateFormat {
    * Replace String
    *
    * @param text String
-   * @param key Loking for
+   * @param key Looking for
    * @param values Replace with
    */
   private String stringUtils(String text, String[] key, String[] values) {
@@ -195,5 +256,25 @@ public class PersianDateFormat {
       return "0" + date;
     }
     return date;
+  }
+
+  /**
+   * Convert English characters to Farsi characters
+   *
+   * @param values a string array of values
+   * @return a converted string array
+   */
+  public static String[] farsiCharacter(String[] values){
+    String[] persianChars = {"۰", "۱", "۲", "٣", "۴", "۵", "۶", "۷", "۸", "٩"};
+    String[] englishChars = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    for (int i = 0; i < values.length; i++) {
+      String tmpValue = values[i];
+      for (int j = 0; j< persianChars.length;j++){
+        tmpValue = tmpValue.replaceAll(englishChars[j],persianChars[j]);
+      }
+      values[i] = tmpValue;
+    }
+
+    return values;
   }
 }

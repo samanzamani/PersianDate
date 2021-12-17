@@ -37,6 +37,7 @@ import butterknife.Setter;
 import butterknife.ViewCollections;
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;
+import saman.zamani.persiandate.PersianDateFormat.PersianDateNumberCharacter;
 
 /**
  * Created by Saman on 3/29/2017 AD.
