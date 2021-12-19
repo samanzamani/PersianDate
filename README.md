@@ -21,17 +21,17 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.3.3'
+    implementation 'com.github.samanzamani:PersianDate:1.3.4'
 }
 ```
 # what's new
+### version 1.3.4
+* Jitpack release solved
 ### version 1.3.3
 * Update documentation
 * Fix reported bug [#54](https://github.com/samanzamani/PersianDate/issues/38)
 * Add Farsi character in Formatter class [(Documentation)](#persianDateNumberCharacter) [#46](https://github.com/samanzamani/PersianDate/issues/46)
 
-### version 1.3.2
-* Update JDK v11
 
 ## Let's convert some date :)
 
