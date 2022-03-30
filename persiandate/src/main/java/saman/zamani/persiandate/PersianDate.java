@@ -1,5 +1,6 @@
 package saman.zamani.persiandate;
 
+import android.util.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -354,8 +355,8 @@ public class PersianDate {
   }
 
   /**
-   *   Author: JDF.SCR.IR =>> Download Full Version :  http://jdf.scr.ir/jdf
-   *   License: GNU/LGPL _ Open Source & Free :: Version: 2.80 : [2020=1399]
+   * Author: JDF.SCR.IR =>> Download Full Version :  http://jdf.scr.ir/jdf License: GNU/LGPL _ Open
+   * Source & Free :: Version: 2.80 : [2020=1399]
    */
   public int[] gregorian_to_jalali(int gy, int gm, int gd) {
     int[] out = {
@@ -385,9 +386,10 @@ public class PersianDate {
     }
     return out;
   }
+
   /**
-   *   Author: JDF.SCR.IR =>> Download Full Version :  http://jdf.scr.ir/jdf
-   *   License: GNU/LGPL _ Open Source & Free :: Version: 2.80 : [2020=1399]
+   * Author: JDF.SCR.IR =>> Download Full Version :  http://jdf.scr.ir/jdf License: GNU/LGPL _ Open
+   * Source & Free :: Version: 2.80 : [2020=1399]
    */
   public int[] jalali_to_gregorian(int jy, int jm, int jd) {
     jy += 1595;
@@ -630,36 +632,37 @@ public class PersianDate {
    * @param AddSecond Number of second you want add
    * @return new date
    */
-  public PersianDate addDate(long AddYear, long AddMonth, long AddDay, long AddHour, long AddMinute, long AddSecond) {
+  public PersianDate addDate(long AddYear, long AddMonth, long AddDay, long AddHour, long AddMinute,
+      long AddSecond) {
+    //add Days
+    long dayMustIncrease = AddDay;
+    //check if month bigger than a year
     if (AddMonth >= 12) {
-      AddYear += Math.round(AddMonth / 12.0);
-      AddMonth = AddMonth % 12;
+      AddYear += (int) Math.floor(AddMonth / 12.0);
+      AddMonth = (AddMonth % 12);
     }
-    for (long i = (AddYear - 1); i >= 0; i--) {
-      if (this.isLeap(this.getShYear() + (int) i)) {
-        AddDay += 366;
+    //add year
+    for (int i = 0; i < AddYear; i++) {
+      if (this.isLeap((this.shYear + i))) {
+        dayMustIncrease += 366;
       } else {
-        AddDay += 365;
+        dayMustIncrease += 365;
       }
     }
-    for (long i = (AddMonth - 1); i >= 0; i--) {
-      int monthTmp = this.getShMonth() + (int) i;
-      int yearTmp = this.getShYear();
-      if (monthTmp > 12) {
-        monthTmp -= 12;
-        yearTmp++;
+    //add month
+    int tmpYear = this.shYear;
+    int tmpMonth = this.shMonth;
+    for (int i = 0; i < AddMonth; i++) {
+      dayMustIncrease += this.getMonthLength(tmpYear, tmpMonth);
+      tmpMonth += 1;
+      if (tmpMonth >= 13) {
+        tmpYear += 1;
+        tmpMonth = 1;
       }
-      AddDay += this.getMonthLength(yearTmp, monthTmp);
     }
-    //https://github.com/samanzamani/PersianDate/issues/57
-    if(this.shMonth <= 6 && (this.shMonth+AddMonth) >= 7) {
-      AddHour += 1;
-    }
-    if(this.shMonth >= 7 && (this.shMonth+AddMonth) <= 6) {
-      AddHour -= 1;
-    }
-    this.timeInMilliSecond += (AddDay * 24 * 3_600 * 1_000);
-    this.timeInMilliSecond += ((AddSecond + (AddHour * 3600) + (AddMinute * 60)) * 1_000);
+    this.timeInMilliSecond +=
+        ((dayMustIncrease * 86_400_000L) + (AddHour * 3_600_000) + (AddMinute * 60_000) + (AddSecond
+            * 1_000));
     this.init();
     return this;
   }
@@ -982,14 +985,19 @@ public class PersianDate {
     notify(grgTimes, jalaliTimes);
   }
 
-  private void updateTimeStamp(){
+  private void updateTimeStamp() {
     try {
-      this.timeInMilliSecond = Objects.requireNonNull(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss", this.locale)
-          .parse("" + this.grgDay + "/" + this.grgMonth + "/" + this.getGrgYear() + " " + this.hour + ":" + this.minute + ":" + this.second)).getTime();//reported in #https://github.com/samanzamani/PersianDate/issues/54
+      this.timeInMilliSecond = Objects
+          .requireNonNull(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", this.locale)
+              .parse(
+                  "" + this.grgDay + "/" + this.grgMonth + "/" + this.getGrgYear() + " " + this.hour
+                      + ":" + this.minute + ":" + this.second))
+          .getTime();//reported in #https://github.com/samanzamani/PersianDate/issues/54
     } catch (ParseException e) {
       this.timeInMilliSecond = new Date().getTime();
     }
   }
+
   private void notify(int[] grg, int[] jalali) {
     this.grgYear = grg[0];
     this.grgMonth = grg[1];
