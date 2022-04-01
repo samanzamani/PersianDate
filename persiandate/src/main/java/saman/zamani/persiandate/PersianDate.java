@@ -1,6 +1,5 @@
 package saman.zamani.persiandate;
 
-import android.util.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -292,6 +291,10 @@ public class PersianDate {
     return false;
   }
 
+  public boolean grgIsLeap(){
+    return this.grgIsLeap(this.grgYear);
+  }
+
   /**
    * Check year in Leap
    *
@@ -329,7 +332,7 @@ public class PersianDate {
         startYear = referenceYear - (Math.ceil(numb) * 33);
       }
     }
-    double[] leapYears = {startYear, startYear + 4, startYear + 8, startYear + 16, startYear + 20,
+    double[] leapYears = {startYear, startYear + 4, startYear + 8, startYear + 12, startYear + 16, startYear + 20,
         startYear + 24, startYear + 28, startYear + 33};
     return (Arrays.binarySearch(leapYears, year)) >= 0;
   }
@@ -622,6 +625,181 @@ public class PersianDate {
   }
 
   /**
+   * Subtract date
+   *
+   * @param SubYear Number of subtraction years
+   * @param SubMonth Number of subtraction months
+   * @param SubDay Number of subtraction year days
+   * @param SubHour Number of subtraction year Hours
+   * @param SubMinute Number of subtraction year minutes
+   * @param SubSecond Number of subtraction year seconds
+   *
+   * @return this
+   */
+  public PersianDate subDate(long SubYear, long SubMonth, long SubDay, long SubHour, long SubMinute,
+      long SubSecond){
+    //sub Days
+    long dayMustDecrease = SubDay;
+    //check if month bigger than a year
+    if (SubMonth >= 12) {
+      SubYear += (int) Math.floor(SubMonth / 12.0);
+      SubMonth = (SubMonth % 12);
+    }
+    //sub year
+    for (int i = 1; i <= SubYear; i++) {
+      if (this.isLeap((this.shYear - i))) {
+        dayMustDecrease += 366;
+      } else {
+        dayMustDecrease += 365;
+      }
+    }
+
+    //sub month
+    int tmpYear = this.shYear - (int) SubYear;
+    int tmpMonth = this.shMonth;
+    for (int i = 0; i < SubMonth; i++) {
+      tmpMonth -= 1;
+      if (tmpMonth <= 0) {
+        tmpYear -= 1;
+        tmpMonth = 12;
+      }
+      dayMustDecrease += this.getMonthLength(tmpYear, tmpMonth);
+    }
+
+    this.timeInMilliSecond -=
+        ((dayMustDecrease * 86_400_000L) + (SubHour * 3_600_000) + (SubMinute * 60_000) + (SubSecond
+            * 1_000));
+    this.init();
+    return this;
+  }
+
+  /**
+   * Subtract date
+   *
+   * @param SubYear Number of subtraction years
+   * @param SubMonth Number of subtraction months
+   * @param SubDay Number of subtraction year days
+   *
+   * @return this
+   */
+  public PersianDate subDate(long SubYear, long SubMonth, long SubDay){
+    return this.subDate(SubYear,SubMonth,SubDay,0,0,0);
+  }
+
+  /**
+   * Subtract more than one year
+   *
+   * @param years: Number of subtraction years
+   *
+   * @return this
+   */
+  public PersianDate subYears(int years){
+    return this.subDate(years,0,0);
+  }
+  /**
+   * Subtract a year
+   *
+   * @return this
+   */
+  public PersianDate subYear(){
+    return this.subYears(1);
+  }
+
+  /**
+   * Subtract months
+   *
+   * @param months: Number of subtraction months
+   * @return this
+   */
+  public PersianDate subMonths(int months){
+    return this.subDate(0,months,0);
+  }
+
+  /**
+   * Subtract a month
+   *
+   * @return this
+   */
+  public PersianDate subMonth(){
+    return this.subMonths(1);
+  }
+
+  /**
+   * Subtract days
+   *
+   * @param days: Number of subtraction days
+   *
+   * @return this
+   */
+  public PersianDate subDays(int days){
+    return this.subDate(0,0,days);
+  }
+
+  /**
+   * Subtract a day
+   *
+   * @return this
+   */
+  public PersianDate subDay(){
+    return this.subDays(1);
+  }
+
+  /**
+   * Subtract hours
+   *
+   * @param hours: Number of subtraction hours
+   * @return this
+   */
+  public PersianDate subHours(int hours){
+    return this.subDate(0,0,0,hours,0,0);
+  }
+
+  /**
+   * Subtract an hour
+   *
+   * @return this
+   */
+  public PersianDate subHour(){
+    return this.subHours(1);
+  }
+
+  /**
+   * Subtract minutes
+   *
+   * @param minutes: Number of subtraction minutes
+   * @return this
+   */
+  public PersianDate subMinutes(int minutes){
+    return this.subDate(0,0,0,0,minutes,0);
+  }
+
+  /**
+   * Subtract a minute
+   *
+   * @return this
+   */
+  public PersianDate subMinute(){
+    return this.subMinutes(1);
+  }
+  /**
+   * Subtract Seconds
+   *
+   * @param seconds: Number of subtraction seconds
+   * @return this
+   */
+  public PersianDate subSeconds(int seconds){
+    return this.subDate(0,0,0,0,0,seconds);
+  }
+
+  /**
+   * Subtract a Second
+   *
+   * @return this
+   */
+  public PersianDate subSecond(){
+    return this.subSeconds(1);
+  }
+  /**
    * add date
    *
    * @param AddYear Number of Year you want add
@@ -650,7 +828,7 @@ public class PersianDate {
       }
     }
     //add month
-    int tmpYear = this.shYear;
+    int tmpYear = this.shYear - (int) AddYear;
     int tmpMonth = this.shMonth;
     for (int i = 0; i < AddMonth; i++) {
       dayMustIncrease += this.getMonthLength(tmpYear, tmpMonth);

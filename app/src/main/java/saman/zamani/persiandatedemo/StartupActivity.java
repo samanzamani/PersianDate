@@ -79,6 +79,13 @@ public class StartupActivity extends AppCompatActivity
 		ButterKnife.bind(this);
 
 
+			PersianDate pDate = new PersianDate().initJalaliDate(1400,1,10,10,10,0);
+		for (int i=1;i<=50;i++){
+			pDate.subDate(0,0,1,0,0,30);
+			Log.i("LOG","******************");
+			Log.i("LOG",PersianDateFormat.format(pDate,"Y m d H:i:s"));
+			Log.i("LOG","******************");
+		}
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");
