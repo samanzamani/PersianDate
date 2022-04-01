@@ -21,10 +21,14 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.3.4'
+    implementation 'com.github.samanzamani:PersianDate:1.4.0'
 }
 ```
 # what's new
+### version 1.4.0
+* Fix reported bug [#62](https://github.com/samanzamani/PersianDate/issues/62)
+* Add subtracts method to get former months, years, days, hours, minutes and seconds [(More Information)](https://github.com/samanzamani/PersianDate/issues/43) [#43](https://github.com/samanzamani/PersianDate/issues/43)
+
 ### version 1.3.4
 * Jitpack release solved
 ### version 1.3.3
