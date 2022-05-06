@@ -29,6 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -77,15 +78,6 @@ public class StartupActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
 		ButterKnife.bind(this);
-
-
-			PersianDate pDate = new PersianDate().initJalaliDate(1400,1,10,10,10,0);
-		for (int i=1;i<=50;i++){
-			pDate.subDate(0,0,1,0,0,30);
-			Log.i("LOG","******************");
-			Log.i("LOG",PersianDateFormat.format(pDate,"Y m d H:i:s"));
-			Log.i("LOG","******************");
-		}
 		//toolbar
 		setSupportActionBar(top_bar);
 		top_bar.setTitle("");

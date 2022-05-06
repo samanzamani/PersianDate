@@ -2,6 +2,7 @@ package saman.zamani.persiandate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -459,6 +460,24 @@ public class PersianDate {
     return (cal.get(Calendar.DAY_OF_WEEK));
   }
 
+  public ArrayList<PersianDate> getWeek(PersianDate date){
+    ArrayList<PersianDate> currentWeek = new ArrayList<>();
+    for(int i=0;i<date.dayOfWeek();i++){
+      PersianDate dateTmp = new PersianDate(date.timeInMilliSecond);
+      currentWeek.add(dateTmp.subDays((date.dayOfWeek()-i)));
+    }
+    currentWeek.add(date);
+    int threshold = (7-currentWeek.size());
+    for(int j=1;j <= threshold;j++){
+      PersianDate dateTmp = new PersianDate(date.timeInMilliSecond);
+      currentWeek.add(dateTmp.addDay(j));
+    }
+    return currentWeek;
+  }
+
+  public PersianDate[] getWeek(){
+    return getWeek(this).toArray(new PersianDate[0]);
+  }
   /**
    * Return list of month
    *
