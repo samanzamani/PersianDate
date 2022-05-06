@@ -198,8 +198,8 @@ public class PersianDateFormat {
       }
     }
     return new PersianDate()
-        .initJalaliDate(JalaliDate.get(0), JalaliDate.get(1), JalaliDate.get(2), JalaliDate.get(4),
-            JalaliDate.get(3), JalaliDate.get(5));
+        .initJalaliDate(JalaliDate.get(0), JalaliDate.get(1), JalaliDate.get(2), JalaliDate.get(3),
+            JalaliDate.get(4), JalaliDate.get(5));
   }
 
   /**
