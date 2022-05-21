@@ -23,7 +23,7 @@ public class PersianDateFormat {
    */
   private final String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y",
       "z", "A",
-      "L","X","C","E"};
+      "L","X","C","E","P","Q","R"};
   //from version 1.3.3 pattern is public and has de
   private String pattern = "l j F Y H:i:s";
   private PersianDateNumberCharacter numberCharacter = PersianDateNumberCharacter.ENGLISH;
@@ -100,7 +100,7 @@ public class PersianDateFormat {
   public static String format(PersianDate date, String pattern, PersianDateNumberCharacter numberFormatCharacter) {
     if(pattern == null) pattern="l j F Y H:i:s";
     String[] key = {"a", "l", "j", "F", "Y", "H", "i", "s", "d", "g", "n", "m", "t", "w", "y", "z",
-        "A", "L","X","C","E"};
+        "A", "L","X","C","E","P","Q","R"};
     String year2;
     if (("" + date.getShYear()).length() == 2) {
       year2 = "" + date.getShYear();
@@ -121,7 +121,10 @@ public class PersianDateFormat {
         (date.isLeap() ? "1" : "0"),
         date.AfghanMonthName(),
         date.KurdishMonthName(),
-        date.PashtoMonthName()
+        date.PashtoMonthName(),
+        date.FinglishMonthName(),
+        date.dayFinglishName(),
+        date.dayEnglishName()
     };
     if(numberFormatCharacter == PersianDateNumberCharacter.FARSI){
       PersianDateFormat.farsiCharacter(values);
@@ -153,7 +156,10 @@ public class PersianDateFormat {
         (date.isLeap() ? "1" : "0"),
         date.AfghanMonthName(),
         date.KurdishMonthName(),
-        date.PashtoMonthName()
+        date.PashtoMonthName(),
+        date.FinglishMonthName(),
+        date.dayFinglishName(),
+        date.dayEnglishName()
     };
     if(this.numberCharacter == PersianDateNumberCharacter.FARSI){
       farsiCharacter(values);

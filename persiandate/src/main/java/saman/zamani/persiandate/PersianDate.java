@@ -48,6 +48,7 @@ public class PersianDate {
   private Locale locale = Locale.getDefault();
 
   public enum Dialect {
+    FINGLISH,
     AFGHAN,
     IRANIAN,
     KURDISH,
@@ -86,8 +87,14 @@ public class PersianDate {
   //region CONST
   private final String[] dayNames = {"شنبه", "یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه",
       "جمعه"};
+  private final String[] dayFinglishNames = {"Shanbe", "Yekshanbe", "Doshanbe", "Seshanbe", "Chaharshanbe", "Panjshanbe",
+      "Jom'e"};
+  private final String[] dayEnglishNames = {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+      "Friday"};
   private final String[] monthNames = {"فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
       "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"};
+  private final String[] FinglishMonthNames = {"Farvardin", "Ordibehesht", "Khordad", "Tir", "Mordad", "Shahrivar", "Mehr",
+       "Aban", "Azar", "Day", "Bahman", "Esfand"};
   private final String[] AfghanMonthNames = {"حمل", "ثور", "جوزا", "سرطان", "اسد", "سنبله", "میزان",
       "عقرب", "قوس", "جدی", "دلو", "حوت"};
   private final String[] KurdishMonthNames = {"جیژنان", "گولان", "زه ردان", "په رپه ر", "گه لاویژ",
@@ -486,6 +493,8 @@ public class PersianDate {
    */
   public String[] monthList(Dialect dialect) {
     switch (dialect) {
+      case FINGLISH:
+        return this.FinglishMonthNames;
       case AFGHAN:
         return this.AfghanMonthNames;
       case KURDISH:
@@ -522,6 +531,8 @@ public class PersianDate {
    */
   public String monthName(int month, Dialect dialect) {
     switch (dialect) {
+      case FINGLISH:
+        return this.FinglishMonthNames[month - 1];
       case AFGHAN:
         return this.AfghanMonthNames[month - 1];
       case KURDISH:
@@ -538,6 +549,19 @@ public class PersianDate {
    */
   public String monthName() {
     return monthName(Dialect.IRANIAN);
+  }
+  /**
+   * Get month name in Finglish
+   */
+  public String FinglishMonthName(int month) {
+    return this.FinglishMonthNames[month - 1];
+  }
+
+  /**
+   * Get current date Finglish month name
+   */
+  public String FinglishMonthName() {
+    return this.FinglishMonthName(this.getShMonth());
   }
 
   /**
@@ -594,6 +618,34 @@ public class PersianDate {
    */
   public String dayName(PersianDate date) {
     return this.dayNames[this.dayOfWeek(date)];
+  }
+
+  /**
+   * Get Finglish Day Name
+   */
+  public String dayFinglishName() {
+    return this.dayFinglishName(this);
+  }
+
+  /**
+   * Get Finglish Day Name
+   */
+  public String dayFinglishName(PersianDate date) {
+    return this.dayFinglishNames[this.dayOfWeek(date)];
+  }
+
+  /**
+   * Get English Day Name
+   */
+  public String dayEnglishName() {
+    return this.dayEnglishName(this);
+  }
+
+  /**
+   * Get English Day Name
+   */
+  public String dayEnglishName(PersianDate date) {
+    return this.dayEnglishNames[this.dayOfWeek(date)];
   }
 
   /**
