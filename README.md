@@ -27,7 +27,7 @@ dependencies {
 # what's new
 
 ### version 1.5.1
-* Add fingilish format support (Thanks to @ftml71 for her contribution) [#66](https://github.com/samanzamani/PersianDate/pull/66)
+* Add fingilish format support (Thanks to [@ftml71](https://github.com/ftml71) for her contribution) [#66](https://github.com/samanzamani/PersianDate/pull/66)
 
 ### version 1.5.0
 * Fix reported bug [#64](https://github.com/samanzamani/PersianDate/issues/64)
