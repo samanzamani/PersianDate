@@ -927,19 +927,19 @@ public class PersianDate {
     return this.addDate(year, month, day, 0, 0, 0);
   }
 
-  public PersianDate addYear(long year) {
+  public PersianDate addYear(int year) {
     return this.addDate(year, 0, 0);
   }
 
-  public PersianDate addMonth(long month) {
+  public PersianDate addMonth(int month) {
     return this.addDate(0, month, 0);
   }
 
-  public PersianDate addWeek(long week) {
-    return this.addDate(0, 0, (week * 7));
+  public PersianDate addWeek(int week) {
+    return this.addDate(0, 0, (week * 7L));
   }
 
-  public PersianDate addDay(long day) {
+  public PersianDate addDay(int day) {
     return this.addDate(0, 0, day);
   }
 
