@@ -124,8 +124,8 @@ pdformater.format(pdate);
 | method        | description  |
 | ------------- | -----|
 | format()      | (String) Display date |
-| parse(String date,String pattern)      | (PersianDate) Convert string Jalali date (1396-05-05 & 'YYYY-MM-dd') to Persiandate |
-| parseGrg(String date,String pattern)      | (PersianDate) Convert string Gregorian date (1396-05-05 & 'YYYY-MM-dd') to Persiandate |
+| parse(String date,String pattern)      | (PersianDate) Convert string Jalali date (1396-05-05 & 'yyyy-MM-dd') to Persiandate |
+| parseGrg(String date,String pattern)      | (PersianDate) Convert string Gregorian date (1396-05-05 & 'yyyy-MM-dd') to Persiandate |
 | format()      | (String) Display date |
 
 + **Item for parse date**

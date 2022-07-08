@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import com.google.android.material.navigation.NavigationView;
@@ -28,8 +27,6 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,7 +35,6 @@ import butterknife.Setter;
 import butterknife.ViewCollections;
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;
-import saman.zamani.persiandate.PersianDateFormat.PersianDateNumberCharacter;
 
 /**
  * Created by Saman on 3/29/2017 AD.
