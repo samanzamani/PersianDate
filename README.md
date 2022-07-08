@@ -21,10 +21,14 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.5.1'
+    implementation 'com.github.samanzamani:PersianDate:1.5.2'
 }
 ```
 # what's new
+
+### version 1.5.2
+* Change type of add* function arguments from `long` to `int` [#68](https://github.com/samanzamani/PersianDate/pull/68)
+
 
 ### version 1.5.1
 * Add fingilish format support (Thanks to [@ftml71](https://github.com/ftml71) for her contribution) [#66](https://github.com/samanzamani/PersianDate/pull/66)
@@ -32,10 +36,6 @@ dependencies {
 ### version 1.5.0
 * Fix reported bug [#64](https://github.com/samanzamani/PersianDate/issues/64)
 * Add new method for get current week days [#56](https://github.com/samanzamani/PersianDate/issues/56)
-
-### version 1.4.0
-* Fix reported bug [#62](https://github.com/samanzamani/PersianDate/issues/62)
-* Add subtracts method to get former months, years, days, hours, minutes and seconds [(More Information)](https://github.com/samanzamani/PersianDate/issues/43) [#43](https://github.com/samanzamani/PersianDate/issues/43)
 
 
 ## Let's convert some date :)
