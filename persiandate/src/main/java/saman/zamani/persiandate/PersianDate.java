@@ -10,9 +10,9 @@ import java.util.Locale;
 import java.util.Objects;
 
 /**
- * Created by Saman Zaman(saman.zamani1@gmail.com) on 3/31/2017 AD.
+ * Created by Saman Zamani(saman.zamani1@gmail.com) on 3/31/2017 AD.
  *
- * Last update on Monday, May 11, 2021
+ * Last update on Friday, July 15, 2022
  */
 public class PersianDate {
 
@@ -177,7 +177,12 @@ public class PersianDate {
   public int getHour() {
     return hour;
   }
-
+  public int get12FormatHour(int hour){
+    return hour <= 12 ? hour : (hour-12);
+  }
+  public int get12FormatHour(){
+    return this.get12FormatHour(this.hour);
+  }
   public PersianDate setHour(int hour) {
     this.hour = hour;
     changeTime(false);

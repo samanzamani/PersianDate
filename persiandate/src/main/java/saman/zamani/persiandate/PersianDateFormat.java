@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by SamanZaman(saman.zamani1@gmail.com) on 3/31/2017 AD.
+ * Created by Saman Zamani(saman.zamani1@gmail.com) on 3/31/2017 AD.
  *
- * Last update on Sunday, November 17, 2021
+ * Last update on Friday, July 15, 2022
  */
 
 public class PersianDateFormat {
@@ -109,14 +109,23 @@ public class PersianDateFormat {
     } else {
       year2 = ("" + date.getShYear()).substring(2, 4);
     }
-    String[] values = {date.getShortTimeOfTheDay(), date.dayName(), "" + date.getShDay(),
+    String[] values = {
+        date.getShortTimeOfTheDay(),
+        date.dayName(),
+        "" + date.getShDay(),
         date.monthName(),
         "" + date.getShYear(),
-        textNumberFilterStatic("" + date.getHour()), textNumberFilterStatic("" + date.getMinute()),
+        textNumberFilterStatic("" + date.getHour()),
+        textNumberFilterStatic("" + date.getMinute()),
         textNumberFilterStatic("" + date.getSecond()),
-        textNumberFilterStatic("" + date.getShDay()), "" + date.getHour(), "" + date.getShMonth(),
+        textNumberFilterStatic("" + date.getShDay()),
+        "" + date.get12FormatHour(),
+        "" + date.getShMonth(),
         textNumberFilterStatic("" + date.getShMonth()),
-        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(),
+        "" + date.getMonthDays(),
+        "" + date.dayOfWeek(),
+        year2,
+        "" + date.getDayInYear(),
         date.getTimeOfTheDay(),
         (date.isLeap() ? "1" : "0"),
         date.AfghanMonthName(),
@@ -144,14 +153,22 @@ public class PersianDateFormat {
     } else {
       year2 = ("" + date.getShYear()).substring(2, 4);
     }
-    String[] values = {date.isMidNight() ? "ق.ظ" : "ب.ظ", date.dayName(), "" + date.getShDay(),
+    String[] values = {
+        date.getShortTimeOfTheDay(),
+        date.dayName(),
+        "" + date.getShDay(),
         date.monthName(),
         "" + date.getShYear(),
-        this.textNumberFilter("" + date.getHour()), this.textNumberFilter("" + date.getMinute()),
+        this.textNumberFilter("" + date.getHour()),
+        this.textNumberFilter("" + date.getMinute()),
         this.textNumberFilter("" + date.getSecond()),
-        this.textNumberFilter("" + date.getShDay()), "" + date.getHour(), "" + date.getShMonth(),
+        this.textNumberFilter("" + date.getShDay()),
+        "" + date.get12FormatHour(),
+        "" + date.getShMonth(),
         this.textNumberFilter("" + date.getShMonth()),
-        "" + date.getMonthDays(), "" + date.dayOfWeek(), year2, "" + date.getDayInYear(),
+        "" + date.getMonthDays(),
+        "" + date.dayOfWeek(),
+        year2, "" + date.getDayInYear(),
         date.getTimeOfTheDay(),
         (date.isLeap() ? "1" : "0"),
         date.AfghanMonthName(),
