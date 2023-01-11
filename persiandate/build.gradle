@@ -15,6 +15,8 @@ android {
     namespace 'saman.zamani.persiandate'
 }
 dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20180813'
 }
 
 apply from: 'gitpack.gradle'

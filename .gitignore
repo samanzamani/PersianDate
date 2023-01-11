@@ -7,7 +7,6 @@
 /captures
 .externalNativeBuild
 /persiandate/src/androidTest/
-/persiandate/src/test/
 /app/src/androidTest/
 /app/src/test/
 **/build/
