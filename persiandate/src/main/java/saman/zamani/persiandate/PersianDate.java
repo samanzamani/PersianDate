@@ -983,6 +983,25 @@ public class PersianDate {
   }
 
   /**
+   * Check if PersianDate is today or not
+   *
+   * @return boolean
+   */
+  public boolean isToday(){
+    return this.isToday(this);
+  }
+
+  /**
+   * Check if given PersianDate is today or not
+   *
+   * @param date Date to check is today or not
+   * @return boolean
+   */
+  public boolean isToday(PersianDate date){
+    return date.getDayUntilToday() == 0;
+  }
+
+  /**
    * Return Day in different date
    */
   public long getDayUntilToday() {
