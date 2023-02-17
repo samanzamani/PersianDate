@@ -114,4 +114,154 @@ public class PersianDateTest {
     assertTrue(pDate.isToday(new PersianDate()));
     assertFalse(pDate.isToday(new PersianDate().subDay()));
   }
+
+  @Test
+  public void testSetJalaliMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(1);
+    assertEquals(1, pDate.getShMonth());
+    pDate.setShMonth(12);
+    assertEquals(12, pDate.getShMonth());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetJalaliMonthExceptionBiggerThan12() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(13);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetJalaliMonthExceptionSmallerThan1() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(0);
+  }
+
+  @Test
+  public void testSetJalaliYear() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShYear(1395);
+    assertEquals(1395, pDate.getShYear());
+    pDate.setShYear(1396);
+    assertEquals(1396, pDate.getShYear());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetJalaliYearExceptionSmallerThan1() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShYear(0);
+  }
+
+  @Test
+  public void testSetJalaliDay() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShDay(1);
+    assertEquals(1, pDate.getShDay());
+    pDate.setShDay(27);
+    assertEquals(27, pDate.getShDay());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetJalaliDayExceptionBiggerThan31() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShDay(32);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetJalaliDayExceptionSmallerThan1() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShDay(0);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetJalaliDayExceptionWrongDayForMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(11);
+    pDate.setShDay(31);
+  }
+
+  @Test
+  public void testSetGrgYear() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgYear(2017);
+    assertEquals(2017, pDate.getGrgYear());
+    pDate.setGrgYear(2022);
+    assertEquals(2022, pDate.getGrgYear());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetGrgYearExceptionSmallerThan1() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgYear(0);
+  }
+
+  @Test
+  public void testSetGrgMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgMonth(1);
+    assertEquals(1, pDate.getGrgMonth());
+    pDate.setGrgMonth(12);
+    assertEquals(12, pDate.getGrgMonth());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetGrgMonthExceptionBiggerThan12() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgMonth(13);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetGrgMonthExceptionSmallerThan1() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgMonth(0);
+  }
+
+  @Test
+  public void testSetGrgDay() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgDay(1);
+    assertEquals(1, pDate.getGrgDay());
+    pDate.setGrgDay(27);
+    assertEquals(27, pDate.getGrgDay());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetGrgDayExceptionBiggerThan31() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgDay(32);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetGrgDayExceptionSmallerThan1() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgDay(0);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetGrgDayExceptionWrongDayForMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgMonth(11);
+    pDate.setGrgDay(31);
+  }
+
+  @Test
+  public void testGetGrgMonthLengthWithParameter(){
+    PersianDate pDate = new PersianDate();
+    PersianDate pDate2 = new PersianDate();
+    assertEquals(31, pDate2.getGrgMonthLength(pDate.setGrgMonth(1).toDate()));
+    assertEquals(28, pDate2.getGrgMonthLength(pDate.setGrgMonth(2).toDate()));
+    assertEquals(31, pDate2.getGrgMonthLength(pDate.setGrgMonth(3).toDate()));
+    assertEquals(30, pDate2.getGrgMonthLength(pDate.setGrgMonth(4).toDate()));
+    assertEquals(31, pDate2.getGrgMonthLength(pDate.setGrgMonth(5).toDate()));
+    assertEquals(30, pDate2.getGrgMonthLength(pDate.setGrgMonth(6).toDate()));
+    assertEquals(31, pDate2.getGrgMonthLength(pDate.setGrgMonth(7).toDate()));
+    assertEquals(31, pDate2.getGrgMonthLength(pDate.setGrgMonth(8).toDate()));
+    assertEquals(30, pDate2.getGrgMonthLength(pDate.setGrgMonth(9).toDate()));
+  }
+
+  @Test
+  public void testGetGrgMonthLengthWithoutParameter(){
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgMonth(1);
+    assertEquals(31, pDate.getGrgMonthLength(pDate.toDate()));
+  }
 }

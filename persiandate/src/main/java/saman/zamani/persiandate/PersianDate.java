@@ -87,20 +87,25 @@ public class PersianDate {
   //region CONST
   private final String[] dayNames = {"شنبه", "یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه",
       "جمعه"};
-  private final String[] dayFinglishNames = {"Shanbe", "Yekshanbe", "Doshanbe", "Seshanbe", "Chaharshanbe", "Panjshanbe",
+  private final String[] dayFinglishNames = {"Shanbe", "Yekshanbe", "Doshanbe", "Seshanbe",
+      "Chaharshanbe", "Panjshanbe",
       "Jom'e"};
-  private final String[] dayEnglishNames = {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+  private final String[] dayEnglishNames = {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday",
+      "Thursday",
       "Friday"};
   private final String[] monthNames = {"فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
       "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"};
-  private final String[] FinglishMonthNames = {"Farvardin", "Ordibehesht", "Khordad", "Tir", "Mordad", "Shahrivar", "Mehr",
-       "Aban", "Azar", "Day", "Bahman", "Esfand"};
+  private final String[] FinglishMonthNames = {"Farvardin", "Ordibehesht", "Khordad", "Tir",
+      "Mordad", "Shahrivar", "Mehr",
+      "Aban", "Azar", "Day", "Bahman", "Esfand"};
   private final String[] AfghanMonthNames = {"حمل", "ثور", "جوزا", "سرطان", "اسد", "سنبله", "میزان",
       "عقرب", "قوس", "جدی", "دلو", "حوت"};
   private final String[] KurdishMonthNames = {"جیژنان", "گولان", "زه ردان", "په رپه ر", "گه لاویژ",
       "نوخشان", "به ران", "خه زان", "ساران", "بفران", "به ندان", "رمشان"};
   private final String[] PashtoMonthNames = {"وری", "غويی", "غبرګولی", "چنګاښ", "زمری", "وږی",
       "تله", "لړم", "ليندۍ", "مرغومی", "سلواغه", "كب"};
+  private final String[] GrgMonthNames = {"January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"};
 
   //endregion
   //region Setter & Getters
@@ -119,6 +124,9 @@ public class PersianDate {
   }
 
   public PersianDate setShYear(int shYear) {
+    if (shYear < 1) {
+      throw new IllegalArgumentException("PersianDate Error: ##=> Year must be greater than 0");
+    }
     this.shYear = shYear;
     this.changeTime(true);
     return this;
@@ -129,6 +137,9 @@ public class PersianDate {
   }
 
   public PersianDate setShMonth(int shMonth) {
+    if (shMonth < 1 || shMonth > 12) {
+      throw new IllegalArgumentException("PersianDate Error: ##=> Month must be between 1 and 12");
+    }
     this.shMonth = shMonth;
     this.changeTime(true);
     return this;
@@ -139,6 +150,14 @@ public class PersianDate {
   }
 
   public PersianDate setShDay(int shDay) {
+    if (shDay < 1 || shDay > 31) {
+      throw new IllegalArgumentException("PersianDate Error: ##=> Day must be between 1 and 29~31");
+    }
+    if (shDay > this.getMonthLength()) {
+      throw new IllegalArgumentException(
+          "PersianDate Error: ##=> Day in the " + this.getMonthName() + " must be between 1 and "
+              + this.getMonthLength());
+    }
     this.shDay = shDay;
     this.changeTime(true);
     return this;
@@ -149,6 +168,9 @@ public class PersianDate {
   }
 
   public PersianDate setGrgYear(int grgYear) {
+    if (grgYear < 1) {
+      throw new IllegalArgumentException("PersianDate Error: ##=> Year must be greater than 0");
+    }
     this.grgYear = grgYear;
     changeTime(false);
     return this;
@@ -159,6 +181,9 @@ public class PersianDate {
   }
 
   public PersianDate setGrgMonth(int grgMonth) {
+    if (grgMonth < 1 || grgMonth > 12) {
+      throw new IllegalArgumentException("PersianDate Error: ##=> Month must be between 1 and 12");
+    }
     this.grgMonth = grgMonth;
     changeTime(false);
     return this;
@@ -169,6 +194,14 @@ public class PersianDate {
   }
 
   public PersianDate setGrgDay(int grgDay) {
+    if (grgDay < 1 || grgDay > 31) {
+      throw new IllegalArgumentException("PersianDate Error: ##=> Day must be between 1 and 29~31");
+    }
+    if (grgDay > this.getGrgMonthLength()) {
+      throw new IllegalArgumentException(
+          "PersianDate Error: ##=> Day in the " + this.getGrgMonthName() + " must be between 1 and "
+              + this.getGrgMonthLength());
+    }
     this.grgDay = grgDay;
     changeTime(false);
     return this;
@@ -177,12 +210,15 @@ public class PersianDate {
   public int getHour() {
     return hour;
   }
-  public int get12FormatHour(int hour){
-    return hour <= 12 ? hour : (hour-12);
+
+  public int get12FormatHour(int hour) {
+    return hour <= 12 ? hour : (hour - 12);
   }
-  public int get12FormatHour(){
+
+  public int get12FormatHour() {
     return this.get12FormatHour(this.hour);
   }
+
   public PersianDate setHour(int hour) {
     this.hour = hour;
     changeTime(false);
@@ -304,7 +340,7 @@ public class PersianDate {
     return false;
   }
 
-  public boolean grgIsLeap(){
+  public boolean grgIsLeap() {
     return this.grgIsLeap(this.grgYear);
   }
 
@@ -345,7 +381,8 @@ public class PersianDate {
         startYear = referenceYear - (Math.ceil(numb) * 33);
       }
     }
-    double[] leapYears = {startYear, startYear + 4, startYear + 8, startYear + 12, startYear + 16, startYear + 20,
+    double[] leapYears = {startYear, startYear + 4, startYear + 8, startYear + 12, startYear + 16,
+        startYear + 20,
         startYear + 24, startYear + 28, startYear + 33};
     return (Arrays.binarySearch(leapYears, year)) >= 0;
   }
@@ -472,24 +509,25 @@ public class PersianDate {
     return (cal.get(Calendar.DAY_OF_WEEK));
   }
 
-  public ArrayList<PersianDate> getWeek(PersianDate date){
+  public ArrayList<PersianDate> getWeek(PersianDate date) {
     ArrayList<PersianDate> currentWeek = new ArrayList<>();
-    for(int i=0;i<date.dayOfWeek();i++){
+    for (int i = 0; i < date.dayOfWeek(); i++) {
       PersianDate dateTmp = new PersianDate(date.timeInMilliSecond);
-      currentWeek.add(dateTmp.subDays((date.dayOfWeek()-i)));
+      currentWeek.add(dateTmp.subDays((date.dayOfWeek() - i)));
     }
     currentWeek.add(date);
-    int threshold = (7-currentWeek.size());
-    for(int j=1;j <= threshold;j++){
+    int threshold = (7 - currentWeek.size());
+    for (int j = 1; j <= threshold; j++) {
       PersianDate dateTmp = new PersianDate(date.timeInMilliSecond);
       currentWeek.add(dateTmp.addDay(j));
     }
     return currentWeek;
   }
 
-  public PersianDate[] getWeek(){
+  public PersianDate[] getWeek() {
     return getWeek(this).toArray(new PersianDate[0]);
   }
+
   /**
    * Return list of month
    *
@@ -555,6 +593,7 @@ public class PersianDate {
   public String monthName() {
     return monthName(Dialect.IRANIAN);
   }
+
   /**
    * Get month name in Finglish
    */
@@ -709,11 +748,10 @@ public class PersianDate {
    * @param SubHour Number of subtraction year Hours
    * @param SubMinute Number of subtraction year minutes
    * @param SubSecond Number of subtraction year seconds
-   *
    * @return this
    */
   public PersianDate subDate(long SubYear, long SubMonth, long SubDay, long SubHour, long SubMinute,
-      long SubSecond){
+      long SubSecond) {
     //sub Days
     long dayMustDecrease = SubDay;
     //check if month bigger than a year
@@ -755,29 +793,28 @@ public class PersianDate {
    * @param SubYear Number of subtraction years
    * @param SubMonth Number of subtraction months
    * @param SubDay Number of subtraction year days
-   *
    * @return this
    */
-  public PersianDate subDate(long SubYear, long SubMonth, long SubDay){
-    return this.subDate(SubYear,SubMonth,SubDay,0,0,0);
+  public PersianDate subDate(long SubYear, long SubMonth, long SubDay) {
+    return this.subDate(SubYear, SubMonth, SubDay, 0, 0, 0);
   }
 
   /**
    * Subtract more than one year
    *
    * @param years: Number of subtraction years
-   *
    * @return this
    */
-  public PersianDate subYears(int years){
-    return this.subDate(years,0,0);
+  public PersianDate subYears(int years) {
+    return this.subDate(years, 0, 0);
   }
+
   /**
    * Subtract a year
    *
    * @return this
    */
-  public PersianDate subYear(){
+  public PersianDate subYear() {
     return this.subYears(1);
   }
 
@@ -787,8 +824,8 @@ public class PersianDate {
    * @param months: Number of subtraction months
    * @return this
    */
-  public PersianDate subMonths(int months){
-    return this.subDate(0,months,0);
+  public PersianDate subMonths(int months) {
+    return this.subDate(0, months, 0);
   }
 
   /**
@@ -796,7 +833,7 @@ public class PersianDate {
    *
    * @return this
    */
-  public PersianDate subMonth(){
+  public PersianDate subMonth() {
     return this.subMonths(1);
   }
 
@@ -804,11 +841,10 @@ public class PersianDate {
    * Subtract days
    *
    * @param days: Number of subtraction days
-   *
    * @return this
    */
-  public PersianDate subDays(int days){
-    return this.subDate(0,0,days);
+  public PersianDate subDays(int days) {
+    return this.subDate(0, 0, days);
   }
 
   /**
@@ -816,7 +852,7 @@ public class PersianDate {
    *
    * @return this
    */
-  public PersianDate subDay(){
+  public PersianDate subDay() {
     return this.subDays(1);
   }
 
@@ -826,8 +862,8 @@ public class PersianDate {
    * @param hours: Number of subtraction hours
    * @return this
    */
-  public PersianDate subHours(int hours){
-    return this.subDate(0,0,0,hours,0,0);
+  public PersianDate subHours(int hours) {
+    return this.subDate(0, 0, 0, hours, 0, 0);
   }
 
   /**
@@ -835,7 +871,7 @@ public class PersianDate {
    *
    * @return this
    */
-  public PersianDate subHour(){
+  public PersianDate subHour() {
     return this.subHours(1);
   }
 
@@ -845,8 +881,8 @@ public class PersianDate {
    * @param minutes: Number of subtraction minutes
    * @return this
    */
-  public PersianDate subMinutes(int minutes){
-    return this.subDate(0,0,0,0,minutes,0);
+  public PersianDate subMinutes(int minutes) {
+    return this.subDate(0, 0, 0, 0, minutes, 0);
   }
 
   /**
@@ -854,17 +890,18 @@ public class PersianDate {
    *
    * @return this
    */
-  public PersianDate subMinute(){
+  public PersianDate subMinute() {
     return this.subMinutes(1);
   }
+
   /**
    * Subtract Seconds
    *
    * @param seconds: Number of subtraction seconds
    * @return this
    */
-  public PersianDate subSeconds(int seconds){
-    return this.subDate(0,0,0,0,0,seconds);
+  public PersianDate subSeconds(int seconds) {
+    return this.subDate(0, 0, 0, 0, 0, seconds);
   }
 
   /**
@@ -872,9 +909,10 @@ public class PersianDate {
    *
    * @return this
    */
-  public PersianDate subSecond(){
+  public PersianDate subSecond() {
     return this.subSeconds(1);
   }
+
   /**
    * add date
    *
@@ -987,7 +1025,7 @@ public class PersianDate {
    *
    * @return boolean
    */
-  public boolean isToday(){
+  public boolean isToday() {
     return this.isToday(this);
   }
 
@@ -997,7 +1035,7 @@ public class PersianDate {
    * @param date Date to check is today or not
    * @return boolean
    */
-  public boolean isToday(PersianDate date){
+  public boolean isToday(PersianDate date) {
     return date.getDayUntilToday() == 0;
   }
 
@@ -1147,6 +1185,27 @@ public class PersianDate {
     return (persianDate.isMidNight()) ? AM_NAME : PM_NAME;
   }
 
+  public int getGrgMonthLength(Date date) {
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    return (cal.getActualMaximum(Calendar.DATE));
+  }
+
+  public Integer getGrgMonthLength() {
+    return this.getGrgMonthLength(this.toDate());
+  }
+
+  public String getGrgMonthName(int grgMonth) {
+    if (grgMonth < 1 || grgMonth > 12) {
+      return "";
+    }
+    return GrgMonthNames[grgMonth - 1];
+  }
+
+  public String getGrgMonthName() {
+    return this.getGrgMonthName(this.getGrgMonth());
+  }
+
   /**
    * Get number of days in month
    *
@@ -1187,6 +1246,30 @@ public class PersianDate {
     return this.getMonthLength(this);
   }
 
+  public String getMonthName() {
+    return this.getMonthName(this);
+  }
+
+  public String getMonthName(PersianDate pDate, Dialect dialect) {
+    if (pDate.getShMonth() > pDate.monthList(dialect).length) {
+      return "";
+    }
+    return pDate.monthList(dialect)[pDate.getShMonth() - 1];
+  }
+
+  public String getMonthName(Dialect dialect) {
+    if (this.getShMonth() > this.monthList(dialect).length) {
+      return "";
+    }
+    return this.monthList(dialect)[this.getShMonth() - 1];
+  }
+
+  public String getMonthName(PersianDate pDate) {
+    if (pDate.getShMonth() > pDate.monthList().length) {
+      return "";
+    }
+    return pDate.monthList()[pDate.getShMonth() - 1];
+  }
   //endregion
 
   /*----- Helper Function-----*/
