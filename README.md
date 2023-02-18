@@ -21,12 +21,12 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.6.0'
+    implementation 'com.github.samanzamani:PersianDate:1.6.1'
 }
 ```
 # what's new
 
-### version 1.6.0
+### version 1.6.1
 * Add validation for set methods and Init methods (Reported By [@ahmad-shoja](https://github.com/ahmad-shoja)). [#77](https://github.com/samanzamani/PersianDate/pull/77)
 * Add `isToday` method suggested by [AlirezaGhanbarinia](https://github.com/AlirezaGhanbarinia). [#75](https://github.com/samanzamani/PersianDate/pull/75)
 * Add `getGrgMonthLength` methods for get Gregorian month length.
