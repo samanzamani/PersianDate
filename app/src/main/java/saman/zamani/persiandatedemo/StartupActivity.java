@@ -73,10 +73,6 @@ public class StartupActivity extends AppCompatActivity
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startup);
-
-		PersianDate pdate = new PersianDate();
-		pdate.setShMonth(25);
-
 		ButterKnife.bind(this);
 		//toolbar
 		setSupportActionBar(top_bar);

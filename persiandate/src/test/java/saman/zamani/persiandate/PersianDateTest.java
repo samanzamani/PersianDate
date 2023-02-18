@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import org.junit.Test;
+import saman.zamani.persiandate.PersianDate.Dialect;
 
 public class PersianDateTest {
   public String testStringHelper(int j) {
@@ -264,4 +265,180 @@ public class PersianDateTest {
     pDate.setGrgMonth(1);
     assertEquals(31, pDate.getGrgMonthLength(pDate.toDate()));
   }
+
+  @Test
+  public void testSetSecond() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setSecond(10);
+    assertEquals(10, pDate.getSecond());
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetSecondWithInvalidValue() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setSecond(60);
+  }
+
+  @Test
+  public void testSetMinute() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setMinute(10);
+    assertEquals(10, pDate.getMinute());
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetMinuteWithInvalidValue() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setMinute(60);
+  }
+
+  @Test
+  public void testSetHour() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setHour(10);
+    assertEquals(10, pDate.getHour());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetHourWithInvalidValue() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setHour(24);
+  }
+
+  @Test
+  public void testGetGrgMonthLength() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgMonth(1);
+    assertEquals(31, pDate.getGrgMonthLength());
+  }
+
+  @Test
+  public void testGetGrgMonthLengthWithDateParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setGrgMonth(1);
+    assertEquals(31, pDate.getGrgMonthLength(pDate.toDate()));
+  }
+
+  @Test
+  public void testGetGrgMonthLengthWithYearAndMonthParameters() throws Exception {
+    PersianDate pDate = new PersianDate();
+    assertEquals(31, pDate.getGrgMonthLength(2022,1));
+  }
+
+  @Test
+  public void testInitGrgDate() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(2022,1,1,23,59,13);
+    assertEquals(2022, pDate.getGrgYear());
+    assertEquals(1, pDate.getGrgMonth());
+    assertEquals(1, pDate.getGrgDay());
+    assertEquals(23, pDate.getHour());
+    assertEquals(59, pDate.getMinute());
+    assertEquals(13, pDate.getSecond());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitGrgDateWithInvalidYear() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(0,13,1,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitGrgDateWithInvalidMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(2022,13,1,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitGrgDateWithInvalidDay() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(2022,1,0,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitGrgDateWithInvalidDayForSpecificMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(2022,11,31,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitGrgDateWithInvalidHour() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(2022,1,1,24,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitGrgDateWithInvalidMinute() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(2022,1,1,23,60,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitGrgDateWithInvalidSecond() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initGrgDate(2022,1,1,23,59,60);
+  }
+
+  @Test
+  public void testDefaultDialect() {
+    PersianDate pDate = new PersianDate();
+    assertEquals(Dialect.IRANIAN, pDate.getDialect());
+  }
+
+  @Test
+  public void testSetDialect() {
+    PersianDate pDate = new PersianDate();
+    pDate.setDialect(Dialect.IRANIAN);
+    assertEquals(Dialect.IRANIAN, pDate.getDialect());
+  }
+
+  @Test
+  public void testGetDialect() {
+    PersianDate pDate = new PersianDate();
+    pDate.setDialect(Dialect.PASHTO);
+    assertEquals(Dialect.PASHTO, pDate.getDialect());
+    pDate.setDialect(Dialect.AFGHAN);
+    assertEquals(Dialect.AFGHAN, pDate.getDialect());
+  }
+
+  @Test
+  public void testInitJalaliDate() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(1399,1,1,23,59,13);
+    assertEquals(1399, pDate.getShYear());
+    assertEquals(1, pDate.getShMonth());
+    assertEquals(1, pDate.getShDay());
+    assertEquals(23, pDate.getHour());
+    assertEquals(59, pDate.getMinute());
+    assertEquals(13, pDate.getSecond());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitJalaliDateWithInvalidYear() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(0,13,1,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitJalaliDateWithInvalidMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(1399,13,1,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitJalaliDateWithInvalidDay() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(1399,1,0,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitJalaliDateWithInvalidDayForSpecificMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(1399,11,31,23,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitJalaliDateWithInvalidHour() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(1399,1,1,24,59,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitJalaliDateWithInvalidMinute() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(1399,1,1,23,60,13);
+  }
+  @Test(expected = IllegalArgumentException.class)
+  public void testInitJalaliDateWithInvalidSecond() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.initJalaliDate(1399,1,1,23,59,60);
+  }
+
 }
