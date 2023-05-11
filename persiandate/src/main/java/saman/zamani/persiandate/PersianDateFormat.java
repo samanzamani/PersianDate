@@ -288,16 +288,33 @@ public class PersianDateFormat {
    * @return a converted string array
    */
   public static String[] farsiCharacter(String[] values){
-    String[] persianChars = {"۰", "۱", "۲", "٣", "۴", "۵", "۶", "۷", "۸", "٩"};
-    String[] englishChars = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     for (int i = 0; i < values.length; i++) {
       String tmpValue = values[i];
-      for (int j = 0; j< persianChars.length;j++){
-        tmpValue = tmpValue.replaceAll(englishChars[j],persianChars[j]);
-      }
-      values[i] = tmpValue;
+      values[i] = convertEngNumbersToPersian(tmpValue);
     }
 
     return values;
+  }
+
+  /***
+   * Replace English numbers with Farsi numbers
+   *
+   * @param str
+   * @return a converted string
+   */
+  public static String convertEngNumbersToPersian(String str)
+  {
+    String answer = str;
+    answer = answer.replace("1","١");
+    answer = answer.replace("2","٢");
+    answer = answer.replace("3","٣");
+    answer = answer.replace("4","٤");
+    answer = answer.replace("5","٥");
+    answer = answer.replace("6","٦");
+    answer = answer.replace("7","٧");
+    answer = answer.replace("8","٨");
+    answer = answer.replace("9","٩");
+    answer = answer.replace("0","٠");
+    return answer;
   }
 }
