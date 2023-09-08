@@ -58,11 +58,6 @@ public class StartupActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_startup);
-    PersianDate pdate = new PersianDate().initJalaliDate(1401, 6, 31,10,16,25);
-    Log.i("LOG","date is " + pdate.toString());
-    pdate.subDays(36);
-    Log.i("LOG","date is " + pdate.toString());
-    Log.i("LOG","date is " + pdate.isToday());
 //		ButterKnife.bind(this);
     //toolbar
 		/*
