@@ -21,10 +21,16 @@ allprojects {
 Step 2.Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.samanzamani:PersianDate:1.6.1'
+    implementation 'com.github.samanzamani:PersianDate:1.7.0'
 }
 ```
 # what's new
+
+### version 1.7.0
+* Fix add/sub reported bug (Reported By [@Alireza-Jamali](https://github.com/Alireza-Jamali)). [#81](https://github.com/samanzamani/PersianDate/issues/81)
+* Add new adds methods: `addWeeks`,`addDays`,`addMonths`,`addYears`,`addHours`,`addMinutes`,....
+* Add new subs methods: `subsWeeks`,`subsDays`,`subsMonths`,`subsYears`,`subsHours`,`subsMinutes`,....
+* Increase test coverage.
 
 ### version 1.6.1
 * Add validation for set methods and Init methods (Reported By [@ahmad-shoja](https://github.com/ahmad-shoja)). [#77](https://github.com/samanzamani/PersianDate/pull/77)
@@ -37,8 +43,6 @@ dependencies {
 ### version 1.5.4
 * Correction `H` and `g` keywords in `PersianDateFormat` class. [#71](https://github.com/samanzamani/PersianDate/pull/71)
 
-### version 1.5.2
-* Change type of add* function arguments from `long` to `int` [#68](https://github.com/samanzamani/PersianDate/pull/68)
 
 
 ## Let's convert some date :)

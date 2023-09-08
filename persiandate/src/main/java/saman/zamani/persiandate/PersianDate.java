@@ -11,7 +11,6 @@ import java.util.Objects;
 
 /**
  * Created by Saman Zamani(saman.zamani1@gmail.com) on 3/31/2017 AD.
- *
  * Last update on Friday, July 15, 2022
  */
 public class PersianDate {
@@ -124,6 +123,7 @@ public class PersianDate {
   public Dialect getDialect() {
     return dialect;
   }
+
   public PersianDate setDialect(Dialect dialect) {
     this.dialect = dialect;
     return this;
@@ -140,7 +140,7 @@ public class PersianDate {
    * @return PersianDate
    * @throws IllegalArgumentException Return Exception if Year is less than 1
    */
-  public PersianDate setShYear(int shYear) throws IllegalArgumentException{
+  public PersianDate setShYear(int shYear) throws IllegalArgumentException {
     if (shYear < 1) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Year must be greater than 0");
     }
@@ -160,7 +160,7 @@ public class PersianDate {
    * @return PersianDate
    * @throws IllegalArgumentException Return Exception if Month is less than 1 or greater than 12
    */
-  public PersianDate setShMonth(int shMonth) throws IllegalArgumentException{
+  public PersianDate setShMonth(int shMonth) throws IllegalArgumentException {
     if (shMonth < 1 || shMonth > 12) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Month must be between 1 and 12");
     }
@@ -178,9 +178,10 @@ public class PersianDate {
    *
    * @param shDay Shamsi Day as a Integer value between 1 and 29~31
    * @return PersianDate object
-   * @throws IllegalArgumentException Return Exception if Day is less than 1 or greater than 29~31 (Depend on Month Length)
+   * @throws IllegalArgumentException Return Exception if Day is less than 1 or greater than 29~31
+   * (Depend on Month Length)
    */
-  public PersianDate setShDay(int shDay) throws IllegalArgumentException{
+  public PersianDate setShDay(int shDay) throws IllegalArgumentException {
     if (shDay < 1 || shDay > 31) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Day must be between 1 and 29~31");
     }
@@ -205,7 +206,7 @@ public class PersianDate {
    * @return PersianDate
    * @throws IllegalArgumentException Return Exception if Year is less than 1
    */
-  public PersianDate setGrgYear(int grgYear) throws IllegalArgumentException{
+  public PersianDate setGrgYear(int grgYear) throws IllegalArgumentException {
     if (grgYear < 1) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Year must be greater than 0");
     }
@@ -225,7 +226,7 @@ public class PersianDate {
    * @return PersianDate
    * @throws IllegalArgumentException Return Exception if Month is less than 1 or greater than 12
    */
-  public PersianDate setGrgMonth(int grgMonth) throws IllegalArgumentException{
+  public PersianDate setGrgMonth(int grgMonth) throws IllegalArgumentException {
     if (grgMonth < 1 || grgMonth > 12) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Month must be between 1 and 12");
     }
@@ -243,9 +244,10 @@ public class PersianDate {
    *
    * @param grgDay Gregorian Day as a Integer value between 1 and 28~31
    * @return PersianDate object
-   * @throws IllegalArgumentException Return Exception if Day is less than 1 or greater than 28~31 (Depend on Month Length)
+   * @throws IllegalArgumentException Return Exception if Day is less than 1 or greater than 28~31
+   * (Depend on Month Length)
    */
-  public PersianDate setGrgDay(int grgDay) throws IllegalArgumentException{
+  public PersianDate setGrgDay(int grgDay) throws IllegalArgumentException {
     if (grgDay < 1 || grgDay > 31) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Day must be between 1 and 28~31");
     }
@@ -274,13 +276,13 @@ public class PersianDate {
   /**
    * Set Minute
    *
-   *
    * @param hour Hour as a integer number between 0 and 23
    * @return PersianDate object
-   * @throws IllegalArgumentException Returns an IllegalArgumentException if hour is not between 0 and 23
+   * @throws IllegalArgumentException Returns an IllegalArgumentException if hour is not between 0
+   * and 23
    */
-  public PersianDate setHour(int hour) throws IllegalArgumentException{
-    if(hour < 0 || hour > 23){
+  public PersianDate setHour(int hour) throws IllegalArgumentException {
+    if (hour < 0 || hour > 23) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Hour must be between 0 and 23");
     }
     this.hour = hour;
@@ -295,13 +297,13 @@ public class PersianDate {
   /**
    * Set Minute
    *
-   *
    * @param minute Minute as a integer number between 0 and 59
    * @return PersianDate object
-   * @throws IllegalArgumentException Returns an IllegalArgumentException if second is not between 0 and 59
+   * @throws IllegalArgumentException Returns an IllegalArgumentException if second is not between 0
+   * and 59
    */
   public PersianDate setMinute(int minute) throws IllegalArgumentException {
-    if(minute < 0 || minute > 59){
+    if (minute < 0 || minute > 59) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Minute must be between 0 and 59");
     }
     this.minute = minute;
@@ -316,13 +318,13 @@ public class PersianDate {
   /**
    * Set Second
    *
-   *
    * @param second Second as a integer number between 0 and 59
    * @return PersianDate object
-   * @throws IllegalArgumentException Returns an IllegalArgumentException if second is not between 0 and 59
+   * @throws IllegalArgumentException Returns an IllegalArgumentException if second is not between 0
+   * and 59
    */
-  public PersianDate setSecond(int second) throws IllegalArgumentException{
-    if(second < 0 || second > 59){
+  public PersianDate setSecond(int second) throws IllegalArgumentException {
+    if (second < 0 || second > 59) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Second must be between 0 and 59");
     }
     this.second = second;
@@ -338,7 +340,7 @@ public class PersianDate {
    * @param day Day in Grg
    * @return persianDate
    */
-  public PersianDate initGrgDate(int year, int month, int day) throws IllegalArgumentException{
+  public PersianDate initGrgDate(int year, int month, int day) throws IllegalArgumentException {
     return this.initGrgDate(year, month, day, 0, 0, 0);
   }
 
@@ -353,7 +355,8 @@ public class PersianDate {
    * @param second second
    * @return PersianDate
    */
-  public PersianDate initGrgDate(int year, int month, int day, int hour, int minute, int second) throws IllegalArgumentException{
+  public PersianDate initGrgDate(int year, int month, int day, int hour, int minute, int second)
+      throws IllegalArgumentException {
     //check input parameter
     if (year < 1) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Year must be greater than 0");
@@ -375,7 +378,8 @@ public class PersianDate {
     }
     if (day > this.getGrgMonthLength(year, month)) {
       throw new IllegalArgumentException(
-          "PersianDate Error: ##=> Day in the " + this.getGrgMonthName(month) + " must be between 1 and "
+          "PersianDate Error: ##=> Day in the " + this.getGrgMonthName(month)
+              + " must be between 1 and "
               + this.getGrgMonthLength(year, month));
     }
     this.grgYear = year;
@@ -396,7 +400,7 @@ public class PersianDate {
    * @param day day in Jallali date
    * @return PersianDate
    */
-  public PersianDate initJalaliDate(int year, int month, int day) throws IllegalArgumentException{
+  public PersianDate initJalaliDate(int year, int month, int day) throws IllegalArgumentException {
     return this.initJalaliDate(year, month, day, 0, 0, 0);
   }
 
@@ -412,7 +416,7 @@ public class PersianDate {
    * @return PersianDate
    */
   public PersianDate initJalaliDate(int year, int month, int day, int hour, int minute,
-      int second) throws IllegalArgumentException{
+      int second) throws IllegalArgumentException {
     //validate input parameters
     if (year < 1) {
       throw new IllegalArgumentException("PersianDate Error: ##=> Year must be greater than 0");
@@ -652,7 +656,7 @@ public class PersianDate {
     int threshold = (7 - currentWeek.size());
     for (int j = 1; j <= threshold; j++) {
       PersianDate dateTmp = new PersianDate(date.timeInMilliSecond);
-      currentWeek.add(dateTmp.addDay(j));
+      currentWeek.add(dateTmp.addDays(j));
     }
     return currentWeek;
   }
@@ -710,6 +714,7 @@ public class PersianDate {
         return this.monthNames[month - 1];
     }
   }
+
   /**
    * return month name
    *
@@ -722,6 +727,7 @@ public class PersianDate {
   public String monthName(int shMonth) {
     return monthName(shMonth, this.getDialect());
   }
+
   /**
    * Get current month name in Persian
    */
@@ -887,37 +893,28 @@ public class PersianDate {
    */
   public PersianDate subDate(long SubYear, long SubMonth, long SubDay, long SubHour, long SubMinute,
       long SubSecond) {
-    //sub Days
-    long dayMustDecrease = SubDay;
-    //check if month bigger than a year
-    if (SubMonth >= 12) {
-      SubYear += (int) Math.floor(SubMonth / 12.0);
-      SubMonth = (SubMonth % 12);
+    Calendar cal = Calendar.getInstance();
+    //add day to cal
+    cal.setTime(this.toDate());
+    if (SubYear >= 1) {
+      cal.add(Calendar.YEAR, (int) -SubYear);
     }
-    //sub year
-    for (int i = 1; i <= SubYear; i++) {
-      if (this.isLeap((this.shYear - i))) {
-        dayMustDecrease += 366;
-      } else {
-        dayMustDecrease += 365;
-      }
+    if (SubMonth >= 1) {
+      cal.add(Calendar.MONTH, (int) -SubMonth);
     }
-
-    //sub month
-    int tmpYear = this.shYear - (int) SubYear;
-    int tmpMonth = this.shMonth;
-    for (int i = 0; i < SubMonth; i++) {
-      tmpMonth -= 1;
-      if (tmpMonth <= 0) {
-        tmpYear -= 1;
-        tmpMonth = 12;
-      }
-      dayMustDecrease += this.getMonthLength(tmpYear, tmpMonth);
+    if (SubDay >= 1) {
+      cal.add(Calendar.DAY_OF_MONTH, (int) -SubDay);
     }
-
-    this.timeInMilliSecond -=
-        ((dayMustDecrease * 86_400_000L) + (SubHour * 3_600_000) + (SubMinute * 60_000) + (SubSecond
-            * 1_000));
+    if (SubHour >= 1) {
+      cal.add(Calendar.HOUR_OF_DAY, (int) -SubHour);
+    }
+    if (SubMinute >= 1) {
+      cal.add(Calendar.MINUTE, (int) -SubMinute);
+    }
+    if (SubSecond >= 1) {
+      cal.add(Calendar.SECOND, (int) -SubSecond);
+    }
+    this.timeInMilliSecond = cal.getTimeInMillis();
     this.init();
     return this;
   }
@@ -1048,6 +1045,14 @@ public class PersianDate {
     return this.subSeconds(1);
   }
 
+  public PersianDate subWeeks(int weeks) {
+    return this.subDays(7*weeks);
+  }
+
+  public PersianDate subWeek() {
+    return this.subWeeks(1);
+  }
+
   /**
    * add date
    *
@@ -1060,36 +1065,30 @@ public class PersianDate {
    * @return new date
    */
   public PersianDate addDate(long AddYear, long AddMonth, long AddDay, long AddHour, long AddMinute,
-      long AddSecond) {
-    //add Days
-    long dayMustIncrease = AddDay;
-    //check if month bigger than a year
-    if (AddMonth >= 12) {
-      AddYear += (int) Math.floor(AddMonth / 12.0);
-      AddMonth = (AddMonth % 12);
+      long AddSecond) throws IllegalArgumentException{
+    Calendar cal = Calendar.getInstance();
+    //add day to cal
+    cal.setTime(this.toDate());
+    if (AddYear >= 1) {
+      cal.add(Calendar.YEAR, (int) AddYear);
     }
-    //add year
-    for (int i = 0; i < AddYear; i++) {
-      if (this.isLeap((this.shYear + i))) {
-        dayMustIncrease += 366;
-      } else {
-        dayMustIncrease += 365;
-      }
+    if (AddMonth >= 1) {
+      cal.add(Calendar.MONTH, (int) AddMonth);
     }
-    //add month
-    int tmpYear = this.shYear - (int) AddYear;
-    int tmpMonth = this.shMonth;
-    for (int i = 0; i < AddMonth; i++) {
-      dayMustIncrease += this.getMonthLength(tmpYear, tmpMonth);
-      tmpMonth += 1;
-      if (tmpMonth >= 13) {
-        tmpYear += 1;
-        tmpMonth = 1;
-      }
+    if (AddDay >= 1) {
+      cal.add(Calendar.DAY_OF_MONTH, (int) AddDay);
     }
-    this.timeInMilliSecond +=
-        ((dayMustIncrease * 86_400_000L) + (AddHour * 3_600_000) + (AddMinute * 60_000) + (AddSecond
-            * 1_000));
+    if (AddHour >= 1) {
+      cal.add(Calendar.HOUR_OF_DAY, (int) AddHour);
+    }
+    if (AddMinute >= 1) {
+      cal.add(Calendar.MINUTE, (int) AddMinute);
+    }
+    if (AddSecond >= 1) {
+      cal.add(Calendar.SECOND, (int) AddSecond);
+    }
+
+    this.timeInMilliSecond = cal.getTimeInMillis();
     this.init();
     return this;
   }
@@ -1105,20 +1104,57 @@ public class PersianDate {
     return this.addDate(year, month, day, 0, 0, 0);
   }
 
-  public PersianDate addYear(int year) {
+  public PersianDate addYear() {
+    return this.addYears(1);
+  }
+  public PersianDate addYears(int year) {
     return this.addDate(year, 0, 0);
   }
 
-  public PersianDate addMonth(int month) {
+  public PersianDate addMonth() {
+    return this.addMonths(1);
+  }
+  public PersianDate addMonths(int month) {
     return this.addDate(0, month, 0);
   }
 
-  public PersianDate addWeek(int week) {
-    return this.addDate(0, 0, (week * 7L));
+  public PersianDate addWeek() {
+    return this.addWeeks(1);
+  }
+  public PersianDate addWeeks(int week) {
+    return this.addDays(7*week);
   }
 
-  public PersianDate addDay(int day) {
+  public PersianDate addDay() {
+    return this.addDays(1);
+  }
+
+  public PersianDate addDays(int day) {
     return this.addDate(0, 0, day);
+  }
+
+  public PersianDate addHour() {
+    return this.addHours(1);
+  }
+
+  public PersianDate addHours(int hour) {
+    return this.addDate(0, 0, 0, hour, 0, 0);
+  }
+
+  public PersianDate addMinute() {
+    return this.addMinutes(1);
+  }
+
+  public PersianDate addMinutes(int minute) {
+    return this.addDate(0, 0, 0, 0, minute, 0);
+  }
+
+  public PersianDate addSecond() {
+    return this.addSeconds(1);
+  }
+
+  public PersianDate addSeconds(int second) {
+    return this.addDate(0, 0, 0, 0, 0, second);
   }
 
   /**
@@ -1243,7 +1279,7 @@ public class PersianDate {
    */
   public static PersianDate tomorrow() {
     PersianDate persianDate = new PersianDate();
-    persianDate.addDay(1);
+    persianDate.addDay();
     persianDate.setHour(0).setMinute(0).setSecond(0);
     return persianDate;
   }
@@ -1320,7 +1356,7 @@ public class PersianDate {
     return (persianDate.isMidNight()) ? AM_NAME : PM_NAME;
   }
 
-  public int getGrgMonthLength(int grgYear,int grgMonth) {
+  public int getGrgMonthLength(int grgYear, int grgMonth) {
     Calendar cal = Calendar.getInstance();
     //set year in cal object
     cal.set(Calendar.YEAR, grgYear);

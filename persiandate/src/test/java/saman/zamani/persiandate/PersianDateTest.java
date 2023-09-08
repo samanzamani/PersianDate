@@ -107,7 +107,7 @@ public class PersianDateTest {
   public void testIsTodayMethodWithoutParameter() throws Exception {
     PersianDate pDate = new PersianDate();
     assertTrue(pDate.isToday());
-    assertFalse(pDate.addDay(1).isToday());
+    assertFalse(pDate.addDay().isToday());
   }
   @Test
   public void testIsTodayMethodWithParameter() throws Exception {
@@ -439,6 +439,228 @@ public class PersianDateTest {
   public void testInitJalaliDateWithInvalidSecond() throws Exception {
     PersianDate pDate = new PersianDate();
     pDate.initJalaliDate(1399,1,1,23,59,60);
+  }
+
+  //test add dates methods
+  @Test
+  public void testAddDay() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShDay(1);
+    pDate.addDay();
+    assertEquals(2, pDate.getShDay());
+  }
+
+  @Test
+  public void testAddDayWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShDay(1);
+    pDate.addDays(2);
+    assertEquals(3, pDate.getShDay());
+  }
+
+  @Test
+  public void testAddMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(1);
+    pDate.addMonth();
+    assertEquals(2, pDate.getShMonth());
+  }
+
+  @Test
+  public void testAddMonthWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(1);
+    pDate.addMonths(2);
+    assertEquals(3, pDate.getShMonth());
+  }
+
+  @Test
+  public void testAddYear() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShYear(1399);
+    pDate.addYear();
+    assertEquals(1400, pDate.getShYear());
+  }
+
+  @Test
+  public void testAddYearWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShYear(1399);
+    pDate.addYears(2);
+    assertEquals(1401, pDate.getShYear());
+  }
+
+  @Test
+  public void testAddHour() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setHour(1);
+    pDate.addHour();
+    assertEquals(2, pDate.getHour());
+  }
+
+  @Test
+  public void testAddHourWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setHour(1);
+    pDate.addHours(2);
+    assertEquals(3, pDate.getHour());
+  }
+
+  @Test
+  public void testAddMinute() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setMinute(1);
+    pDate.addMinute();
+    assertEquals(2, pDate.getMinute());
+  }
+
+  @Test
+  public void testAddMinuteWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setMinute(1);
+    pDate.addMinutes(2);
+    assertEquals(3, pDate.getMinute());
+  }
+
+  @Test
+  public void testAddSecond() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setSecond(1);
+    pDate.addSecond();
+    assertEquals(2, pDate.getSecond());
+  }
+
+  @Test
+  public void testAddSecondWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setSecond(1);
+    pDate.addSeconds(2);
+    assertEquals(3, pDate.getSecond());
+  }
+
+  @Test
+  public void testAddWeek() throws Exception {
+    PersianDate pDate = new PersianDate().initJalaliDate(1399,1,1);
+    pDate.addWeek();
+    assertEquals(8, pDate.getShDay());
+  }
+
+  @Test
+  public void testAddWeekWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate().initJalaliDate(1399,1,1);
+    pDate.addWeeks(3);
+    assertEquals(22, pDate.getShDay());
+  }
+
+  //test sub dates
+  @Test
+  public void testSubDay() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShDay(3);
+    pDate.subDay();
+    assertEquals(2, pDate.getShDay());
+  }
+
+  @Test
+  public void testSubDayWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShDay(3);
+    pDate.subDays(2);
+    assertEquals(1, pDate.getShDay());
+  }
+
+  @Test
+  public void testSubMonth() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(3);
+    pDate.subMonth();
+    assertEquals(2, pDate.getShMonth());
+  }
+
+  @Test
+  public void testSubMonthWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShMonth(3);
+    pDate.subMonths(2);
+    assertEquals(1, pDate.getShMonth());
+  }
+
+  @Test
+  public void testSubYear() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShYear(1399);
+    pDate.subYear();
+    assertEquals(1398, pDate.getShYear());
+  }
+
+  @Test
+  public void testSubYearWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setShYear(1399);
+    pDate.subYears(2);
+    assertEquals(1397, pDate.getShYear());
+  }
+
+  @Test
+  public void testSubHour() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setHour(3);
+    pDate.subHour();
+    assertEquals(2, pDate.getHour());
+  }
+
+  @Test
+  public void testSubHourWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setHour(3);
+    pDate.subHours(2);
+    assertEquals(1, pDate.getHour());
+  }
+
+  @Test
+  public void testSubMinute() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setMinute(3);
+    pDate.subMinute();
+    assertEquals(2, pDate.getMinute());
+  }
+
+  @Test
+  public void testSubMinuteWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setMinute(3);
+    pDate.subMinutes(2);
+    assertEquals(1, pDate.getMinute());
+  }
+
+  @Test
+  public void testSubSecond() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setSecond(3);
+    pDate.subSecond();
+    assertEquals(2, pDate.getSecond());
+  }
+
+  @Test
+  public void testSubSecondWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate();
+    pDate.setSecond(3);
+    pDate.subSeconds(2);
+    assertEquals(1, pDate.getSecond());
+  }
+
+  @Test
+  public void testSubWeek() throws Exception {
+    PersianDate pDate = new PersianDate().initJalaliDate(1399,1,8);
+    pDate.subWeek();
+    assertEquals(1, pDate.getShDay());
+  }
+
+  @Test
+  public void testSubWeekWithParameter() throws Exception {
+    PersianDate pDate = new PersianDate().initJalaliDate(1399,1,22);
+    pDate.subWeeks(3);
+    assertEquals(1, pDate.getShDay());
   }
 
 }
